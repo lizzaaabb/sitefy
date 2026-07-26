@@ -1,4 +1,6 @@
-
+ html{
+  overflow-x: hidden;
+}
 :root {
   --header-height: 56px;
 }
@@ -112,6 +114,7 @@
   transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s;
   pointer-events: none;
   z-index: 1;
+  overflow-x: visible;
 }
 
 .products-panel.open {
@@ -119,6 +122,7 @@
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
+   overflow-x: visible;
 }
 
 .products-panel-inner {
@@ -127,10 +131,12 @@
   padding: 24px 20px 32px;
   display: flex;
   gap: 40px;
+   overflow-x: visible;
 }
 
 .products-col {
   min-width: 200px;
+   overflow-x: visible;
 }
 
 .products-col-label {
