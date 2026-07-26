@@ -513,3 +513,48 @@
 [data-theme="dark"] .lang-option.selected {
   color: #fff;
 }
+
+[data-theme="dark"] .burger span {
+  background: #fff;
+}
+
+[data-theme="dark"] .mobile-menu {
+  background: #000;
+}
+
+[data-theme="dark"] .mobile-accordion {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+[data-theme="dark"] .mobile-accordion-summary {
+  color: #fff;
+}
+
+[data-theme="dark"] .mobile-accordion-label {
+  color: #999;
+}
+
+[data-theme="dark"] .mobile-accordion-body a {
+  color: #fff;
+}
+
+[data-theme="dark"] .mobile-link {
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+[data-theme="dark"] .mobile-menu-footer-label {
+  color: #999;
+}
+
+[data-theme="dark"] .mobile-lang-btn {
+  background: #000;
+  color: #999;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .mobile-lang-btn.selected {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
