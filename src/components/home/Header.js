@@ -27,9 +27,12 @@ const productColumns = [
 function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
+  const [langOpen, setLangOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [lang, setLang] = useState('geo')
-  const closeTimer = useRef(null)
+
+  const productsCloseTimer = useRef(null)
+  const langCloseTimer = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 0)
@@ -44,134 +47,159 @@ function Header() {
   }, [mobileOpen])
 
   const openProducts = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current)
+    if (productsCloseTimer.current) clearTimeout(productsCloseTimer.current)
     setProductsOpen(true)
   }
-
   const closeProductsDelayed = () => {
-    closeTimer.current = setTimeout(() => setProductsOpen(false), 120)
+    productsCloseTimer.current = setTimeout(() => setProductsOpen(false), 120)
+  }
+
+  const openLang = () => {
+    if (langCloseTimer.current) clearTimeout(langCloseTimer.current)
+    setLangOpen(true)
+  }
+  const closeLangDelayed = () => {
+    langCloseTimer.current = setTimeout(() => setLangOpen(false), 120)
   }
 
   return (
-    <>
-      <header className={`header-container ${scrolled ? 'scrolled' : ''}`}>
-        <div className="header-inner">
+    <header className={`header-container ${scrolled ? 'scrolled' : ''}`}>
+      <div className="header-inner">
 
-          <a href="/" className="logo">
-            <img src={logoilo} alt="sitefy logo" className="header-logo" />
-          </a>
+        <a href="/" className="logo">
+          <img src={logoilo} alt="sitefy logo" className="header-logo" />
+        </a>
 
-          <nav className="header-nav">
-            <div
-              className="nav-item"
-              onMouseEnter={openProducts}
-              onMouseLeave={closeProductsDelayed}
-            >
-              <button className={`nav-link ${productsOpen ? 'active' : ''}`}>
-                პროდუქტები
-                <svg className="chevron" width="11" height="11" viewBox="0 0 12 12" fill="none">
-                  <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+        <nav className="header-nav">
+          <div
+            className="nav-item"
+            onMouseEnter={openProducts}
+            onMouseLeave={closeProductsDelayed}
+          >
+            <button className={`nav-link ${productsOpen ? 'active' : ''}`}>
+              პროდუქტები
+              <svg className="chevron" width="11" height="11" viewBox="0 0 12 12" fill="none">
+                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
+
+          <a href="#work" className="nav-link nav-link-plain">ნამუშევრები</a>
+          <a href="#pricing" className="nav-link nav-link-plain">ფასები</a>
+        </nav>
+
+        <div className="header-actions">
+          <div
+            className="nav-item lang-item"
+            onMouseEnter={openLang}
+            onMouseLeave={closeLangDelayed}
+          >
+            <button className={`nav-link ${langOpen ? 'active' : ''}`}>
+              {lang === 'geo' ? 'GEO' : 'ENG'}
+              <svg className="chevron" width="11" height="11" viewBox="0 0 12 12" fill="none">
+                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            <div className={`lang-dropdown ${langOpen ? 'open' : ''}`}>
+              <button
+                className={`lang-option ${lang === 'geo' ? 'selected' : ''}`}
+                onClick={() => { setLang('geo'); setLangOpen(false) }}
+              >
+                GEO
+              </button>
+              <button
+                className={`lang-option ${lang === 'eng' ? 'selected' : ''}`}
+                onClick={() => { setLang('eng'); setLangOpen(false) }}
+              >
+                ENG
               </button>
             </div>
-
-            <a href="#work" className="nav-link nav-link-plain">ნამუშევრები</a>
-            <a href="#pricing" className="nav-link nav-link-plain">ფასები</a>
-          </nav>
-
-          <div className="header-actions">
-            <button
-              className="lang-toggle"
-              onClick={() => setLang(lang === 'geo' ? 'eng' : 'geo')}
-              aria-label="Change language"
-            >
-              <span className={lang === 'geo' ? 'lang-active' : ''}>GEO</span>
-              <span className="lang-divider">/</span>
-              <span className={lang === 'eng' ? 'lang-active' : ''}>ENG</span>
-            </button>
-
-            <button
-              className={`burger ${mobileOpen ? 'open' : ''}`}
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Open menu"
-            >
-              <span></span>
-              <span></span>
-            </button>
           </div>
 
-        </div>
-
-        {/* Full-width products panel */}
-        <div
-          className={`products-panel ${productsOpen ? 'open' : ''}`}
-          onMouseEnter={openProducts}
-          onMouseLeave={closeProductsDelayed}
-        >
-          <div className="products-panel-inner">
-            {productColumns.map((col) => (
-              <div className="products-col" key={col.label}>
-                <h5 className="products-col-label">{col.label}</h5>
-                <ul>
-                  {col.items.map((item) => (
-                    <li key={item.title}>
-                      <a href={item.href}>{item.title}</a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </header>
-
-      <div className={`mobile-overlay ${mobileOpen ? 'open' : ''}`} onClick={() => setMobileOpen(false)} />
-
-      <aside className={`mobile-sidebar ${mobileOpen ? 'open' : ''}`}>
-        <div className="mobile-sidebar-header">
-          <img src={logoilo} alt="sitefy logo" className="header-logo" />
-          <button className="burger open" onClick={() => setMobileOpen(false)} aria-label="Close menu">
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-
-        <details className="mobile-accordion">
-          <summary>
-            პროდუქტები
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </summary>
-          <div className="mobile-accordion-body">
-            {productColumns.map((col) => (
-              <div key={col.label} className="mobile-accordion-group">
-                <span className="mobile-accordion-label">{col.label}</span>
-                {col.items.map((item) => (
-                  <a key={item.title} href={item.href} onClick={() => setMobileOpen(false)}>
-                    {item.title}
-                  </a>
-                ))}
-              </div>
-            ))}
-          </div>
-        </details>
-
-        <a href="#work" className="mobile-link" onClick={() => setMobileOpen(false)}>ნამუშევრები</a>
-        <a href="#pricing" className="mobile-link" onClick={() => setMobileOpen(false)}>ფასები</a>
-
-        <div className="mobile-sidebar-footer">
           <button
-            className="lang-toggle"
-            onClick={() => setLang(lang === 'geo' ? 'eng' : 'geo')}
+            className={`burger ${mobileOpen ? 'open' : ''}`}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Open menu"
           >
-            <span className={lang === 'geo' ? 'lang-active' : ''}>GEO</span>
-            <span className="lang-divider">/</span>
-            <span className={lang === 'eng' ? 'lang-active' : ''}>ENG</span>
+            <span></span>
+            <span></span>
           </button>
         </div>
-      </aside>
-    </>
+
+      </div>
+
+      {/* Desktop full-width products panel */}
+      <div
+        className={`products-panel ${productsOpen ? 'open' : ''}`}
+        onMouseEnter={openProducts}
+        onMouseLeave={closeProductsDelayed}
+      >
+        <div className="products-panel-inner">
+          {productColumns.map((col) => (
+            <div className="products-col" key={col.label}>
+              <h5 className="products-col-label">{col.label}</h5>
+              <ul>
+                {col.items.map((item) => (
+                  <li key={item.title}>
+                    <a href={item.href}>{item.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Full-screen mobile menu (Vercel style) */}
+      <div className={`mobile-menu ${mobileOpen ? 'open' : ''}`}>
+        <div className="mobile-menu-inner">
+
+          <details className="mobile-accordion">
+            <summary>
+              პროდუქტები
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </summary>
+            <div className="mobile-accordion-body">
+              {productColumns.map((col) => (
+                <div key={col.label} className="mobile-accordion-group">
+                  <span className="mobile-accordion-label">{col.label}</span>
+                  {col.items.map((item) => (
+                    <a key={item.title} href={item.href} onClick={() => setMobileOpen(false)}>
+                      {item.title}
+                    </a>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </details>
+
+          <a href="#work" className="mobile-link" onClick={() => setMobileOpen(false)}>ნამუშევრები</a>
+          <a href="#pricing" className="mobile-link" onClick={() => setMobileOpen(false)}>ფასები</a>
+
+          <div className="mobile-menu-footer">
+            <span className="mobile-menu-footer-label">ენა</span>
+            <div className="mobile-lang-options">
+              <button
+                className={`mobile-lang-btn ${lang === 'geo' ? 'selected' : ''}`}
+                onClick={() => setLang('geo')}
+              >
+                GEO
+              </button>
+              <button
+                className={`mobile-lang-btn ${lang === 'eng' ? 'selected' : ''}`}
+                onClick={() => setLang('eng')}
+              >
+                ENG
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </header>
   )
 }
 
