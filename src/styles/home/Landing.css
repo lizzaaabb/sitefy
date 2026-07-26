@@ -115,7 +115,7 @@
 
 @media (max-width: 900px) {
   .landing-container{
-    height: 60vh;
+    height: 50vh;
   }
   .landing-content {
     flex-direction: column;
