@@ -3,8 +3,8 @@
 import React from 'react'
 import '../../styles/home/Landing.css'
 import TypewriterText from './TypewriterText'
-import Pillar from '../../components/background/Pillar'
-import Galaxy from '../../components/background/Galaxy'
+import Aurora from '../background/Aurora'
+import Orb from '../background/Orb'
 
 const content = {
   titleGeo: 'ჩვენ საუკეთესო ვებსაიტებს ვქმნით',
@@ -26,22 +26,17 @@ function Landing() {
     <div className='landing-container'>
 
       <div className="orb-bg">
-        <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-  <Galaxy 
-    mouseRepulsion
-    mouseInteraction
-    density={1}
-    glowIntensity={0.3}
-    saturation={0}
-    hueShift={140}
-    twinkleIntensity={0.3}
-    rotationSpeed={0.1}
-    repulsionStrength={2}
-    autoCenterRepulsion={0}
-    starSpeed={0.5}
-    speed={1}
+       
+<div style={{ width: '100%', height: '100%', position: 'relative' }}>
+  <Orb
+    hoverIntensity={2}
+    rotateOnHover
+    hue={0}
+    forceHoverState={false}
+    backgroundColor="#000000"
 />
-</div> </div>
+</div>
+     </div>
 
       <div className="landing-content">
 
@@ -54,10 +49,7 @@ function Landing() {
         </div>
 
         <div className="box3">
-          <TypewriterText
-            staticLine={content.descriptionGeo[0]}
-            cyclingLines={content.descriptionGeo.slice(1)}
-          />
+       
         </div>
 
       </div>
