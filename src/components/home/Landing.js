@@ -4,6 +4,7 @@ import React from 'react'
 import '../../styles/home/Landing.css'
 import TypewriterText from './TypewriterText'
 import Pillar from '../../components/background/Pillar'
+import Galaxy from '../../components/background/Galaxy'
 
 const content = {
   titleGeo: 'ჩვენ საუკეთესო ვებსაიტებს ვქმნით',
@@ -25,28 +26,29 @@ function Landing() {
     <div className='landing-container'>
 
       <div className="orb-bg">
-        <Pillar
-          topColor="#5227FF"
-          bottomColor="#FF9FFC"
-          intensity={1}
-          rotationSpeed={0.3}
-          glowAmount={0.002}
-          pillarWidth={3}
-          pillarHeight={0.4}
-          noiseIntensity={0.5}
-          pillarRotation={25}
-          interactive={false}
-          mixBlendMode="screen"
-          quality="high"
-        />
-      </div>
+        <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+  <Galaxy 
+    mouseRepulsion
+    mouseInteraction
+    density={1}
+    glowIntensity={0.3}
+    saturation={0}
+    hueShift={140}
+    twinkleIntensity={0.3}
+    rotationSpeed={0.1}
+    repulsionStrength={2}
+    autoCenterRepulsion={0}
+    starSpeed={0.5}
+    speed={1}
+/>
+</div> </div>
 
       <div className="landing-content">
 
         <div className="box1">
           <h1 className='landing-title geo'>{content.titleGeo}</h1>
           <div className="buttons-container">
-            <button className='button1'>გუნდთან კონსულტაცია</button>
+            <button className='button1'>კონსულტაცია</button>
             <button className='button2'>ნამუშევრები</button>
           </div>
         </div>
