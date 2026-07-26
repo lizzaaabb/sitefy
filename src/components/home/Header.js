@@ -35,7 +35,11 @@ function Header() {
   const langCloseTimer = useRef(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 0)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 0)
+      setProductsOpen(false)
+      setLangOpen(false)
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
