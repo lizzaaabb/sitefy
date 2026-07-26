@@ -1,0 +1,17 @@
+/* Default (light) */
+html {
+  background-color: #fff;
+  color: #111;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Night mode, site-wide */
+html[data-theme="dark"] {
+  background-color: #000;
+  color: #fff;
+}
+
+html[data-theme="dark"] body {
+  background-color: #000;
+  color: #fff;
+}

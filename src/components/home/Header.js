@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import '../../styles/home/Header.css'
+import useTimeTheme from '../theme/useTimeTheme'
 
 const logoilo = '/logo/logo-ilo.png'
+const logowhite = '/logo/logowhite.png'
 
 const productColumns = [
   {
@@ -25,6 +27,7 @@ const productColumns = [
 ]
 
 function Header() {
+  const isDark = useTimeTheme()
   const [scrolled, setScrolled] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
@@ -77,7 +80,11 @@ function Header() {
       <div className="header-inner">
 
         <a href="/" className="logo">
-          <img src={logoilo} alt="sitefy logo" className="header-logo" />
+          <img
+            src={isDark ? logowhite : logoilo}
+            alt="sitefy logo"
+            className="header-logo"
+          />
         </a>
 
         <nav className="header-nav">
