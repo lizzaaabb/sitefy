@@ -1,0 +1,11 @@
+.header-logo{
+    height: 45px;
+}
+
+.hedaer-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 25px;
+}

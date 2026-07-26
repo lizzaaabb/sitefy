@@ -2,13 +2,14 @@
 
 import React from 'react'
 import '../../styles/home/Header.css'
+const logoilo = '/logo/logo-ilo.png'
 
 function Header() {
   return (
     <div className='hedaer-container'>
 
         <div className="logo">
-            <h1>sitefy</h1>
+            <img src={logoilo} alt="sitefy logo transparent" className='header-logo' />
         </div>
 
         <div className="products">
