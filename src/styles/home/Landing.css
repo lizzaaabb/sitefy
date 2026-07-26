@@ -1,6 +1,6 @@
 @import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
 
-.landing-container{
+.landing-container {
   position: relative;
   overflow: hidden;
   display: flex;
@@ -15,59 +15,43 @@
   border-radius: 30px;
 }
 
-.orb-bg{
+.orb-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
 
-.landing-content{
+.landing-content {
   position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: row;
   width: 100%;
   padding-left: 30px;
   padding-right: 30px;
-  gap: 40px;
+
 }
 
-.landing-title{
+.landing-title {
   font-family: "FiraGO", sans-serif;
   font-feature-settings: "case" on;
   letter-spacing: -0.06em;
-  font-size: 2.9rem;
+  font-size: 3.6rem;
   font-weight: 600;
-  width: 420px;
+  width: 550px;
 }
 
-.box1, .box3{
+.box1 {
   display: flex;
   justify-content: center;
-  flex: 1;
-  min-width: 0;
-}
-
-.box1{
   align-items: flex-start;
   flex-direction: column;
+
 }
 
-.box3{
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-align: left;
-  flex-direction: column;
-  gap: 5px;
-  font-family: "FiraGO", sans-serif;
-  font-feature-settings: "case" on;
-  letter-spacing: -0.06em;
-  min-height: 100px;
-}
-
-.button1{
+.button1 {
   font-feature-settings: "case" on;
   display: inline-flex;
   align-items: center;
@@ -85,15 +69,15 @@
   transition: background-color 150ms ease-in-out;
 }
 
-.button1:hover{
+.button1:hover {
   background-color: #d9d9d9;
 }
 
-.button1:active{
+.button1:active {
   transform: translateY(1px);
 }
 
-.button2{
+.button2 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -112,62 +96,21 @@
   transition: background-color 150ms ease-in-out;
 }
 
-.button2:hover{
+.button2:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.button2:focus-visible{
+.button2:focus-visible {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3), 0 0 0 2px #000, 0 0 0 4px #70b8ff;
 }
 
-.buttons-container{
+.buttons-container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   gap: 10px;
   margin-top: 20px;
-}
-
-.description{
-  font-size: 1.2rem;
-}
-
-.typewriter-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.typewriter-stack .description {
-  animation: line-fade-in 0.5s ease-out;
-}
-
-@keyframes line-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.gradient-text {
-  background-image: linear-gradient(
-    to right,
-    #58a7f1,
-    #33d3d3,
-    #4bdc2e,
-    #dcdc2c,
-    #f657f6,
-    #ef6974
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
 }
 
 @media (max-width: 900px) {
@@ -177,8 +120,7 @@
     gap: 24px;
   }
 
-  .box1,
-  .box3 {
+  .box1 {
     flex: none;
     width: 100%;
     align-items: center;
@@ -200,11 +142,5 @@
 @media (max-width: 480px) {
   .landing-title {
     font-size: 2.5rem;
-  }
-
-  .box3 {
-    width: 98%;
-    margin-left: auto;
-    margin-right: auto;
   }
 }

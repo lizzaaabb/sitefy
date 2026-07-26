@@ -5,6 +5,7 @@ import '../../styles/home/Landing.css'
 import TypewriterText from './TypewriterText'
 import Aurora from '../background/Aurora'
 import Orb from '../background/Orb'
+import SoftAurora from '../background/SoftAurora'
 
 const content = {
   titleGeo: 'ჩვენ საუკეთესო ვებსაიტებს ვქმნით',
@@ -27,15 +28,14 @@ function Landing() {
 
       <div className="orb-bg">
        
-<div style={{ width: '100%', height: '100%', position: 'relative' }}>
-  <Orb
-    hoverIntensity={2}
-    rotateOnHover
-    hue={0}
-    forceHoverState={false}
-    backgroundColor="#000000"
+
+  
+<Aurora
+  colorStops={["#85c5ff","#caffbf","#ffb9ff"]}
+  blend={0.5}
+  amplitude={1.0}
+  speed={1}
 />
-</div>
      </div>
 
       <div className="landing-content">
@@ -48,9 +48,6 @@ function Landing() {
           </div>
         </div>
 
-        <div className="box3">
-       
-        </div>
 
       </div>
 
