@@ -114,6 +114,9 @@
 }
 
 @media (max-width: 900px) {
+  .landing-container{
+    height: 40vh;
+  }
   .landing-content {
     flex-direction: column;
     padding: 40px 24px;
@@ -130,7 +133,7 @@
   .landing-title {
     width: 100%;
     max-width: 400px;
-    font-size: 2.9rem;
+    font-size: 2.7rem;
     text-align: center;
   }
 
@@ -141,6 +144,6 @@
 
 @media (max-width: 480px) {
   .landing-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 }
