@@ -2,10 +2,10 @@
 
 import React from 'react'
 import '../../styles/home/Landing.css'
-import TypewriterText from './TypewriterText'
+import Logos from './Logos'
+
 import Aurora from '../background/Aurora'
-import Orb from '../background/Orb'
-import SoftAurora from '../background/SoftAurora'
+
 
 const content = {
   titleGeo: 'ჩვენ საუკეთესო ვებსაიტებს ვქმნით',
@@ -27,27 +27,28 @@ function Landing() {
     <div className='landing-container'>
 
       <div className="orb-bg">
-       
-
-  
-<Aurora
-  colorStops={["#85c5ff","#caffbf","#ffb9ff"]}
-  blend={0.5}
-  amplitude={1.0}
-  speed={1}
-/>
-     </div>
+        <Aurora
+          colorStops={["#85c5ff", "#caffbf", "#ffb9ff"]}
+          blend={0.5}
+          amplitude={1.0}
+          speed={1}
+        />
+      </div>
 
       <div className="landing-content">
 
         <div className="box1">
           <h1 className='landing-title geo'>{content.titleGeo}</h1>
+          <p className="landing-description geo">{content.descriptionGeo[0]}</p>
           <div className="buttons-container">
             <button className='button1'>კონსულტაცია</button>
             <button className='button2'>ნამუშევრები</button>
           </div>
         </div>
 
+        <div className="logos">
+          <Logos />
+        </div>
 
       </div>
 

@@ -13,6 +13,7 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 30px;
+  flex-direction: column;
 }
 
 .orb-bg {
@@ -22,16 +23,14 @@
 }
 
 .landing-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 100vh;
+  width: 100%;
   position: relative;
   z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
-  width: 100%;
-  padding-left: 30px;
-  padding-right: 30px;
-
 }
 
 .landing-title {
@@ -41,14 +40,18 @@
   font-size: 3.6rem;
   font-weight: 600;
   width: 550px;
+  margin-top: 130px;
 }
 
 .box1 {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
-
+  align-items: flex-start;
+  text-align: left;
+  margin-top: auto;
+  margin-bottom: auto;
+  gap: 15px;
+  padding: 60px;
 }
 
 .button1 {
@@ -110,31 +113,60 @@
   justify-content: center;
   flex-direction: row;
   gap: 10px;
-  margin-top: 20px;
+}
+
+.logos {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .landing-title {
+    width: 100%;
+    max-width: 480px;
+    font-size: 3rem;
+  }
 }
 
 @media (max-width: 900px) {
-  .landing-container{
-    height: 50vh;
+  .landing-container {
+    height: auto;
+    min-height: 50vh;
   }
+
   .landing-content {
+    min-height: 50vh; /* match the container's min-height so space-between has room to work with */
+    justify-content: space-between;
     flex-direction: column;
-    padding: 40px 24px;
+    align-items: center;
     gap: 24px;
+    padding-top: 20px;
   }
 
   .box1 {
-    flex: none;
     width: 100%;
     align-items: center;
     text-align: center;
+    padding: 40px 24px 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .logos {
+    margin-top: auto; /* pushes it to the bottom of .landing-content */
   }
 
   .landing-title {
     width: 100%;
     max-width: 400px;
     font-size: 2.5rem;
+    margin-top: 0;
     text-align: center;
+    margin-top: 90px;
   }
 
   .buttons-container {
@@ -142,8 +174,71 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .landing-title {
     font-size: 2.2rem;
+    max-width: 320px;
+  }
+
+  .box1 {
+    padding: 32px 20px 0;
+    gap: 12px;
+  }
+
+  .button1,
+  .button2 {
+    font-size: 13px;
+    height: 38px;
+    padding: 0 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-container {
+    width: 92%;
+    border-radius: 22px;
+  }
+
+  .landing-title {
+    font-size: 1.9rem;
+    max-width: 280px;
+  }
+
+  .logos {
+    padding-bottom: 28px;
+  }
+}
+
+.landing-description {
+  font-family: "FiraGO", sans-serif;
+  font-feature-settings: "case" on;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 460px;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .landing-description {
+    max-width: 380px;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing-description {
+    font-size: 0.95rem;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-description {
+    font-size: 0.88rem;
+    max-width: 280px;
   }
 }
