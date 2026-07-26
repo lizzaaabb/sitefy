@@ -15,7 +15,7 @@
   background: #fff;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
-  height: 100vh;
+  
 }
 
 .header-container.scrolled {
@@ -296,6 +296,7 @@
   overflow-y: auto;
   transition: opacity 0.2s ease, visibility 0.2s ease;
   box-sizing: border-box;
+  height: 100vh;
 }
 
 
