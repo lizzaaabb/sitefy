@@ -1,6 +1,10 @@
+body, html{
+  overflow-x: hidden;
+}
 :root {
   --header-height: 56px;
 }
+
 
 .header-container {
   position: sticky;
