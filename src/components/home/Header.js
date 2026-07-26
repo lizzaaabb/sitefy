@@ -29,6 +29,7 @@ function Header() {
   const [productsOpen, setProductsOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false)
   const [lang, setLang] = useState('geo')
 
   const productsCloseTimer = useRef(null)
@@ -48,6 +49,11 @@ function Header() {
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
+  }, [mobileOpen])
+
+  // reset mobile accordion state when the mobile menu closes
+  useEffect(() => {
+    if (!mobileOpen) setMobileProductsOpen(false)
   }, [mobileOpen])
 
   const openProducts = () => {
@@ -155,30 +161,38 @@ function Header() {
         </div>
       </div>
 
-      {/* Full-screen mobile menu (Vercel style) */}
+      {/* Full-screen mobile menu */}
       <div className={`mobile-menu ${mobileOpen ? 'open' : ''}`}>
         <div className="mobile-menu-inner">
 
-          <details className="mobile-accordion">
-            <summary>
+          <div className="mobile-accordion">
+            <button
+              type="button"
+              className={`mobile-accordion-summary ${mobileProductsOpen ? 'open' : ''}`}
+              onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+              aria-expanded={mobileProductsOpen}
+            >
               პროდუქტები
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </summary>
-            <div className="mobile-accordion-body">
-              {productColumns.map((col) => (
-                <div key={col.label} className="mobile-accordion-group">
-                  <span className="mobile-accordion-label">{col.label}</span>
-                  {col.items.map((item) => (
-                    <a key={item.title} href={item.href} onClick={() => setMobileOpen(false)}>
-                      {item.title}
-                    </a>
-                  ))}
-                </div>
-              ))}
+            </button>
+
+            <div className={`mobile-accordion-collapse ${mobileProductsOpen ? 'open' : ''}`}>
+              <div className="mobile-accordion-body">
+                {productColumns.map((col) => (
+                  <div key={col.label} className="mobile-accordion-group">
+                    <span className="mobile-accordion-label">{col.label}</span>
+                    {col.items.map((item) => (
+                      <a key={item.title} href={item.href} onClick={() => setMobileOpen(false)}>
+                        {item.title}
+                      </a>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
-          </details>
+          </div>
 
           <a href="#work" className="mobile-link" onClick={() => setMobileOpen(false)}>ნამუშევრები</a>
           <a href="#pricing" className="mobile-link" onClick={() => setMobileOpen(false)}>ფასები</a>
