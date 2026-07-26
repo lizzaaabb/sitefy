@@ -162,7 +162,7 @@
 
   .landing-title {
     width: 100%;
-    max-width: 400px;
+
     font-size: 2.5rem;
     margin-top: 0;
     text-align: center;
@@ -177,7 +177,6 @@
 @media (max-width: 640px) {
   .landing-title {
     font-size: 2.2rem;
-    max-width: 320px;
   }
 
   .box1 {
@@ -201,7 +200,6 @@
 
   .landing-title {
     font-size: 1.9rem;
-    max-width: 280px;
   }
 
   .logos {
