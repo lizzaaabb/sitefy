@@ -71,6 +71,13 @@
   }
 }
 
+
+@media (max-width: 900px) {
+     .logos-container{
+    margin-bottom: -39px;
+  }
+}
+
 @media (max-width: 640px) {
   .logos-track {
     gap: 28px;
@@ -82,5 +89,8 @@
 
   .logo-item-large .logo-img {
     height: 32px;
+  }
+  .logos-container{
+    margin-bottom: -33px;
   }
 }
