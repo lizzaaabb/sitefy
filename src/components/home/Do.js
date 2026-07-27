@@ -19,7 +19,7 @@ const content = {
       titleGeo: 'SaaS პლატფორმები',
       titleEng: 'SaaS Platforms',
       descriptionGeo:
-        'ვაქცევთ იდეებს ციფრულ პროდუქტებად - ვქმნით ონლაინ პლატფორმებს პროდუქტებით, სერვისებით და ფუნქციებით, რომლებიც მომხმარებლებს რეალურ ღირებულებას სთავაზობს.',
+        'ვაქცევთ იდეებს ციფრულ პროდუქტებად - ონლაინ პლატფორმები პროდუქტებით, სერვისებით და ფუნქციებით, რომლებიც მომხმარებლებს რეალურ ღირებულებას სთავაზობს.',
       descriptionEng:
         'We turn ideas into digital products - creating online platforms with products, services, and features that deliver real value to users.'
     },
