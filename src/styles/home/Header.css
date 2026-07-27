@@ -1,6 +1,6 @@
  html, body{
-  overflow-x: hidden;
-}
+    overflow-x: hidden;
+  }
 *{
   margin: 0;
   padding: 0;
@@ -10,9 +10,8 @@
   --header-height: 56px;
 }
 
-
 .header-container {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -20,7 +19,6 @@
   background: #fff;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
-  
 }
 
 .header-container.scrolled {
@@ -458,6 +456,8 @@
   .mobile-menu {
     display: none;
   }
+
+ 
 }
 
 
