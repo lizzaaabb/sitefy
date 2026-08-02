@@ -1,0 +1,39 @@
+.landing2-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing2-video {
+  width: 75%;
+  height: auto;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+}
+
+.landing2-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.landing2-content > * {
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .landing2-video {
+    width: 92%;
+  }
+}

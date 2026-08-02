@@ -25,19 +25,55 @@
 }
 
 .service-card {
+  position: relative;
   background: #fff;
   padding: 40px 32px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  transition: background-color 0.2s ease;
+  gap: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+
+  /* scroll-reveal starting state */
+  opacity: 0;
+  transform: translateY(18px);
+  animation: cardIn 0.6s ease forwards;
 }
 
-.service-card:hover {
-  background: #fafafa;
+@keyframes cardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* mouse-tracking spotlight, Linear/Vercel-style */
+.service-card-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(0, 0, 0, 0.045),
+    transparent 70%
+  );
+}
+
+.service-card:hover .service-card-spotlight {
+  opacity: 1;
+}
+
+.service-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .service-index {
+  position: relative;
   font-family: "FiraGO", sans-serif;
   font-size: 13px;
   font-weight: 600;
@@ -45,7 +81,27 @@
   letter-spacing: 0.02em;
 }
 
+.service-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.04);
+  color: rgba(0, 0, 0, 0.55);
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.service-card:hover .service-icon {
+  background: #111;
+  color: #fff;
+  transform: rotate(-6deg) scale(1.05);
+}
+
 .service-title {
+  position: relative;
   font-family: "FiraGO", sans-serif;
   font-feature-settings: "case" on;
   letter-spacing: -0.02em;
@@ -53,17 +109,35 @@
   font-weight: 600;
   color: #111;
   margin: 0;
-  cursor: pointer;
 }
 
 .service-description {
+  position: relative;
   font-family: "FiraGO", sans-serif;
   font-feature-settings: "case" on;
   font-size: 0.95rem;
   line-height: 1.6;
   color: rgba(0, 0, 0, 0.6);
   margin: 0;
-  cursor: pointer;
+}
+
+.service-arrow {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translate(-6px, 6px);
+  transition: opacity 0.25s ease, transform 0.25s ease, color 0.25s ease;
+}
+
+.service-card:hover .service-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+  color: #111;
 }
 
 /* Dark mode */
@@ -80,12 +154,26 @@
   background: #000;
 }
 
-[data-theme="dark"] .service-card:hover {
-  background: #0a0a0a;
+[data-theme="dark"] .service-card-spotlight {
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.06),
+    transparent 70%
+  );
 }
 
 [data-theme="dark"] .service-index {
   color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .service-icon {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .service-card:hover .service-icon {
+  background: #fff;
+  color: #000;
 }
 
 [data-theme="dark"] .service-title {
@@ -96,6 +184,14 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
+[data-theme="dark"] .service-arrow {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+[data-theme="dark"] .service-card:hover .service-arrow {
+  color: #fff;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .services-grid {
@@ -104,6 +200,11 @@
 
   .service-card {
     padding: 32px 24px;
+  }
+
+  .service-arrow {
+    right: 24px;
+    bottom: 24px;
   }
 }
 
@@ -118,5 +219,13 @@
 
   .service-description {
     font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }

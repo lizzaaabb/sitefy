@@ -5,6 +5,8 @@ import '../../styles/home/Landing.css'
 import Logos from './Logos'
 
 import Aurora from '../background/Aurora'
+import FloatingLines from '../background/FloatingLines'
+import Beams from '../background/Beams'
 
 
 const content = {
@@ -27,14 +29,18 @@ function Landing() {
     <div className='landing-container'>
 
       <div className="orb-bg">
-        <Aurora
-          colorStops={["#85c5ff", "#caffbf", "#ffb9ff"]}
-          blend={0.5}
-          amplitude={1.0}
-          speed={1}
-        />
-      </div>
-
+       <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+  <Beams
+    beamWidth={3}
+    beamHeight={30}
+    beamNumber={20}
+    lightColor="#ffffff"
+    speed={2}
+    noiseIntensity={1.75}
+    scale={0.2}
+    rotation={30}
+  />
+</div> </div>
       <div className="landing-content">
 
         <div className="box1">

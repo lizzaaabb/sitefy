@@ -9,7 +9,7 @@
   height: 90vh;
   background-color: #000;
   color: #fff;
-  width: 95%;
+  width: 97%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 30px;
@@ -28,10 +28,15 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  min-height: 100vh;
+  min-height: 100%;
   width: 100%;
   position: relative;
   z-index: 1;
+  pointer-events: none; /* mouse move გადის ცარიელ სივრცეზე ქვემოთ orb-bg-მდე */
+}
+.box1,
+.logos {
+  pointer-events: auto; /* ღილაკები/ტექსტი კვლავ დაწკაპუნებადია */
 }
 
 .landing-title {
@@ -120,7 +125,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-bottom: 40px;
+  padding-bottom: 2px;
 }
 
 /* ---------- Responsive ---------- */
@@ -240,4 +245,17 @@
     font-size: 0.88rem;
     max-width: 280px;
   }
+}
+
+.landing-title,
+.landing-description {
+  pointer-events: none;
+}
+
+.buttons-container {
+  pointer-events: auto;
+}
+
+.logos {
+  pointer-events: auto;
 }
