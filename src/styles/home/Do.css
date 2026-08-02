@@ -236,7 +236,7 @@
 
   .do-cards-area {
     height: 12rem;
-    margin-top: 29vh;
+    margin-top: 32vh;
   }
 
   .do-icon {
@@ -254,7 +254,7 @@
   }
 
   .do-progress-line-container {
-    top: 68%;
+    top: 77%;
     transform: translateY(-50%);
     height: 180px;
     right: 12px;
