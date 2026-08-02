@@ -207,15 +207,15 @@
 
 @media (max-width: 640px) {
   .do-scroll-container {
-    height: calc(var(--card-count, 3) * 63vh);
+    height: calc(var(--card-count, 3) * 55vh);
   }
 
   .do-sticky-container {
-    height: 100vh;
+    height: 65vh;
   }
 
   .do-body {
-    height: 100vh;
+    height: 65vh;
     padding: 0 24px;
     align-items: center;
     justify-content: center;
@@ -224,7 +224,7 @@
 
   .do-fixed-title {
     position: absolute;
-    top: 10vh;
+    top: 12vh;
     left: 0;
     right: 0;
     font-size: 1.3rem;
@@ -234,27 +234,28 @@
   }
 
   .do-cards-area {
-    height: 13rem;
+    height: 12rem;
+    margin-top: 24vh;
   }
 
   .do-icon {
-    height: 44px;
+    height: 40px;
   }
 
   .do-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .do-description {
-    font-size: 0.85rem;
-    line-height: 1.5;
-    max-width: 320px;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    max-width: 300px;
   }
 
   .do-progress-line-container {
-    top: 50%;
+    top: 58%;
     transform: translateY(-50%);
-    height: 220px;
+    height: 180px;
     right: 12px;
     width: 2px;
   }
