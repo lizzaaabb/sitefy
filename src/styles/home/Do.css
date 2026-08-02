@@ -100,6 +100,7 @@
   margin: 0 0 60px;
   text-align: left;
   align-self: flex-start;
+
 }
 
 .do-cards-area {
@@ -224,7 +225,7 @@
 
   .do-fixed-title {
     position: absolute;
-    top: 12vh;
+    top: 14vh;
     left: 0;
     right: 0;
     font-size: 1.3rem;
@@ -235,7 +236,7 @@
 
   .do-cards-area {
     height: 12rem;
-    margin-top: 24vh;
+    margin-top: 26vh;
   }
 
   .do-icon {
@@ -253,7 +254,7 @@
   }
 
   .do-progress-line-container {
-    top: 58%;
+    top: 68%;
     transform: translateY(-50%);
     height: 180px;
     right: 12px;
