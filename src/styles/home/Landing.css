@@ -141,7 +141,7 @@
 @media (max-width: 900px) {
   .landing-container {
     height: auto;
-    min-height: 50vh;
+    min-height: 60vh;
   }
 
   .landing-content {
