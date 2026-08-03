@@ -145,8 +145,8 @@
   }
 
   .landing-content {
-    min-height: 50vh; /* match the container's min-height so space-between has room to work with */
-    justify-content: space-between;
+    min-height: 50vh;
+    justify-content: flex-start;
     flex-direction: column;
     align-items: center;
     gap: 24px;
@@ -163,14 +163,17 @@
   }
 
   .logos {
-    margin-top: auto; /* pushes it to the bottom of .landing-content */
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    margin-bottom: -79px;
   }
 
   .landing-title {
     width: 100%;
-
     font-size: 2.5rem;
-    margin-top: 0;
     text-align: center;
     margin-top: 90px;
   }
