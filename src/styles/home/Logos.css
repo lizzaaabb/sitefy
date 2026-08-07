@@ -71,10 +71,9 @@
   }
 }
 
-
 @media (max-width: 900px) {
-     .logos-container{
-    margin-bottom: -39px;
+  .logos-container {
+    margin-bottom: -34px;
   }
 }
 
@@ -90,7 +89,7 @@
   .logo-item-large .logo-img {
     height: 32px;
   }
-  .logos-container{
-    margin-bottom: -33px;
+  .logos-container {
+    margin-bottom: -30px;
   }
 }
