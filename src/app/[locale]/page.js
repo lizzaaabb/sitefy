@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <Landing />
       <Do/>
-      <WhyUs/>
+      <WhyUs />
     </>
   );
 }
