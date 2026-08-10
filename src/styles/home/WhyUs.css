@@ -20,18 +20,20 @@
   font-family: "FiraGO", sans-serif;
   font-feature-settings: "case" on;
   letter-spacing: -0.03em;
-  font-size: 3.2em;
-  color: #111;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
   font-weight: 600;
+  color: #111;
   margin-bottom: 0;
 }
 
 .why-us-header p {
   font-family: "FiraGO", sans-serif;
   font-feature-settings: "case" on;
-  font-size: 1.15rem;
-  color: rgba(0, 0, 0, 0.5);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.6);
   font-weight: 400;
+  max-width: 600px;
   margin-top: 12px;
   margin-bottom: 50px;
 }
