@@ -181,6 +181,9 @@
   .buttons-container {
     margin-top: 0;
   }
+  .logos-container{
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {
@@ -199,6 +202,9 @@
     height: 38px;
     padding: 0 18px;
   }
+   .logos-container{
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -213,6 +219,9 @@
 
   .logos {
     padding-bottom: 2px;
+  }
+   .logos-container{
+    display: none;
   }
 }
 
@@ -247,6 +256,9 @@
   .landing-description {
     font-size: 0.88rem;
     max-width: 280px;
+  }
+   .logos-container{
+    display: none;
   }
 }
 
