@@ -145,7 +145,7 @@
   }
 
   .landing-content {
-    min-height: 50vh;
+    min-height: 60vh;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
