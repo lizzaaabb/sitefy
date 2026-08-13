@@ -7,6 +7,7 @@ import Logos from './Logos'
 import Aurora from '../background/Aurora'
 import FloatingLines from '../background/FloatingLines'
 import Beams from '../background/Beams'
+import Lightfall from '../background/Lightfall'
 
 
 const content = {
@@ -30,17 +31,27 @@ function Landing() {
 
       <div className="orb-bg">
        <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-  <Beams
-    beamWidth={3}
-    beamHeight={30}
-    beamNumber={20}
-    lightColor="#ffffff"
-    speed={2}
-    noiseIntensity={1.75}
-    scale={0.2}
-    rotation={30}
-  />
-</div> </div>
+  <Lightfall
+    colors={['#000000', '#000000', '#1c9aa5']}
+    backgroundColor="#000000"
+    speed={0.5}
+    streakCount={2}
+    streakWidth={1}
+    streakLength={1}
+    glow={1}
+    density={0.6}
+    twinkle={1}
+    zoom={3}
+    backgroundGlow={0.5}
+    opacity={1}
+    mouseInteraction
+    mouseStrength={0.5}
+    mouseRadius={1}
+    color1="#A6C8FF"
+    color2="#5227FF"
+    color3="#FF9FFC"
+/>
+</div></div>
       <div className="landing-content">
 
         <div className="box1">

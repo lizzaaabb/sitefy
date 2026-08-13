@@ -1,4 +1,5 @@
 /* Default (light) */
+@import "tailwindcss";
 html {
   background-color: #fff;
   color: #111;
