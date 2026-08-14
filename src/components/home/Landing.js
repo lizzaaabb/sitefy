@@ -32,7 +32,7 @@ function Landing() {
       <div className="orb-bg">
        <div style={{ width: '100%', height: '100%', position: 'relative' }}>
   <Lightfall
-    colors={['#000000', '#000000', '#1c9aa5']}
+    colors={['#000000', '#000000', '#a51c1c']}
     backgroundColor="#000000"
     speed={0.5}
     streakCount={2}
