@@ -498,3 +498,11 @@
     filter: brightness(0) invert(1);
   }
 }
+@media (min-width: 881px) {
+  .header-logo {
+    filter: brightness(0) invert(1);
+  }
+}
+.header-logo {
+  filter: brightness(0) invert(1);
+}
