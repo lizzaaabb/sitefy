@@ -30,11 +30,14 @@
   width: 100%;
   position: relative;
   z-index: 1;
-  pointer-events: none; /* mouse move გადის ცარიელ სივრცეზე ქვემოთ orb-bg-მდე */
+  pointer-events: none;
+  /* mouse move გადის ცარიელ სივრცეზე ქვემოთ orb-bg-მდე */
 }
+
 .box1,
 .logos {
-  pointer-events: auto; /* ღილაკები/ტექსტი კვლავ დაწკაპუნებადია */
+  pointer-events: auto;
+  /* ღილაკები/ტექსტი კვლავ დაწკაპუნებადია */
 }
 
 .landing-title {
@@ -179,7 +182,8 @@
   .buttons-container {
     margin-top: 0;
   }
-  .logos-container{
+
+  .logos-container {
     display: none;
   }
 }
@@ -200,7 +204,8 @@
     height: 38px;
     padding: 0 18px;
   }
-   .logos-container{
+
+  .logos-container {
     display: none;
   }
 }
@@ -217,7 +222,8 @@
   .logos {
     padding-bottom: 2px;
   }
-   .logos-container{
+
+  .logos-container {
     display: none;
   }
 }
@@ -254,7 +260,8 @@
     font-size: 0.88rem;
     max-width: 280px;
   }
-   .logos-container{
+
+  .logos-container {
     display: none;
   }
 }
@@ -270,4 +277,93 @@
 
 .logos {
   pointer-events: auto;
+}
+
+/* ---------- button1 — rainbow edge glow on hover ---------- */
+
+.button1 {
+  font-feature-settings: "case" on;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: #000;
+  font-family: "FiraGO", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 0 20px;
+  height: 40px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  transition: background-color 150ms ease-in-out;
+}
+
+.button1::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 999px;
+  background: linear-gradient(45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000);
+  background-size: 400%;
+  filter: blur(6px);
+  z-index: -2;
+  opacity: 0;
+  animation: button1-glow 12s linear infinite;
+  transition: opacity 300ms ease-in-out;
+}
+
+.button1::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background-color: #fff;
+  z-index: -1;
+}
+
+.button1:hover::before {
+  opacity: 1;
+}
+
+.button1:hover {
+  background-color: #d9d9d9;
+}
+
+.button1:active {
+  transform: translateY(1px);
+}
+
+@keyframes button1-glow {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button1::before {
+    animation: none;
+  }
 }
