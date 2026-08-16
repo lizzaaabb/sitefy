@@ -260,6 +260,19 @@
   font-feature-settings: "case" on;
 }
 
+
+.pricing-number {
+  font-family: "FiraGO", sans-serif;
+  font-feature-settings: "case" on;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.pricing-number:nth-child(2) {
+  color: #111;
+}
+
 /* ---------- Dark theme ---------- */
 
 [data-theme="dark"] .pricing-container {
