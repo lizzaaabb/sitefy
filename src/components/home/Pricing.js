@@ -21,6 +21,8 @@ const PLANS = [
     title: 'კორპორატიული საიტი',
     price: '1500',
     tag: 'ადმინ პანელით',
+    featured: true,
+    badge: 'ყველაზე პოპულარული',
     features: [
       'მრავალგვერდიანი სტრუქტურა',
       'ადმინ პანელი სრული კონტროლით',
@@ -56,7 +58,12 @@ function Pricing() {
 
       <div className="pricing-grid">
         {PLANS.map((plan) => (
-          <div className="pricing-col" key={plan.number}>
+          <div
+            className={`pricing-col ${plan.featured ? 'pricing-col--featured' : ''}`}
+            key={plan.number}
+          >
+            {plan.badge && <span className="pricing-badge">{plan.badge}</span>}
+
             <span className="pricing-number">{plan.number}</span>
 
             <div className="pricing-price">
@@ -69,9 +76,9 @@ function Pricing() {
             <p className="pricing-tag">{plan.tag}</p>
 
             <ul className="pricing-features">
-              {plan.features.map((f, idx) => (
+              {plan.features.map((f) => (
                 <li key={f}>
-                  <span className="pricing-feature-index">{String(idx + 1).padStart(2, '0')}</span>
+                  <span className="pricing-feature-index" aria-hidden="true" />
                   {f}
                 </li>
               ))}
