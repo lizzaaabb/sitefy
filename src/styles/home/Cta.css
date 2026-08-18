@@ -1,107 +1,186 @@
-.cta-container {
-    padding: 200px 80px;
-    background: #111;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: background 0.3s ease;
+.cta-gold-container {
+    padding: 60px 80px;
+    background: #fff;
 }
 
 @media (max-width: 900px) {
-    .cta-container {
-        padding: 120px 24px;
+    .cta-gold-container {
+        padding: 40px 24px;
     }
 }
 
-.cta-eyebrow {
-    margin: 0 0 20px;
-    font-family: "FiraGO", sans-serif;
-    font-feature-settings: "case" on;
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.4);
+.cta-gold-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 56px 64px;
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg, #ffffff26, #ffffff0d),
+        linear-gradient(45deg,
+            gray 0%,
+            #645c45 15%,
+            #857c55 30%,
+            #9d8c5d 50%,
+            #756842 65%,
+            #584d32 85%,
+            #707070 100%);
 }
 
-.cta-heading {
-    margin: 0 0 24px;
-    max-width: 640px;
-    font-size: clamp(2rem, 1.5rem + 2.2vw, 3.2rem);
+.cta-gold-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+            #0000 0%,
+            #ffffff26 20%,
+            #ffffff40 50%,
+            #ffffff26 80%,
+            #0000 100%);
+    transform: skew(-25deg);
+    animation: cta-gold-shine 6s ease-in-out infinite;
+}
+
+@keyframes cta-gold-shine {
+    0% {
+        left: -100%;
+    }
+
+    40% {
+        left: 130%;
+    }
+
+    100% {
+        left: 130%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cta-gold-card::after {
+        animation: none;
+        display: none;
+    }
+}
+
+.cta-gold-text {
+    position: relative;
+    z-index: 1;
+    max-width: 460px;
+}
+
+.cta-gold-eyebrow {
+    margin: 0 0 14px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.cta-gold-heading {
+    margin: 0 0 12px;
+    font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.1rem);
     font-weight: 500;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
     color: #fff;
     font-family: "FiraGO", sans-serif;
     font-feature-settings: "case" on;
-    text-wrap: balance;
 }
 
-.cta-description {
-    margin: 0 0 48px;
-    max-width: 480px;
-    font-size: 1.05rem;
+.cta-gold-desc {
+    margin: 0;
+    font-size: 15px;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.75);
     font-family: "FiraGO", sans-serif;
     font-feature-settings: "case" on;
 }
 
-.cta-buttons {
+.cta-gold-buttons {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 14px;
+    flex-shrink: 0;
 }
 
-.cta-button-primary {
+.cta-gold-btn-primary {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    background-color: #fff;
+    gap: 8px;
+    background: #fff;
     color: #111;
     font-family: "FiraGO", sans-serif;
     font-feature-settings: "case" on;
     font-weight: 700;
-    font-size: 14.5px;
-    padding: 0 32px;
-    height: 52px;
+    font-size: 14px;
+    padding: 0 26px;
+    height: 48px;
     border-radius: 999px;
+    border: none;
     text-decoration: none;
+    white-space: nowrap;
     transition: background-color 200ms ease, transform 200ms ease;
 }
 
-.cta-button-primary:hover {
-    background-color: #d9d9d9;
+.cta-gold-btn-primary:hover {
+    background: #ece5d8;
 }
 
-.cta-button-primary:active {
+.cta-gold-btn-primary:active {
     transform: translateY(1px);
 }
 
-.cta-button-primary:focus-visible {
-    outline: 2px solid #70b8ff;
-    outline-offset: 3px;
-}
-
-.cta-button-secondary {
+.cta-gold-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
     font-family: "FiraGO", sans-serif;
     font-feature-settings: "case" on;
-    font-size: 14.5px;
-    color: rgba(255, 255, 255, 0.6);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 0 22px;
+    height: 48px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-    padding-bottom: 3px;
-    transition: color 200ms ease, border-color 200ms ease;
+    white-space: nowrap;
+    transition: border-color 200ms ease, background-color 200ms ease;
 }
 
-.cta-button-secondary:hover {
-    color: #fff;
+.cta-gold-btn-secondary:hover {
     border-color: #fff;
+    background: rgba(255, 255, 255, 0.08);
 }
 
-/* ---------- Light theme override ----------
-   If the rest of the page is on a light background by default
-   and this section should stay black regardless of theme,
-   no override is needed — it's intentionally the fixed dark bookend. */
+@media (max-width: 900px) {
+    .cta-gold-card {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        padding: 40px 32px;
+        gap: 28px;
+    }
+
+    .cta-gold-buttons {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .cta-gold-btn-primary,
+    .cta-gold-btn-secondary {
+        flex: 1;
+        justify-content: center;
+    }
+}

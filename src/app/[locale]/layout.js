@@ -3,6 +3,7 @@ import { getMessages } from 'next-intl/server'
 import '../globals.css'
 import ThemeInitializer from '../../components/theme/ThemeInitializer'
 import Header from '../../components/home/Header'
+import Footer from '../../components/home/Footer'
 
 const themeScript = `
   (function() {
@@ -40,6 +41,7 @@ export default async function RootLayout({ children, params }) {
           <ThemeInitializer />
           <Header />
           {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

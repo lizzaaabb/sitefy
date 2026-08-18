@@ -1,32 +1,39 @@
 'use client'
 
 import React from 'react'
-import '../../styles/home/CTA.css'
+import '../../styles/home/Cta.css'
 
-function CTA() {
+function CtaGold() {
     return (
-        <section className="cta-container">
-            <p className="cta-eyebrow">დაწყება</p>
+        <section className="cta-gold-container">
+            <div className="cta-gold-card">
+                <div className="cta-gold-text">
+                    <p className="cta-gold-eyebrow">დაწყება</p>
+                    <h2 className="cta-gold-heading">
+                        გსურთ ბიზნესის ონლაინ სივრცეში განვითარება?
+                    </h2>
+                    <p className="cta-gold-desc">
+                        ვქმნით საიტებს, რომლებიც არა მხოლოდ ვიზუალურად საინტერესოა,
+                        არამედ რეალურ შედეგებს გვაძლევს.
+                    </p>
+                </div>
 
-            <h2 className="cta-heading">
-                მზად ხართ თქვენი პროექტის დასაწყებად?
-            </h2>
+                <div className="cta-gold-buttons">
 
-            <p className="cta-description">
-                მოგვწერეთ რამდენიმე დეტალი და 24 საათში დაგიკავშირდებით — უფასო
-                კონსულტაციით, ვალდებულების გარეშე.
-            </p>
-
-            <div className="cta-buttons">
-                <a href="/contact" className="cta-button-primary">
-                    კონსულტაციის დაჯავშნა
-                </a>
-                <a href="mailto:info@yourcompany.com" className="cta-button-secondary">
-                    info@yourcompany.com
-                </a>
+                    <a href="https://wa.me/995574065469"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cta-gold-btn-primary"
+                    >
+                        მოგვწერეთ
+                    </a>
+                    <a href="tel:+995575755712" className="cta-gold-btn-secondary">
+                        დაგვირეკეთ
+                    </a>
+                </div>
             </div>
         </section>
     )
 }
 
-export default CTA
+export default CtaGold

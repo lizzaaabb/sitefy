@@ -5,16 +5,17 @@ import ChatWidget from '../../components/chat/ChatWidget'
 import Work from '../../components/home/Work'
 import Process from '../../components/home/Process'
 import Pricing from '../../components/home/Pricing'
-
+import Cta from '../../components/home/Cta'
 export default function Home() {
   return (
     <>
       <Landing />
-      <Do/>
+      <Do />
       <ChatWidget />
       <Work />
       <Process />
-      <Pricing/>
+      <Pricing />
+      <Cta />
     </>
   );
 }

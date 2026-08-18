@@ -7,7 +7,7 @@ import useTimeTheme from '../theme/useTimeTheme'
 const logoilo = '/logo/logo-ilo.png'
 const logowhite = '/logo/logowhite.png'
 
-const productColumns = [
+export const productColumns = [
   {
     label: 'ვებსაიტები',
     items: [
