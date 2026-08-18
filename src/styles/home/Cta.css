@@ -1,0 +1,107 @@
+.cta-container {
+    padding: 200px 80px;
+    background: #111;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+@media (max-width: 900px) {
+    .cta-container {
+        padding: 120px 24px;
+    }
+}
+
+.cta-eyebrow {
+    margin: 0 0 20px;
+    font-family: "FiraGO", sans-serif;
+    font-feature-settings: "case" on;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.cta-heading {
+    margin: 0 0 24px;
+    max-width: 640px;
+    font-size: clamp(2rem, 1.5rem + 2.2vw, 3.2rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #fff;
+    font-family: "FiraGO", sans-serif;
+    font-feature-settings: "case" on;
+    text-wrap: balance;
+}
+
+.cta-description {
+    margin: 0 0 48px;
+    max-width: 480px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.55);
+    font-family: "FiraGO", sans-serif;
+    font-feature-settings: "case" on;
+}
+
+.cta-buttons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cta-button-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #111;
+    font-family: "FiraGO", sans-serif;
+    font-feature-settings: "case" on;
+    font-weight: 700;
+    font-size: 14.5px;
+    padding: 0 32px;
+    height: 52px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background-color 200ms ease, transform 200ms ease;
+}
+
+.cta-button-primary:hover {
+    background-color: #d9d9d9;
+}
+
+.cta-button-primary:active {
+    transform: translateY(1px);
+}
+
+.cta-button-primary:focus-visible {
+    outline: 2px solid #70b8ff;
+    outline-offset: 3px;
+}
+
+.cta-button-secondary {
+    font-family: "FiraGO", sans-serif;
+    font-feature-settings: "case" on;
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    padding-bottom: 3px;
+    transition: color 200ms ease, border-color 200ms ease;
+}
+
+.cta-button-secondary:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* ---------- Light theme override ----------
+   If the rest of the page is on a light background by default
+   and this section should stay black regardless of theme,
+   no override is needed — it's intentionally the fixed dark bookend. */
