@@ -52,7 +52,7 @@ function Pricing() {
       <div className="pricing-header">
         <p className="pricing-eyebrow">ფასები</p>
         <h2 className="pricing-heading">
-          გამჭვირვალე ფასდაზღვევა, თქვენი პროექტის მასშტაბის მიხედვით
+          ვებსაიტის დამზადების ფასები
         </h2>
       </div>
 
