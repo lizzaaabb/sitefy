@@ -183,79 +183,64 @@
 }
 
 @media (max-width: 900px) {
-  .do-body {
-    padding: 0 32px;
+  .work-container {
+    padding: 96px 24px;
+  }
+}
+
+@media (max-width: 800px) {
+  .work-row {
+    grid-template-columns: 32px 1fr;
+    grid-template-areas:
+      "num title"
+      "num tag";
+    gap: 4px 20px;
+    padding: 28px 0;
   }
 
-  .do-fixed-title {
-    margin-bottom: 40px;
-  }
-
-  .do-progress-line-container {
-    right: 20px;
-  }
-
-  .do-title {
-    font-size: 1.6rem;
-  }
-
-  .do-icon {
-    height: 60px;
+  .work-number { grid-area: num; }
+  .work-title { grid-area: title; }
+  .work-tag { grid-area: tag; }
+  .work-year,
+  .work-arrow {
+    display: none;
   }
 }
 
 @media (max-width: 640px) {
-  .do-scroll-container {
-    height: calc(var(--card-count, 3) * 55vh);
+  .work-container {
+    padding: 64px 20px;
   }
 
-  .do-sticky-container {
-    height: 65vh;
+  .work-header {
+    margin-bottom: 48px;
   }
 
-  .do-body {
-    height: 65vh;
-    padding: 0 24px;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+  .work-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    margin-bottom: 14px;
   }
 
-  .do-fixed-title {
-    position: absolute;
-    top: 22vh;
-    left: 0;
-    right: 0;
-    font-size: 1.3rem;
-    margin: 0;
-    text-align: center;
-    align-self: center;
+  .work-heading {
+    font-size: 1.4rem;
+    line-height: 1.2;
   }
 
-  .do-cards-area {
-    height: 12rem;
-    margin-top: 35vh;
+  .work-row {
+    padding: 22px 0;
+    gap: 4px 16px;
   }
 
-  .do-icon {
-    height: 40px;
+  .work-number {
+    font-size: 12px;
   }
 
-  .do-title {
-    font-size: 1.1rem;
+  .work-title {
+    font-size: 1.05rem;
   }
 
-  .do-description {
-    font-size: 0.82rem;
-    line-height: 1.45;
-    max-width: 300px;
-  }
-
-  .do-progress-line-container {
-    top: 79%;
-    transform: translateY(-50%);
-    height: 180px;
-    right: 12px;
-    width: 2px;
+  .work-tag {
+    font-size: 12px;
   }
 }
