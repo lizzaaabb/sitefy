@@ -15,7 +15,7 @@ const footerCompanyLinks = [
 function Footer() {
     return (
         <footer className="footer-container">
-            <p className="footer-giant-word" aria-hidden="true">sitefy</p>
+           
 
             <div className="footer-inner">
 
