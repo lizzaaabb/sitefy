@@ -181,6 +181,10 @@
 [data-theme="dark"] .do-progress-line-container {
   background: rgba(255, 255, 255, 0.15);
 }
+
+
+
+
 @media (max-width: 900px) {
   .do-body {
     padding: 0 32px;
@@ -205,17 +209,17 @@
 
 @media (max-width: 640px) {
   .do-scroll-container {
-    height: calc(var(--card-count, 3) * 65vh);
+    height: calc(var(--card-count, 3) * 75vh);
   }
 
   .do-sticky-container {
-    height: 75vh;
+    height: 85vh;
     overflow-x: hidden;
     overflow-y: visible;
   }
 
   .do-body {
-    height: 75vh;
+    height: 85vh;
     padding: 0 24px;
     align-items: center;
     justify-content: center;
@@ -224,7 +228,7 @@
 
   .do-fixed-title {
     position: absolute;
-    top: 22vh;
+    top: 18vh;
     left: 0;
     right: 0;
     font-size: 1.75rem;
@@ -234,8 +238,9 @@
   }
 
   .do-cards-area {
-    height: 12rem;
-    margin-top: 35vh;
+    height: auto;
+    min-height: 12rem;
+    margin-top: 30vh;
   }
 
   .do-icon {
