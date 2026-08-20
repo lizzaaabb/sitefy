@@ -205,17 +205,17 @@
 
 @media (max-width: 640px) {
   .do-scroll-container {
-    height: calc(var(--card-count, 3) * 55vh);
+    height: calc(var(--card-count, 3) * 65vh);
   }
 
   .do-sticky-container {
-    height: 65vh;
+    height: 75vh;
     overflow-x: hidden;
     overflow-y: visible;
   }
 
   .do-body {
-    height: 65vh;
+    height: 75vh;
     padding: 0 24px;
     align-items: center;
     justify-content: center;
