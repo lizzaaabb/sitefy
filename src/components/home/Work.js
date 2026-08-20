@@ -46,6 +46,12 @@ function Work() {
           </a>
         ))}
       </div>
+
+   <div className="work-footer">
+  <a href="/work" className="work-cta">
+    <span className="work-cta-text">იხილეთ ყველა ნამუშევარი</span>
+  </a>
+</div>
     </section>
   )
 }
