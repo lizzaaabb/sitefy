@@ -1,21 +1,25 @@
 'use client'
 
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import '../../styles/home/Footer.css'
-import { productColumns } from './Header'
+import useProductColumns from './useProductColumns'
 
 const logowhite = '/logo/logowhite.png'
 
-const footerCompanyLinks = [
-    { title: 'ნამუშევრები', href: '#work' },
-    { title: 'პროცესი', href: '#process' },
-    { title: 'ფასები', href: '#pricing' },
-]
-
 function Footer() {
+    const t = useTranslations('Footer')
+    const productColumns = useProductColumns()
+
+    const footerCompanyLinks = [
+        { title: t('company.work'), href: '#work' },
+        { title: t('company.process'), href: '#process' },
+        { title: t('company.pricing'), href: '#pricing' },
+    ]
+
     return (
         <footer className="footer-container">
-           
+
 
             <div className="footer-inner">
 
@@ -23,7 +27,7 @@ function Footer() {
                     <div className="footer-brand">
                         <img src={logowhite} alt="sitefy logo" className="footer-logo" />
                         <p className="footer-tagline">
-                            ვქმნით ვებსაიტებს, რომლებიც თქვენს ბიზნესს წინ სწევს.
+                            {t('tagline')}
                         </p>
 
                         <div className="footer-socials">
@@ -60,7 +64,7 @@ function Footer() {
                         ))}
 
                         <div className="footer-col">
-                            <h5 className="footer-col-label">კომპანია</h5>
+                            <h5 className="footer-col-label">{t('company.label')}</h5>
                             <ul>
                                 {footerCompanyLinks.map((link) => (
                                     <li key={link.title}><a href={link.href}>{link.title}</a></li>
@@ -69,7 +73,7 @@ function Footer() {
                         </div>
 
                         <div className="footer-col">
-                            <h5 className="footer-col-label">კონტაქტი</h5>
+                            <h5 className="footer-col-label">{t('contact.label')}</h5>
                             <ul>
                                 <li><a href="mailto:info@sitefy.ge">info@sitefy.ge</a></li>
                                 <li><a href="tel:+995575755712">575 75 57 12</a></li>
@@ -80,7 +84,7 @@ function Footer() {
 
                 <div className="footer-bottom">
                     <p>© {new Date().getFullYear()} Sitefy</p>
-                    <p>ყველა უფლება დაცულია</p>
+                    <p>{t('rights')}</p>
                 </div>
 
             </div>

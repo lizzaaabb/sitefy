@@ -1,7 +1,39 @@
 {
-  "nav": {
-    "products": "Products",
-    "work": "Work",
-    "pricing": "Pricing"
+  "Header": {
+    "langLabel": "Language",
+    "nav": {
+      "products": "Products",
+      "work": "Work",
+      "pricing": "Pricing"
+    },
+    "columns": {
+      "websites": {
+        "label": "Websites",
+        "items": {
+          "oneP": "One-page website",
+          "corporate": "Corporate website",
+          "store": "Online store"
+        }
+      },
+      "specialized": {
+        "label": "Specialized",
+        "items": {
+          "dealer": "Auto dealer website",
+          "tourism": "Tourism website",
+          "realEstate": "Real estate platform"
+        }
+      }
+    }
+  },
+  "Footer": {
+    "tagline": "We build websites that move your business forward.",
+    "company": {
+      "label": "Company",
+      "work": "Work",
+      "process": "Process",
+      "pricing": "Pricing"
+    },
+    "contact": { "label": "Contact" },
+    "rights": "All rights reserved"
   }
 }

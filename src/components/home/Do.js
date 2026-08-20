@@ -2,25 +2,35 @@
 
 import React, { useRef, useState } from 'react'
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
+import { useLocale } from 'next-intl'
 import '../../styles/home/Do.css'
 
 const services = [
   {
     titleGeo: 'ვებსაიტები',
+    titleEng: 'Websites',
     descriptionGeo:
       'ნებისმიერი სირთულის ვებსაიტები - თანამედროვე ტექნოლოგიებზე აგებული, ელვისებური სისწრაფით და გამორჩეული დიზაინით.',
+    descriptionEng:
+      'Websites of any complexity — built on modern technology, with lightning-fast speed and distinctive design.',
     icon: '/scroll/l1.png'
   },
   {
     titleGeo: 'SaaS პლატფორმები',
+    titleEng: 'SaaS Platforms',
     descriptionGeo:
       'ვაქცევთ იდეებს ციფრულ პროდუქტებად - ონლაინ პლატფორმები პროდუქტებით, სერვისებით და ფუნქციებით, რომლებიც მომხმარებლებს რეალურ ღირებულებას სთავაზობს.',
+    descriptionEng:
+      'We turn ideas into digital products — online platforms with products, services, and features that deliver real value to users.',
     icon: '/scroll/l2.png'
   },
   {
     titleGeo: 'ვებ აპლიკაციები',
+    titleEng: 'Web Applications',
     descriptionGeo:
       'ვქმნით მორგებულ ვებ სისტემებს, რომლებიც ამარტივებს პროცესებს და ეხმარება თქვენს ბიზნესს უფრო სწრაფად და ეფექტურად მუშაობაში.',
+    descriptionEng:
+      'We build custom web systems that simplify processes and help your business run faster and more efficiently.',
     icon: '/scroll/l3.png'
   }
 ]
@@ -29,6 +39,9 @@ const services = [
 const GAP = 0.12
 
 function Do() {
+  const locale = useLocale()
+  const isGeo = locale === 'ka'
+
   const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -71,7 +84,9 @@ function Do() {
           </div>
 
           <div className="do-body">
-            <h2 className="do-fixed-title geo">რას ვაკეთებთ</h2>
+            <h2 className={`do-fixed-title ${isGeo ? 'geo' : 'eng'}`}>
+              {isGeo ? 'რას ვაკეთებთ' : 'What We Do'}
+            </h2>
 
             <div className="do-cards-area">
               {services.map((service, index) => (
@@ -84,13 +99,17 @@ function Do() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={service.icon}
-                        alt={service.titleGeo}
+                        alt={isGeo ? service.titleGeo : service.titleEng}
                         className="do-icon"
                         loading={index === 0 ? 'eager' : 'lazy'}
                       />
                     </div>
-                    <h3 className="do-title geo">{service.titleGeo}</h3>
-                    <p className="do-description geo">{service.descriptionGeo}</p>
+                    <h3 className={`do-title ${isGeo ? 'geo' : 'eng'}`}>
+                      {isGeo ? service.titleGeo : service.titleEng}
+                    </h3>
+                    <p className={`do-description ${isGeo ? 'geo' : 'eng'}`}>
+                      {isGeo ? service.descriptionGeo : service.descriptionEng}
+                    </p>
                   </div>
                 </div>
               ))}

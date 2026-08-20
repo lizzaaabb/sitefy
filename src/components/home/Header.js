@@ -1,39 +1,28 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
+import { useTranslations, useLocale } from 'next-intl'
+import { useRouter, usePathname } from '../../i18n/navigation'
 import '../../styles/home/Header.css'
 import useTimeTheme from '../theme/useTimeTheme'
+import useProductColumns from './useProductColumns'
 
 const logoilo = '/logo/logo-ilo.png'
 const logowhite = '/logo/logowhite.png'
 
-export const productColumns = [
-  {
-    label: 'ვებსაიტები',
-    items: [
-      { title: 'ერთგვერდიანი ვებსაიტი', href: '#' },
-      { title: 'კორპორატიული ვებსაიტი', href: '#' },
-      { title: 'ონლაინ მაღაზია', href: '#' },
-    ],
-  },
-  {
-    label: 'სპეციალიზებული',
-    items: [
-      { title: 'ავტო დილერის ვებსაიტი', href: '#' },
-      { title: 'ტურისტული ვებსაიტი', href: '#' },
-      { title: 'უძრავი ქონების პლატფორმა', href: '#' },
-    ],
-  },
-]
-
 function Header() {
+  const t = useTranslations('Header')
+  const locale = useLocale()
+  const router = useRouter()
+  const pathname = usePathname()
+  const productColumns = useProductColumns()
+
   const isDark = useTimeTheme()
   const [scrolled, setScrolled] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false)
-  const [lang, setLang] = useState('geo')
 
   const productsCloseTimer = useRef(null)
   const langCloseTimer = useRef(null)
@@ -54,7 +43,6 @@ function Header() {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  // reset mobile accordion state when the mobile menu closes
   useEffect(() => {
     if (!mobileOpen) setMobileProductsOpen(false)
   }, [mobileOpen])
@@ -73,6 +61,11 @@ function Header() {
   }
   const closeLangDelayed = () => {
     langCloseTimer.current = setTimeout(() => setLangOpen(false), 120)
+  }
+
+  const switchLocale = (newLocale) => {
+    router.replace(pathname, { locale: newLocale })
+    setLangOpen(false)
   }
 
   return (
@@ -94,15 +87,15 @@ function Header() {
             onMouseLeave={closeProductsDelayed}
           >
             <button className={`nav-link ${productsOpen ? 'active' : ''}`}>
-              პროდუქტები
+              {t('nav.products')}
               <svg className="chevron" width="11" height="11" viewBox="0 0 12 12" fill="none">
                 <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>
 
-          <a href="#work" className="nav-link nav-link-plain">ნამუშევრები</a>
-          <a href="#pricing" className="nav-link nav-link-plain">ფასები</a>
+          <a href="#work" className="nav-link nav-link-plain">{t('nav.work')}</a>
+          <a href="#pricing" className="nav-link nav-link-plain">{t('nav.pricing')}</a>
         </nav>
 
         <div className="header-actions">
@@ -112,7 +105,7 @@ function Header() {
             onMouseLeave={closeLangDelayed}
           >
             <button className={`nav-link ${langOpen ? 'active' : ''}`}>
-              {lang === 'geo' ? 'GEO' : 'ENG'}
+              {locale === 'ka' ? 'GEO' : 'ENG'}
               <svg className="chevron" width="11" height="11" viewBox="0 0 12 12" fill="none">
                 <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -120,14 +113,14 @@ function Header() {
 
             <div className={`lang-dropdown ${langOpen ? 'open' : ''}`}>
               <button
-                className={`lang-option ${lang === 'geo' ? 'selected' : ''}`}
-                onClick={() => { setLang('geo'); setLangOpen(false) }}
+                className={`lang-option ${locale === 'ka' ? 'selected' : ''}`}
+                onClick={() => switchLocale('ka')}
               >
                 GEO
               </button>
               <button
-                className={`lang-option ${lang === 'eng' ? 'selected' : ''}`}
-                onClick={() => { setLang('eng'); setLangOpen(false) }}
+                className={`lang-option ${locale === 'en' ? 'selected' : ''}`}
+                onClick={() => switchLocale('en')}
               >
                 ENG
               </button>
@@ -179,7 +172,7 @@ function Header() {
               onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
               aria-expanded={mobileProductsOpen}
             >
-              პროდუქტები
+              {t('nav.products')}
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -201,21 +194,21 @@ function Header() {
             </div>
           </div>
 
-          <a href="#work" className="mobile-link" onClick={() => setMobileOpen(false)}>ნამუშევრები</a>
-          <a href="#pricing" className="mobile-link" onClick={() => setMobileOpen(false)}>ფასები</a>
+          <a href="#work" className="mobile-link" onClick={() => setMobileOpen(false)}>{t('nav.work')}</a>
+          <a href="#pricing" className="mobile-link" onClick={() => setMobileOpen(false)}>{t('nav.pricing')}</a>
 
           <div className="mobile-menu-footer">
-            <span className="mobile-menu-footer-label">ენა</span>
+            <span className="mobile-menu-footer-label">{t('langLabel')}</span>
             <div className="mobile-lang-options">
               <button
-                className={`mobile-lang-btn ${lang === 'geo' ? 'selected' : ''}`}
-                onClick={() => setLang('geo')}
+                className={`mobile-lang-btn ${locale === 'ka' ? 'selected' : ''}`}
+                onClick={() => switchLocale('ka')}
               >
                 GEO
               </button>
               <button
-                className={`mobile-lang-btn ${lang === 'eng' ? 'selected' : ''}`}
-                onClick={() => setLang('eng')}
+                className={`mobile-lang-btn ${locale === 'en' ? 'selected' : ''}`}
+                onClick={() => switchLocale('en')}
               >
                 ENG
               </button>
