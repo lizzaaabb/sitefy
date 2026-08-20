@@ -13,10 +13,10 @@ const PROJECTS = [
   },
   {
     number: '02',
-    title: 'Sitefy',
-    tag: 'ვებ სააგენტო · ბრენდინგი',
-    year: '2025',
-    href: '#',
+    title: 'Utopia VIP Travel',
+    tag: 'ტურიზმი · ბუქინგ პლატფორმა',
+    year: '2024',
+    href: 'https://www.utopiaviptravel.com/',
   },
   {
     number: '03',
