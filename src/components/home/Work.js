@@ -8,8 +8,8 @@ const PROJECTS = [
     number: '01',
     title: 'Valore Real Estate',
     tag: 'უძრავი ქონება · ვებ პლატფორმა',
-    year: '2024',
-    href: '#',
+    year: '2025',
+    href: 'https://www.valore.ge/',
   },
   {
     number: '02',
