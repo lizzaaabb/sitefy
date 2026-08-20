@@ -30,25 +30,25 @@ function Landing() {
     <div className='landing-container'>
 
       <div className="orb-bg">
-     <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-  <Beams
-    beamWidth={3}
-    beamHeight={30}
-    beamNumber={20}
-    lightColor="#ffffff"
-    speed={2}
-    noiseIntensity={1.75}
-    scale={0.2}
-    rotation={30}
-  />
-</div></div>
+        <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+          <Beams
+            beamWidth={3}
+            beamHeight={30}
+            beamNumber={20}
+            lightColor="#ffffff"
+            speed={2}
+            noiseIntensity={1.75}
+            scale={0.2}
+            rotation={30}
+          />
+        </div></div>
       <div className="landing-content">
 
         <div className="box1">
           <h1 className='landing-title geo'>{content.titleGeo}</h1>
           <p className="landing-description geo">{content.descriptionGeo[0]}</p>
           <div className="buttons-container">
-            <button className='button1'>კონსულტაცია</button>
+            <a href="tel:+995575755712" className='button1' style={{ textDecoration: 'none' }}>კონსულტაცია</a>
             <button className='button2'>ნამუშევრები</button>
           </div>
         </div>
