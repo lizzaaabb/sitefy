@@ -84,7 +84,7 @@ function Pricing() {
               ))}
             </ul>
 
-            <a href="/contact" className="pricing-cta">
+            <a href="tel:+995575755712" className="pricing-cta">
               მოთხოვნა <span aria-hidden="true">→</span>
             </a>
           </div>
