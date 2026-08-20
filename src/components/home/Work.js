@@ -37,7 +37,13 @@ function Work() {
 
       <div className="work-list">
         {PROJECTS.map((project) => (
-          <a href={project.href} className="work-row" key={project.number}>
+          
+           <a href={project.href}
+            className="work-row"
+            key={project.number}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span className="work-number">{project.number}</span>
             <span className="work-title">{project.title}</span>
             <span className="work-tag">{project.tag}</span>
@@ -47,11 +53,11 @@ function Work() {
         ))}
       </div>
 
-   <div className="work-footer">
-  <a href="/work" className="work-cta">
-    <span className="work-cta-text">იხილეთ ყველა ნამუშევარი</span>
-  </a>
-</div>
+      <div className="work-footer">
+        <a href="/work" className="work-cta">
+          <span className="work-cta-text">იხილეთ ყველა ნამუშევარი</span>
+        </a>
+      </div>
     </section>
   )
 }
