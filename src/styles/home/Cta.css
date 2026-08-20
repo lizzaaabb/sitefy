@@ -187,3 +187,6 @@
 [data-theme="dark"] .cta-gold-container {
   background: #0a0a0a;
 }
+html[data-theme="dark"] .cta-gold-container {
+  background: #0a0a0a !important;
+}

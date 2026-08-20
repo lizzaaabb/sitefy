@@ -8,7 +8,7 @@ function CtaGold() {
         <section className="cta-gold-container">
             <div className="cta-gold-card">
                 <div className="cta-gold-text">
-                    <p className="cta-gold-eyebrow">დაწყება</p>
+                    <p className="cta-gold-eyebrow">შეკვეთა</p>
                     <h2 className="cta-gold-heading">
                         გსურთ ბიზნესის ონლაინ სივრცეში განვითარება?
                     </h2>
