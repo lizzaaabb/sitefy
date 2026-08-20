@@ -20,10 +20,10 @@ const PROJECTS = [
   },
   {
     number: '03',
-    title: 'Greeter Transfer',
-    tag: 'ტურიზმი · ბუკინგ პლატფორმა',
+    title: 'Your Hood',
+    tag: 'ტანსაცმელი · ონლაინ მაღაზია',
     year: '2025',
-    href: '#',
+    href: 'https://yourhood.ge/',
   },
 ]
 
