@@ -260,7 +260,7 @@
   }
 
   .do-progress-line-container {
-    top: 70%;
+    top: 65%;
     transform: translateY(-50%);
     height: 230px;
     right: 12px;
