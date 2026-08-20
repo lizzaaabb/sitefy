@@ -181,66 +181,84 @@
 [data-theme="dark"] .do-progress-line-container {
   background: rgba(255, 255, 255, 0.15);
 }
-
 @media (max-width: 900px) {
-  .work-container {
-    padding: 96px 24px;
-  }
-}
-
-@media (max-width: 800px) {
-  .work-row {
-    grid-template-columns: 32px 1fr;
-    grid-template-areas:
-      "num title"
-      "num tag";
-    gap: 4px 20px;
-    padding: 28px 0;
+  .do-body {
+    padding: 0 32px;
   }
 
-  .work-number { grid-area: num; }
-  .work-title { grid-area: title; }
-  .work-tag { grid-area: tag; }
-  .work-year,
-  .work-arrow {
-    display: none;
+  .do-fixed-title {
+    margin-bottom: 40px;
+  }
+
+  .do-progress-line-container {
+    right: 20px;
+  }
+
+  .do-title {
+    font-size: 1.75rem;
+  }
+
+  .do-icon {
+    height: 90px;
   }
 }
 
 @media (max-width: 640px) {
-  .work-container {
-    padding: 64px 20px;
+  .do-scroll-container {
+    height: calc(var(--card-count, 3) * 55vh);
   }
 
-  .work-header {
-    margin-bottom: 48px;
+  .do-sticky-container {
+    height: 65vh;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
-  .work-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    margin-bottom: 14px;
+  .do-body {
+    height: 65vh;
+    padding: 0 24px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
   }
 
-  .work-heading {
-    font-size: 1.4rem;
-    line-height: 1.2;
+  .do-fixed-title {
+    position: absolute;
+    top: 22vh;
+    left: 0;
+    right: 0;
+    font-size: 1.75rem;
+    margin: 0;
+    text-align: center;
+    align-self: center;
   }
 
-  .work-row {
-    padding: 22px 0;
-    gap: 4px 16px;
+  .do-cards-area {
+    height: 12rem;
+    margin-top: 35vh;
   }
 
-  .work-number {
-    font-size: 12px;
+  .do-icon {
+    height: 60px;
   }
 
-  .work-title {
-    font-size: 1.05rem;
+  .do-title {
+    font-size: 1.45rem;
   }
 
-  .work-tag {
-    font-size: 12px;
+  .do-description {
+    font-size: 1rem;
+    line-height: 1.45;
+    max-width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .do-progress-line-container {
+    top: 74%;
+    transform: translateY(-50%);
+    height: 250px;
+    right: 12px;
+    width: 2px;
   }
 }
