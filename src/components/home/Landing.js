@@ -5,10 +5,8 @@ import { useLocale } from 'next-intl'
 import '../../styles/home/Landing.css'
 import Logos from './Logos'
 
-import Aurora from '../background/Aurora'
-import FloatingLines from '../background/FloatingLines'
 import Beams from '../background/Beams'
-import Lightfall from '../background/Lightfall'
+
 
 
 const content = {
