@@ -1,0 +1,155 @@
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
+
+.projects-hero-container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+  min-height: 480px;
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+}
+
+.projects-hero-container .orb-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.projects-hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 28px;
+  padding: 0 24px;
+}
+
+/* ---------- Kicker ---------- */
+
+.projects-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.projects-hero-kicker-line {
+  width: 32px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* ---------- Title ---------- */
+
+.projects-hero-title {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1;
+  color: #fff;
+}
+
+/* ---------- Scroll indicator ---------- */
+
+.projects-hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 44px;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.projects-hero-scroll-label {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  writing-mode: vertical-rl;
+}
+
+.projects-hero-scroll-track {
+  position: relative;
+  width: 1px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+
+.projects-hero-scroll-fill {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  animation: projects-hero-scroll-fill 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes projects-hero-scroll-fill {
+  0% {
+    top: -100%;
+  }
+  50% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-hero-scroll-fill {
+    animation: none;
+    top: 0;
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .projects-hero-title {
+    font-size: clamp(2.3rem, 10vw, 3rem);
+  }
+
+  .projects-hero-kicker {
+    font-size: 0.62rem;
+    letter-spacing: 0.24em;
+    gap: 10px;
+  }
+
+  .projects-hero-kicker-line {
+    width: 20px;
+  }
+
+  .projects-hero-scroll {
+    bottom: 28px;
+  }
+
+  .projects-hero-scroll-track {
+    height: 42px;
+  }
+}

@@ -6,6 +6,7 @@ import { useRouter, usePathname } from '../../i18n/navigation'
 import '../../styles/home/Header.css'
 import useTimeTheme from '../theme/useTimeTheme'
 import useProductColumns from './useProductColumns'
+import { Link } from '../../i18n/navigation'
 
 const logoilo = '/logo/logo-ilo.png'
 const logowhite = '/logo/logowhite.png'
@@ -94,7 +95,7 @@ function Header() {
             </button>
           </div>
 
-          <a href="#work" className="nav-link nav-link-plain">{t('nav.work')}</a>
+         <Link href="/projects" className="nav-link nav-link-plain">{t('nav.work')}</Link>
           <a href="#pricing" className="nav-link nav-link-plain">{t('nav.pricing')}</a>
         </nav>
 
@@ -194,7 +195,7 @@ function Header() {
             </div>
           </div>
 
-          <a href="#work" className="mobile-link" onClick={() => setMobileOpen(false)}>{t('nav.work')}</a>
+        <Link href="/projects" className="mobile-link" onClick={() => setMobileOpen(false)}>{t('nav.work')}</Link>
           <a href="#pricing" className="mobile-link" onClick={() => setMobileOpen(false)}>{t('nav.pricing')}</a>
 
           <div className="mobile-menu-footer">
