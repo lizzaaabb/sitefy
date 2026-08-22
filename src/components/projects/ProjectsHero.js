@@ -4,7 +4,7 @@ import React from 'react'
 import { useLocale } from 'next-intl'
 import '../../styles/projects/ProjectsHero.css'
 
-import Beams from '../background/Beams'
+import Beams from '../background/MagicRings'
 
 const content = {
   kickerGeo: 'ნამუშევრები',
