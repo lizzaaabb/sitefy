@@ -4,10 +4,7 @@
     "nav": {
       "products": "პროდუქტები",
       "work": "ნამუშევრები",
-      "pricing": "ფასები",
-      "landing": "ლენდინგი",
-      "corporate": "კორპორატიული",
-      "onlineShop": "ონლაინ მაღაზია"
+      "pricing": "ფასები"
     },
     "columns": {
       "websites": {
@@ -34,10 +31,7 @@
       "label": "კომპანია",
       "work": "ნამუშევრები",
       "process": "პროცესი",
-      "pricing": "ფასები",
-      "landing": "ლენდინგი",
-      "corporate": "კორპორატიული",
-      "onlineShop": "ონლაინ მაღაზია"
+      "pricing": "ფასები"
     },
     "contact": { "label": "კონტაქტი" },
     "rights": "ყველა უფლება დაცულია"

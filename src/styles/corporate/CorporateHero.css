@@ -1,0 +1,244 @@
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
+
+.corporate-hero-container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+  min-height: 640px;
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+}
+
+.corporate-hero-container .orb-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.corporate-hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 22px;
+  padding: 0 24px;
+  max-width: 720px;
+}
+
+/* ---------- Title ---------- */
+
+.corporate-hero-title {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  letter-spacing: -0.04em;
+  font-size: clamp(2rem, 1.3rem + 2.6vw, 3.1rem);
+  font-weight: 600;
+  line-height: 1.18;
+  margin: 0;
+  color: #fff;
+}
+
+/* ---------- Description ---------- */
+
+.corporate-hero-description {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 580px;
+  margin: 0;
+}
+
+/* ---------- Scroll indicator (copied from ProjectsHero) ---------- */
+
+.corporate-hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.corporate-hero-scroll-label {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  writing-mode: vertical-rl;
+}
+
+.corporate-hero-scroll-track {
+  position: relative;
+  width: 1px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+
+.corporate-hero-scroll-fill {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  animation: corporate-hero-scroll-fill 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes corporate-hero-scroll-fill {
+  0% {
+    top: -100%;
+  }
+  50% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .corporate-hero-scroll-fill {
+    animation: none;
+    top: 0;
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .corporate-hero-title {
+    font-size: clamp(1.8rem, 7.5vw, 2.4rem);
+  }
+
+  .corporate-hero-content {
+    gap: 18px;
+  }
+
+  .corporate-hero-scroll {
+    bottom: 20px;
+  }
+
+  .corporate-hero-scroll-track {
+    height: 36px;
+  }
+}
+
+/* =========================================================
+   .button1 / .buttons-container — copied verbatim from
+   landing.css so this component matches the real landing
+   buttons exactly. Delete this block if landing.css is
+   already loaded globally on this page.
+   ========================================================= */
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.button1 {
+  font-feature-settings: "case" on;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: #000;
+  font-family: "FiraGO", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 0 20px;
+  height: 40px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  transition: background-color 150ms ease-in-out;
+  text-decoration: none;
+}
+
+.button1::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 999px;
+  background: linear-gradient(45deg,
+      #8B6914,
+      #B8860B,
+      #D4AF37,
+      #E8C874,
+      #F4E4BC,
+      #D4AF37,
+      #B8860B,
+      #8B6914);
+  background-size: 400%;
+  filter: blur(6px);
+  z-index: -2;
+  opacity: 0;
+  animation: button1-glow 12s linear infinite;
+  transition: opacity 300ms ease-in-out;
+}
+
+.button1::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background-color: #fff;
+  z-index: -1;
+}
+
+.button1:hover::before {
+  opacity: 1;
+}
+
+.button1:hover {
+  background-color: #d9d9d9;
+}
+
+.button1:active {
+  transform: translateY(1px);
+}
+
+@keyframes button1-glow {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button1::before {
+    animation: none;
+  }
+}

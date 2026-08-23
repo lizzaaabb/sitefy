@@ -95,7 +95,7 @@ function Header() {
             </button>
           </div>
 
-         <Link href="/projects" className="nav-link nav-link-plain">{t('nav.work')}</Link>
+          <Link href="/projects" className="nav-link nav-link-plain">{t('nav.work')}</Link>
           <a href="#pricing" className="nav-link nav-link-plain">{t('nav.pricing')}</a>
         </nav>
 
@@ -195,7 +195,7 @@ function Header() {
             </div>
           </div>
 
-        <Link href="/projects" className="mobile-link" onClick={() => setMobileOpen(false)}>{t('nav.work')}</Link>
+          <Link href="/projects" className="mobile-link" onClick={() => setMobileOpen(false)}>{t('nav.work')}</Link>
           <a href="#pricing" className="mobile-link" onClick={() => setMobileOpen(false)}>{t('nav.pricing')}</a>
 
           <div className="mobile-menu-footer">

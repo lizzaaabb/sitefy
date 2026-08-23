@@ -1,0 +1,350 @@
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
+
+.corporate-content-container {
+  --bg: #ffffff;
+  --text: #111111;
+  --text-muted: rgba(0, 0, 0, 0.6);
+  --text-faint: rgba(0, 0, 0, 0.35);
+  --border: rgba(0, 0, 0, 0.16);
+  --gold: #c9a05c;
+
+  position: relative;
+  background: var(--bg);
+  color: var(--text);
+  padding: 140px 80px;
+  overflow: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+[data-theme='dark'] .corporate-content-container {
+  --bg: #000000;
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-faint: rgba(255, 255, 255, 0.35);
+  --border: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- Ambient watermark ---------- */
+
+.corporate-content-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'FiraGO', sans-serif;
+  font-weight: 700;
+  font-size: 44vw;
+  line-height: 1;
+  color: var(--text);
+  opacity: 0.025;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  animation: corporate-content-watermark-fade 900ms ease both;
+}
+
+@keyframes corporate-content-watermark-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.025;
+  }
+}
+
+/* ---------- Header ---------- */
+
+.corporate-content-header {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  margin: 0 auto 88px;
+  text-align: center;
+}
+
+.corporate-content-heading {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  letter-spacing: -0.03em;
+  font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text);
+  margin: 0 0 20px;
+}
+
+.corporate-content-description {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+  color: var(--text-muted);
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+/* ---------- Split layout (desktop) — printed table-of-contents ---------- */
+
+.corporate-content-split {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 0 96px;
+  align-items: start;
+}
+
+.corporate-content-nav {
+  display: flex;
+  flex-direction: column;
+  padding-top: 18px;
+}
+
+.corporate-content-nav-item {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+  padding: 17px 0;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 350ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.corporate-content-nav-item:hover,
+.corporate-content-nav-item.is-active {
+  transform: translateX(6px);
+}
+
+.corporate-content-nav-index {
+  order: 3;
+  flex-shrink: 0;
+  min-width: 26px;
+  text-align: right;
+  font-family: 'FiraGO', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+  transition: color 350ms ease;
+}
+
+.corporate-content-nav-item.is-active .corporate-content-nav-index {
+  color: var(--gold);
+}
+
+.corporate-content-nav-title {
+  order: 1;
+  flex-shrink: 0;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: color 350ms ease, font-weight 350ms ease;
+}
+
+.corporate-content-nav-item.is-active .corporate-content-nav-title {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.corporate-content-nav-leader {
+  order: 2;
+  flex: 1;
+  margin: 0 12px;
+  align-self: flex-end;
+  height: 0;
+  border-bottom: 1px dotted var(--border);
+  transform: translateY(-6px);
+  opacity: 0.6;
+  transition: opacity 350ms ease, border-color 350ms ease;
+}
+
+.corporate-content-nav-item.is-active .corporate-content-nav-leader {
+  opacity: 1;
+  border-bottom-color: var(--gold);
+}
+
+/* ---------- Detail panel ---------- */
+
+.corporate-content-panel {
+  padding-top: 18px;
+}
+
+.corporate-content-panel-body {
+  max-width: 520px;
+  animation: corporate-content-fade 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.corporate-content-panel-accent {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+  margin-bottom: 26px;
+}
+
+.corporate-content-panel-title {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2.1rem);
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 18px;
+}
+
+.corporate-content-panel-description {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@keyframes corporate-content-fade {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .corporate-content-panel-body,
+  .corporate-content-nav-item,
+  .corporate-content-watermark {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+}
+
+/* =========================================================
+   Mobile / tablet — horizontally scrollable, snapping pill
+   row. Leader + watermark are desktop-only.
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .corporate-content-container {
+    padding: 96px 20px;
+  }
+
+  .corporate-content-watermark {
+    display: none;
+  }
+
+  .corporate-content-header {
+    margin-bottom: 48px;
+  }
+
+  .corporate-content-split {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .corporate-content-nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    padding-top: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 4px 4px 14px;
+    margin: 0 -4px;
+  }
+
+  .corporate-content-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .corporate-content-nav-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: auto;
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  .corporate-content-nav-item:hover,
+  .corporate-content-nav-item.is-active {
+    transform: none;
+  }
+
+  .corporate-content-nav-item:hover {
+    background: rgba(128, 128, 128, 0.06);
+  }
+
+  .corporate-content-nav-item.is-active {
+    background: var(--text);
+    border-color: var(--text);
+  }
+
+  .corporate-content-nav-index,
+  .corporate-content-nav-title {
+    order: 0;
+    color: inherit;
+    opacity: 0.55;
+    white-space: nowrap;
+  }
+
+  .corporate-content-nav-leader {
+    display: none;
+  }
+
+  .corporate-content-nav-item.is-active .corporate-content-nav-index,
+  .corporate-content-nav-item.is-active .corporate-content-nav-title {
+    color: var(--bg);
+    opacity: 1;
+  }
+
+  .corporate-content-nav-title {
+    font-size: 14px;
+  }
+
+  .corporate-content-panel {
+    padding-top: 28px;
+  }
+
+  .corporate-content-panel-accent {
+    margin-bottom: 20px;
+  }
+
+  .corporate-content-panel-description {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .corporate-content-container {
+    padding: 80px 16px;
+  }
+
+  .corporate-content-nav-item {
+    padding: 9px 14px;
+  }
+
+  .corporate-content-nav-title {
+    font-size: 13.5px;
+  }
+}
