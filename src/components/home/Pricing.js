@@ -9,7 +9,7 @@ const PLANS = [
     number: '01',
     titleGeo: 'ერთგვერდიანი საიტი',
     titleEng: 'One-Page Website',
-    price: '800',
+    price: '1000',
     tagGeo: 'ადმინ პანელით',
     tagEng: 'With Admin Panel',
     featuresGeo: [
@@ -29,7 +29,7 @@ const PLANS = [
     number: '02',
     titleGeo: 'კორპორატიული საიტი',
     titleEng: 'Corporate Website',
-    price: '1500',
+    price: '2500',
     tagGeo: 'ადმინ პანელით',
     tagEng: 'With Admin Panel',
     featured: true,
@@ -54,7 +54,7 @@ const PLANS = [
     number: '03',
     titleGeo: 'ონლაინ მაღაზია',
     titleEng: 'Online Store',
-    price: '2500',
+    price: '3500',
     tagGeo: 'E-commerce',
     tagEng: 'E-commerce',
     featuresGeo: [
