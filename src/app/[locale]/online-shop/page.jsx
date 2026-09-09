@@ -1,9 +1,9 @@
-import Onlineshop from '../../../components/onlineshop/Onlineshop'
+import OnlineShop from '../../../components/ecommerce/OnlineShop'
 
 export default function OnlineShopPage(){
     return(
         <div>
-            <Onlineshop/>
+            <OnlineShop/>
         </div>
     )
 }
