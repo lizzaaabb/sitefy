@@ -1,4 +1,5 @@
 @import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
 
 .corporate-pricing-container {
   --bg: #ffffff;
@@ -50,6 +51,12 @@
   color: var(--text);
 }
 
+.corporate-pricing-heading.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+  letter-spacing: -0.01em;
+}
+
 /* ---------- Card (single, centered — only one plan) ---------- */
 
 .corporate-pricing-grid {
@@ -88,11 +95,10 @@
 }
 
 .corporate-pricing-price {
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-size: 2.8rem;
   font-weight: 300;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   color: var(--text);
 }
 
@@ -123,6 +129,13 @@
   color: var(--text-muted);
 }
 
+.corporate-pricing-note.eng,
+.corporate-pricing-title.eng,
+.corporate-pricing-description.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
 .corporate-pricing-features {
   list-style: none;
   margin: 0;
@@ -143,6 +156,11 @@
   line-height: 1.45;
   color: var(--text-muted);
   border-bottom: 1px solid var(--border);
+}
+
+.corporate-pricing-features.eng li {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
 }
 
 .corporate-pricing-features li:last-child {
@@ -181,6 +199,11 @@
   position: relative;
   z-index: 0;
   transition: background-color 150ms ease-in-out;
+}
+
+.corporate-pricing-cta.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
 }
 
 .corporate-pricing-cta::before {
@@ -262,6 +285,12 @@
   color: var(--text-muted);
 }
 
+.corporate-pricing-addon-title.eng,
+.corporate-pricing-addon-description.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
 /* ---------- Additional features ---------- */
 
 .corporate-pricing-extra {
@@ -290,6 +319,12 @@
   color: var(--text-muted);
 }
 
+.corporate-pricing-extra-title.eng,
+.corporate-pricing-extra-description.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
 .corporate-pricing-extra-examples {
   display: flex;
   flex-wrap: wrap;
@@ -305,6 +340,11 @@
   border: 1px solid var(--border);
   border-radius: 999px;
   color: var(--text-muted);
+}
+
+.corporate-pricing-extra-chip.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
 }
 
 /* ---------- Responsive ---------- */

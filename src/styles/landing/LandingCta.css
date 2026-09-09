@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
+
 .landing-cta-container {
     padding: 60px 80px;
     background: #fff;
@@ -102,6 +104,16 @@ html[data-theme="dark"] .landing-cta-container {
     font-feature-settings: "case" on;
 }
 
+.landing-cta-heading.eng,
+.landing-cta-desc.eng {
+    font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+    font-feature-settings: normal;
+}
+
+.landing-cta-heading.eng {
+    letter-spacing: -0.01em;
+}
+
 .landing-cta-buttons {
     position: relative;
     z-index: 1;
@@ -128,6 +140,11 @@ html[data-theme="dark"] .landing-cta-container {
     text-decoration: none;
     white-space: nowrap;
     transition: background-color 200ms ease, transform 200ms ease;
+}
+
+.landing-cta-btn-primary.eng {
+    font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+    font-feature-settings: normal;
 }
 
 .landing-cta-btn-primary:hover {

@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
+
 .pricing-container {
   padding: 160px 80px;
   background: #fff;
@@ -35,6 +37,16 @@
   color: #111;
   font-family: "FiraGO", sans-serif;
   font-feature-settings: "case" on;
+}
+
+.pricing-eyebrow.eng,
+.pricing-heading.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.pricing-heading.eng {
+  letter-spacing: -0.01em;
 }
 
 .pricing-grid {
@@ -110,6 +122,11 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
+.pricing-badge.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
 .pricing-col--featured .pricing-currency,
 .pricing-col--featured .pricing-from,
 .pricing-col--featured .pricing-tag {
@@ -154,16 +171,15 @@
   font-size: 18px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.4);
-  font-family: "FiraGO", sans-serif;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
 }
 
 .pricing-amount {
   font-size: 3.4rem;
   font-weight: 300;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   color: #111;
-  font-family: "FiraGO", sans-serif;
-  font-feature-settings: "case" on;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
 }
 
 .pricing-from {
@@ -172,6 +188,11 @@
   color: rgba(0, 0, 0, 0.4);
   font-family: "FiraGO", sans-serif;
   font-feature-settings: "case" on;
+}
+
+.pricing-from.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
 }
 
 .pricing-title {
@@ -184,12 +205,22 @@
   font-feature-settings: "case" on;
 }
 
+.pricing-title.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
 .pricing-tag {
   margin: 0 0 24px;
   font-size: 13px;
   color: rgba(0, 0, 0, 0.4);
   font-family: "FiraGO", sans-serif;
   font-feature-settings: "case" on;
+}
+
+.pricing-tag.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
 }
 
 .pricing-features {
@@ -214,6 +245,11 @@
   font-family: "FiraGO", sans-serif;
   font-feature-settings: "case" on;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.pricing-features.eng li {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
 }
 
 .pricing-features li:last-child {
@@ -245,6 +281,11 @@
   transition: border-color 300ms ease, gap 300ms ease;
 }
 
+.pricing-cta.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
 .pricing-cta:hover {
   border-color: #111;
   gap: 14px;
@@ -260,16 +301,16 @@
   font-feature-settings: "case" on;
 }
 
+.pricing-note.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
 
 .pricing-number {
-  font-family: "FiraGO", sans-serif;
-  font-feature-settings: "case" on;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-}
-
-.pricing-number:nth-child(2) {
   color: #111;
 }
 
@@ -377,15 +418,6 @@
 
 [data-theme="dark"] .pricing-note {
   color: rgba(255, 255, 255, 0.4);
-}
-
-.pricing-number {
-  font-family: "FiraGO", sans-serif;
-  font-feature-settings: "case" on;
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #111;
 }
 
 /* featured card-ს მუქი ფონი აქვს (#111) ლაით თემაში — ნომერი უნდა გათეთრდეს */

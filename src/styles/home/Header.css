@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
+
 .app-shell {
   overflow-x: hidden;
   width: 100%;
@@ -476,6 +478,23 @@
   border-color: #fff;
 }
 
+.header-logo {
+  filter: brightness(0) invert(1);
+}
+
+/* English locale — Neue Montreal instead of FiraGO */
+.nav-link.eng,
+.products-col-label.eng,
+.products-col li a.eng,
+.mobile-accordion-summary.eng,
+.mobile-accordion-label.eng,
+.mobile-accordion-body a.eng,
+.mobile-link.eng,
+.mobile-menu-footer-label.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
 /* Responsive */
 @media (max-width: 880px) {
   .header-nav,
@@ -492,17 +511,4 @@
   .mobile-menu {
     display: none;
   }
-}
-@media (min-width: 881px) {
-  .header-logo {
-    filter: brightness(0) invert(1);
-  }
-}
-@media (min-width: 881px) {
-  .header-logo {
-    filter: brightness(0) invert(1);
-  }
-}
-.header-logo {
-  filter: brightness(0) invert(1);
 }

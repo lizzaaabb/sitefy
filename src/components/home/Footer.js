@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import '../../styles/home/Footer.css'
 import useProductColumns from './useProductColumns'
 
@@ -9,6 +9,8 @@ const logowhite = '/logo/logowhite.png'
 
 function Footer() {
     const t = useTranslations('Footer')
+    const locale = useLocale()
+    const localeClass = locale === 'ka' ? 'geo' : 'eng'
     const productColumns = useProductColumns()
 
     const footerCompanyLinks = [
@@ -26,7 +28,7 @@ function Footer() {
                 <div className="footer-main">
                     <div className="footer-brand">
                         <img src={logowhite} alt="sitefy logo" className="footer-logo" />
-                        <p className="footer-tagline">
+                        <p className={`footer-tagline ${localeClass}`}>
                             {t('tagline')}
                         </p>
 
@@ -54,29 +56,29 @@ function Footer() {
                     <div className="footer-columns">
                         {productColumns.map((col) => (
                             <div className="footer-col" key={col.label}>
-                                <h5 className="footer-col-label">{col.label}</h5>
+                                <h5 className={`footer-col-label ${localeClass}`}>{col.label}</h5>
                                 <ul>
                                     {col.items.map((item) => (
-                                        <li key={item.title}><a href={item.href}>{item.title}</a></li>
+                                        <li key={item.title}><a href={item.href} className={localeClass}>{item.title}</a></li>
                                     ))}
                                 </ul>
                             </div>
                         ))}
 
                         <div className="footer-col">
-                            <h5 className="footer-col-label">{t('company.label')}</h5>
+                            <h5 className={`footer-col-label ${localeClass}`}>{t('company.label')}</h5>
                             <ul>
                                 {footerCompanyLinks.map((link) => (
-                                    <li key={link.title}><a href={link.href}>{link.title}</a></li>
+                                    <li key={link.title}><a href={link.href} className={localeClass}>{link.title}</a></li>
                                 ))}
                             </ul>
                         </div>
 
                         <div className="footer-col">
-                            <h5 className="footer-col-label">{t('contact.label')}</h5>
+                            <h5 className={`footer-col-label ${localeClass}`}>{t('contact.label')}</h5>
                             <ul>
-                                <li><a href="mailto:info@sitefy.ge">info@sitefy.ge</a></li>
-                                <li><a href="tel:+995575755712">575 75 57 12</a></li>
+                                <li><a href="mailto:info@sitefy.ge" className={localeClass}>info@sitefy.ge</a></li>
+                                <li><a href="tel:+995575755712" className={localeClass}>575 75 57 12</a></li>
                             </ul>
                         </div>
                     </div>

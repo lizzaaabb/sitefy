@@ -1,4 +1,5 @@
 @import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
 
 .landing-hero-container {
   position: relative;
@@ -59,7 +60,25 @@
   margin: 0;
 }
 
-/* ---------- Pricing ---------- */
+.landing-hero-title.eng,
+.landing-hero-description.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.landing-hero-title.eng {
+  letter-spacing: -0.02em;
+}
+
+.landing-hero-description.eng {
+  letter-spacing: normal;
+}
+
+/* ---------- Pricing ----------
+   NOTE: these classes aren't rendered anywhere in the
+   LandingHero.jsx you sent me — flagging in case this is
+   leftover/dead CSS, or markup that still needs to be added
+   back to the component. Styled here for when/if it's used. */
 
 .landing-hero-pricing {
   display: inline-flex;
@@ -83,8 +102,7 @@
 }
 
 .landing-hero-price-value {
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -95,6 +113,10 @@
   font-family: 'FiraGO', sans-serif;
   font-size: 12.5px;
   color: rgba(255, 255, 255, 0.4);
+}
+
+.landing-hero-price-label.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
 }
 
 /* ---------- Scroll indicator (copied from ProjectsHero) ---------- */
@@ -112,8 +134,7 @@
 }
 
 .landing-hero-scroll-label {
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.28em;
@@ -223,6 +244,11 @@
   z-index: 0;
   transition: background-color 150ms ease-in-out;
   text-decoration: none;
+}
+
+.button1.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
 }
 
 .button1::before {

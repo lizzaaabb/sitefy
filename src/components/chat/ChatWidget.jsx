@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
+import { useLocale } from 'next-intl'
 import './ChatWidget.css'
 
 function getSessionId() {
@@ -13,7 +14,20 @@ function getSessionId() {
   return id
 }
 
+const text = {
+  close: { geo: 'დახურვა', eng: 'Close' },
+  openChat: { geo: 'ჩატის გახსნა', eng: 'Open chat' },
+  send: { geo: 'გაგზავნა', eng: 'Send' },
+  empty: { geo: 'დაგვიწერეთ, სიამოვნებით დაგეხმარებით', eng: "Send us a message, we'll be happy to help" },
+  placeholder: { geo: 'დაწერეთ შეტყობინება...', eng: 'Type a message...' },
+}
+
 function ChatWidget() {
+  const locale = useLocale()
+  const isGeo = locale === 'ka'
+  const localeClass = isGeo ? 'geo' : 'eng'
+  const t = (key) => (isGeo ? text[key].geo : text[key].eng)
+
   const [open, setOpen] = useState(false)
   const [sessionId, setSessionId] = useState(null)
   const [input, setInput] = useState('')
@@ -94,11 +108,11 @@ function ChatWidget() {
       {open && (
         <div className="chat-widget-panel">
         <div className="chat-widget-header">
-  <div className="chat-widget-status">
+  <div className={`chat-widget-status ${localeClass}`}>
     <span className="status-dot" />
     Online
   </div>
-  <button className="chat-widget-close" onClick={() => setOpen(false)} aria-label="დახურვა">
+  <button className="chat-widget-close" onClick={() => setOpen(false)} aria-label={t('close')}>
     <svg viewBox="0 0 24 24" width="15" height="15">
       <path
         d="M6 6L18 18M6 18L18 6"
@@ -113,15 +127,15 @@ function ChatWidget() {
 
           <div className="chat-widget-messages" ref={scrollRef}>
             {messages.length === 0 && (
-              <div className="chat-widget-empty">
+              <div className={`chat-widget-empty ${localeClass}`}>
                 <span className="chat-widget-empty-icon">👋</span>
-                დაგვიწერეთ, სიამოვნებით დაგეხმარებით
+                {t('empty')}
               </div>
             )}
             {messages.map((m, i) => (
               <div
                 key={i}
-                className={`chat-bubble ${m.sender === 'admin' ? 'chat-bubble-admin' : 'chat-bubble-user'}`}
+                className={`chat-bubble ${m.sender === 'admin' ? 'chat-bubble-admin' : 'chat-bubble-user'} ${localeClass}`}
               >
                 {m.text}
               </div>
@@ -132,15 +146,15 @@ function ChatWidget() {
             <div className="chat-input-wrap">
               <textarea
                 ref={textareaRef}
-                className="chat-input-textarea"
-                placeholder="დაწერეთ შეტყობინება..."
+                className={`chat-input-textarea ${localeClass}`}
+                placeholder={t('placeholder')}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 rows={1}
                 required
               />
-              <button type="submit" className="chat-send-btn" disabled={sending} aria-label="გაგზავნა">
+              <button type="submit" className="chat-send-btn" disabled={sending} aria-label={t('send')}>
                 <svg viewBox="0 0 512 512" width="15" height="15">
                   <path
                     fill="currentColor"
@@ -154,7 +168,7 @@ function ChatWidget() {
       )}
 
       {!open && (
-        <button className="chat-widget-toggle" onClick={() => setOpen(true)} aria-label="ჩატის გახსნა">
+        <button className="chat-widget-toggle" onClick={() => setOpen(true)} aria-label={t('openChat')}>
           <svg viewBox="0 0 24 24" width="22" height="22">
             <path
               d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"

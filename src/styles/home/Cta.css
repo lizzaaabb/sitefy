@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
+
 .cta-gold-container {
     padding: 60px 80px;
     background: #fff;
@@ -105,6 +107,16 @@
     font-feature-settings: "case" on;
 }
 
+.cta-gold-heading.eng,
+.cta-gold-desc.eng {
+    font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+    font-feature-settings: normal;
+}
+
+.cta-gold-heading.eng {
+    letter-spacing: -0.01em;
+}
+
 .cta-gold-buttons {
     position: relative;
     z-index: 1;
@@ -162,6 +174,12 @@
 .cta-gold-btn-secondary:hover {
     border-color: #fff;
     background: rgba(255, 255, 255, 0.08);
+}
+
+.cta-gold-btn-primary.eng,
+.cta-gold-btn-secondary.eng {
+    font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+    font-feature-settings: normal;
 }
 
 @media (max-width: 900px) {

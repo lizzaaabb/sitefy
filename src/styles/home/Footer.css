@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
+
 .footer-container {
     position: relative;
     background: #0a0a0a;
@@ -16,11 +18,10 @@
     bottom: -6vw;
     left: 50%;
     transform: translateX(-50%);
-    font-family: "FiraGO", sans-serif;
-    font-feature-settings: "case" on;
+    font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
     font-size: clamp(6rem, 18vw, 13rem);
     font-weight: 700;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.02em;
     line-height: 1;
     white-space: nowrap;
     color: transparent;
@@ -70,6 +71,11 @@
     color: rgba(255, 255, 255, 0.45);
 }
 
+.footer-tagline.eng {
+    font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+    font-feature-settings: normal;
+}
+
 .footer-columns {
     display: flex;
     flex-wrap: wrap;
@@ -89,6 +95,11 @@
     font-size: 13px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.35);
+}
+
+.footer-col-label.eng {
+    font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+    font-feature-settings: normal;
 }
 
 .footer-col ul {
@@ -114,6 +125,11 @@
     background-position: left bottom;
     background-repeat: no-repeat;
     transition: background-size 0.2s ease, color 0.2s ease;
+}
+
+.footer-col li a.eng {
+    font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+    font-feature-settings: normal;
 }
 
 .footer-col li a:hover {

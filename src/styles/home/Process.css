@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
+
 .process-container {
   padding: 60px 80px;
   background: #fff;
@@ -35,6 +37,16 @@
   color: #111;
   font-family: "FiraGO", sans-serif;
   font-feature-settings: "case" on;
+}
+
+.process-eyebrow.eng,
+.process-heading.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.process-heading.eng {
+  letter-spacing: -0.01em;
 }
 
 /* timeline */
@@ -166,7 +178,7 @@
 .process-number {
   display: block;
   margin-bottom: 14px;
-  font-family: "FiraGO", sans-serif;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-size: 13px;
   letter-spacing: 0.1em;
   color: rgba(0, 0, 0, 0.3);
@@ -189,6 +201,12 @@
   color: rgba(0, 0, 0, 0.55);
   font-family: "FiraGO", sans-serif;
   font-feature-settings: "case" on;
+}
+
+.process-title.eng,
+.process-desc.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
 }
 
 /* mobile — single column, line moves to the left */

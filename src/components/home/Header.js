@@ -14,6 +14,8 @@ const logowhite = '/logo/logowhite.png'
 function Header() {
   const t = useTranslations('Header')
   const locale = useLocale()
+  const isGeo = locale === 'ka'
+  const localeClass = isGeo ? 'geo' : 'eng'
   const router = useRouter()
   const pathname = usePathname()
   const productColumns = useProductColumns()
@@ -87,7 +89,7 @@ function Header() {
             onMouseEnter={openProducts}
             onMouseLeave={closeProductsDelayed}
           >
-            <button className={`nav-link ${productsOpen ? 'active' : ''}`}>
+            <button className={`nav-link ${localeClass} ${productsOpen ? 'active' : ''}`}>
               {t('nav.products')}
               <svg className="chevron" width="11" height="11" viewBox="0 0 12 12" fill="none">
                 <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
@@ -95,8 +97,8 @@ function Header() {
             </button>
           </div>
 
-          <Link href="/projects" className="nav-link nav-link-plain">{t('nav.work')}</Link>
-          <a href="#pricing" className="nav-link nav-link-plain">{t('nav.pricing')}</a>
+          <Link href="/projects" className={`nav-link nav-link-plain ${localeClass}`}>{t('nav.work')}</Link>
+          <a href="#pricing" className={`nav-link nav-link-plain ${localeClass}`}>{t('nav.pricing')}</a>
         </nav>
 
         <div className="header-actions">
@@ -149,11 +151,11 @@ function Header() {
         <div className="products-panel-inner">
           {productColumns.map((col) => (
             <div className="products-col" key={col.label}>
-              <h5 className="products-col-label">{col.label}</h5>
+              <h5 className={`products-col-label ${localeClass}`}>{col.label}</h5>
               <ul>
                 {col.items.map((item) => (
                   <li key={item.title}>
-                    <a href={item.href}>{item.title}</a>
+                    <a href={item.href} className={localeClass}>{item.title}</a>
                   </li>
                 ))}
               </ul>
@@ -169,7 +171,7 @@ function Header() {
           <div className="mobile-accordion">
             <button
               type="button"
-              className={`mobile-accordion-summary ${mobileProductsOpen ? 'open' : ''}`}
+              className={`mobile-accordion-summary ${localeClass} ${mobileProductsOpen ? 'open' : ''}`}
               onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
               aria-expanded={mobileProductsOpen}
             >
@@ -183,9 +185,9 @@ function Header() {
               <div className="mobile-accordion-body">
                 {productColumns.map((col) => (
                   <div key={col.label} className="mobile-accordion-group">
-                    <span className="mobile-accordion-label">{col.label}</span>
+                    <span className={`mobile-accordion-label ${localeClass}`}>{col.label}</span>
                     {col.items.map((item) => (
-                      <a key={item.title} href={item.href} onClick={() => setMobileOpen(false)}>
+                      <a key={item.title} href={item.href} className={localeClass} onClick={() => setMobileOpen(false)}>
                         {item.title}
                       </a>
                     ))}
@@ -195,11 +197,11 @@ function Header() {
             </div>
           </div>
 
-          <Link href="/projects" className="mobile-link" onClick={() => setMobileOpen(false)}>{t('nav.work')}</Link>
-          <a href="#pricing" className="mobile-link" onClick={() => setMobileOpen(false)}>{t('nav.pricing')}</a>
+          <Link href="/projects" className={`mobile-link ${localeClass}`} onClick={() => setMobileOpen(false)}>{t('nav.work')}</Link>
+          <a href="#pricing" className={`mobile-link ${localeClass}`} onClick={() => setMobileOpen(false)}>{t('nav.pricing')}</a>
 
           <div className="mobile-menu-footer">
-            <span className="mobile-menu-footer-label">{t('langLabel')}</span>
+            <span className={`mobile-menu-footer-label ${localeClass}`}>{t('langLabel')}</span>
             <div className="mobile-lang-options">
               <button
                 className={`mobile-lang-btn ${locale === 'ka' ? 'selected' : ''}`}

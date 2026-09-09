@@ -1,4 +1,5 @@
 @import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
 
 .corporate-content-container {
   --bg: #ffffff;
@@ -31,7 +32,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'FiraGO', sans-serif;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-weight: 700;
   font-size: 44vw;
   line-height: 1;
@@ -84,6 +85,23 @@
   max-width: 560px;
 }
 
+.corporate-content-heading.eng,
+.corporate-content-description.eng,
+.corporate-content-nav-title.eng,
+.corporate-content-panel-title.eng,
+.corporate-content-panel-description.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.corporate-content-heading.eng {
+  letter-spacing: -0.01em;
+}
+
+.corporate-content-description.eng {
+  letter-spacing: normal;
+}
+
 /* ---------- Split layout (desktop) — printed table-of-contents ---------- */
 
 .corporate-content-split {
@@ -127,7 +145,7 @@
   flex-shrink: 0;
   min-width: 26px;
   text-align: right;
-  font-family: 'FiraGO', sans-serif;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-size: 13px;
   letter-spacing: 0.04em;
   color: var(--text-faint);
@@ -209,6 +227,10 @@
   line-height: 1.8;
   color: var(--text-muted);
   margin: 0;
+}
+
+.corporate-content-panel-title.eng {
+  letter-spacing: -0.01em;
 }
 
 @keyframes corporate-content-fade {

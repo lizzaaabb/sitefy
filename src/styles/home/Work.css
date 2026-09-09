@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
+
 .work-container {
   padding: 160px 80px;
   background: #fff;
@@ -16,8 +18,7 @@
 
 .work-eyebrow {
   margin: 0 0 20px;
-  font-family: "FiraGO", sans-serif;
-  font-feature-settings: "case" on;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -34,6 +35,12 @@
   color: #111;
   font-family: "FiraGO", sans-serif;
   font-feature-settings: "case" on;
+}
+
+.work-heading.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+  letter-spacing: -0.01em;
 }
 
 .work-list {
@@ -58,7 +65,7 @@
 }
 
 .work-number {
-  font-family: "FiraGO", sans-serif;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-size: 13px;
   letter-spacing: 0.04em;
   color: rgba(0, 0, 0, 0.3);
@@ -69,8 +76,7 @@
   font-weight: 500;
   letter-spacing: -0.01em;
   color: #111;
-  font-family: "FiraGO", sans-serif;
-  font-feature-settings: "case" on;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   transition: color 300ms ease;
 }
 
@@ -86,10 +92,15 @@
   white-space: nowrap;
 }
 
+.work-tag.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
 .work-year {
   font-size: 13px;
   color: rgba(0, 0, 0, 0.3);
-  font-family: "FiraGO", sans-serif;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
 }
 
 .work-arrow {
@@ -175,10 +186,6 @@
   color: #fff;
 }
 
-
-
-
-
 .work-footer {
   display: flex;
   justify-content: center;
@@ -202,6 +209,11 @@
   overflow: hidden;
   z-index: 0;
   transition: color 400ms ease, border-color 400ms ease;
+}
+
+.work-cta-text.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
 }
 
 .work-cta::before {

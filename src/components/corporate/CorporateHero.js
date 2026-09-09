@@ -1,20 +1,33 @@
 'use client'
 
 import React from 'react'
+import { useLocale } from 'next-intl'
 import '../../styles/corporate/CorporateHero.css'
 
 import Beams from '../background/Beams'
 
 const content = {
-  title: "კორპორატიული ვებსაიტის დამზადება",
+  titleGeo: "კორპორატიული ვებსაიტის დამზადება",
+  titleEng: "Corporate Website Development",
 
-  description:
+  descriptionGeo:
     "ყველაფერი, რაც მომხმარებელმა თქვენი კომპანიის შესახებ უნდა იცოდეს — ერთ თანამედროვე და სრულფასოვან ვებსაიტში.",
+  descriptionEng:
+    "Everything visitors need to know about your company — in one modern, fully-featured website.",
 
-  cta: "კორპორატიული ვებსაიტის შეკვეთა →",
+  ctaGeo: "კორპორატიული ვებსაიტის შეკვეთა →",
+  ctaEng: "Order Your Corporate Website →",
 };
 
 function CorporateHero() {
+  const locale = useLocale()
+  const isGeo = locale === 'ka'
+  const localeClass = isGeo ? 'geo' : 'eng'
+
+  const title = isGeo ? content.titleGeo : content.titleEng
+  const description = isGeo ? content.descriptionGeo : content.descriptionEng
+  const cta = isGeo ? content.ctaGeo : content.ctaEng
+
   return (
     <div className="corporate-hero-container">
       <div className="orb-bg">
@@ -33,13 +46,13 @@ function CorporateHero() {
       </div>
 
       <div className="corporate-hero-content">
-        <h1 className="corporate-hero-title">{content.title}</h1>
+        <h1 className={`corporate-hero-title ${localeClass}`}>{title}</h1>
 
-        <p className="corporate-hero-description">{content.description}</p>
+        <p className={`corporate-hero-description ${localeClass}`}>{description}</p>
 
         <div className="buttons-container">
-          <a href="#order" className="button1">
-            {content.cta}
+          <a href="#order" className={`button1 ${localeClass}`}>
+            {cta}
           </a>
         </div>
       </div>
