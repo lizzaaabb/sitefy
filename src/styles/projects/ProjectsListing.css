@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
+
 .pl-container {
   padding: 160px 80px;
   background: #fff;
@@ -146,8 +148,7 @@
 }
 
 .pl-index {
-  font-family: "FiraGO", sans-serif;
-  font-feature-settings: "case" on;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-size: 12px;
   letter-spacing: 0.1em;
   color: rgba(0, 0, 0, 0.35);
@@ -159,8 +160,7 @@
   font-weight: 500;
   letter-spacing: -0.01em;
   color: #111;
-  font-family: "FiraGO", sans-serif;
-  font-feature-settings: "case" on;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
 }
 
 .pl-description {
@@ -177,8 +177,7 @@
   font-size: 12.5px;
   letter-spacing: 0.02em;
   color: rgba(0, 0, 0, 0.4);
-  font-family: "FiraGO", sans-serif;
-  font-feature-settings: "case" on;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
 }
 
 /* ---------- GitHub icon link ---------- */

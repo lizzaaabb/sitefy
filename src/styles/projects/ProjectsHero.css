@@ -1,4 +1,5 @@
 @import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
 
 .projects-hero-container {
   position: relative;
@@ -46,6 +47,11 @@
   color: rgba(255, 255, 255, 0.55);
 }
 
+.projects-hero-kicker .eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
 .projects-hero-kicker-line {
   width: 32px;
   height: 1px;
@@ -66,6 +72,12 @@
   color: #fff;
 }
 
+.projects-hero-title.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+  letter-spacing: -0.01em;
+}
+
 /* ---------- Scroll indicator ---------- */
 
 .projects-hero-scroll {
@@ -81,8 +93,7 @@
 }
 
 .projects-hero-scroll-label {
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.28em;

@@ -85,6 +85,15 @@ const projects = [
     liveUrl: 'https://builde.ge/',
     githubUrl: 'https://github.com/',
   },
+  {
+    id: '10',
+    name: 'Motion Concept',
+    description: 'ივენთების კომპანიის საიტი',
+    tag: 'Events · Next.js',
+    image: 'https://placehold.co/1200x900/f4f3f1/111111?text=Motion+Concept',
+    liveUrl: 'https://motionconcept.ge/',
+    githubUrl: 'https://github.com/',
+  },
 ]
 
 function GithubIcon() {
