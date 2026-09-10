@@ -4,36 +4,29 @@
 .tourism-pricing-container {
   --bg: #ffffff;
   --text: #111111;
-  --text-muted: rgba(0, 0, 0, 0.62);
-  --text-faint: rgba(0, 0, 0, 0.4);
-  --border: rgba(0, 0, 0, 0.08);
-  --surface: #fbfbfa;
+  --text-muted: rgba(0, 0, 0, 0.6);
+  --text-faint: rgba(0, 0, 0, 0.35);
+  --border: rgba(0, 0, 0, 0.1);
   --gold: #c9a05c;
-  --cta-bg: #111111;
-  --cta-text: #ffffff;
-  --cta-bg-hover: #262626;
+  --gold-tint: rgba(201, 160, 92, 0.12);
 
   position: relative;
   background: var(--bg);
   color: var(--text);
-  padding: 20px 60px;
+  padding: 140px 60px 100px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
 [data-theme='dark'] .tourism-pricing-container {
   --bg: #000000;
   --text: #ffffff;
-  --text-muted: rgba(255, 255, 255, 0.62);
-  --text-faint: rgba(255, 255, 255, 0.4);
-  --border: rgba(255, 255, 255, 0.1);
-  --surface: #0c0c0c;
-  --cta-bg: #ffffff;
-  --cta-text: #000000;
-  --cta-bg-hover: #d9d9d9;
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-faint: rgba(255, 255, 255, 0.35);
+  --border: rgba(255, 255, 255, 0.12);
 }
 
 .tourism-pricing-header {
-  margin-bottom: 72px;
+  margin-bottom: 48px;
   text-align: center;
 }
 
@@ -55,210 +48,277 @@
   letter-spacing: -0.01em;
 }
 
-.tourism-pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1180px;
-  margin: 0 auto;
-  align-items: stretch;
-}
+/* ---------- Segmented switch ---------- */
 
-.tourism-pricing-col {
+.tp-switch {
   position: relative;
   display: flex;
-  flex-direction: column;
-  padding: 36px 30px;
-  background: var(--surface);
-  border-radius: 18px;
-  transition: box-shadow 400ms ease, transform 400ms ease, background 400ms ease;
-}
-
-.tourism-pricing-col:hover {
-  background: var(--bg);
-  box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.22);
-  transform: translateY(-3px);
-}
-
-[data-theme='dark'] .tourism-pricing-col:hover {
-  box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.7);
-}
-
-.tourism-pricing-accent {
-  display: block;
-  width: 36px;
-  height: 2px;
-  background: var(--gold);
-  margin-bottom: 24px;
-}
-
-.tourism-pricing-price {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-size: 2.2rem;
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
-
-.tourism-pricing-note {
-  margin: 6px 0 22px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 12px;
-  color: var(--text-faint);
-}
-
-.tourism-pricing-title {
-  margin: 0 0 8px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-
-.tourism-pricing-description {
-  margin: 0 0 22px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 13.5px;
-  line-height: 1.55;
-  color: var(--text-muted);
-}
-
-.tourism-pricing-note.eng,
-.tourism-pricing-title.eng,
-.tourism-pricing-description.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-feature-settings: normal;
-}
-
-.tourism-pricing-features {
-  list-style: none;
-  margin: 0;
-  padding: 18px 0 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--border);
-}
-
-.tourism-pricing-features li {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  padding: 8px 0;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 12.5px;
-  line-height: 1.4;
-  color: var(--text-muted);
-  border-bottom: 1px solid var(--border);
-}
-
-.tourism-pricing-features.eng li {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-feature-settings: normal;
-}
-
-.tourism-pricing-features li:last-child {
-  border-bottom: none;
-}
-
-.tourism-pricing-feature-index {
-  flex-shrink: 0;
-  width: 5px;
-  height: 5px;
-  margin-top: 5px;
-  border-radius: 50%;
-  background: var(--gold);
-  opacity: 0.8;
-}
-
-.tourism-pricing-cta {
-  align-self: flex-start;
-  margin-top: 24px;
-  display: inline-flex;
-  align-items: center;
   justify-content: center;
-  gap: 8px;
-  height: 38px;
-  padding: 0 18px;
-  border-radius: 999px;
-  background-color: var(--cta-bg);
-  color: var(--cta-text);
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-weight: 700;
-  font-size: 13.5px;
-  text-decoration: none;
-  position: relative;
-  z-index: 0;
-  transition: background-color 150ms ease-in-out;
+  gap: 40px;
+  max-width: 720px;
+  margin: 0 auto 56px;
+  padding-bottom: 16px;
 }
 
-.tourism-pricing-cta.eng {
+.tp-switch-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-faint);
+  transition: color 300ms ease;
+}
+
+.tp-switch-btn.eng {
   font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-feature-settings: normal;
 }
 
-.tourism-pricing-cta::before {
-  content: '';
+.tp-switch-btn.is-active {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.tp-switch-track {
   position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  border-radius: 999px;
-  background: linear-gradient(45deg, #8b6914, #b8860b, #d4af37, #e8c874, #f4e4bc, #d4af37, #b8860b, #8b6914);
-  background-size: 400%;
-  filter: blur(6px);
-  z-index: -2;
-  opacity: 0;
-  animation: tourism-pricing-cta-glow 12s linear infinite;
-  transition: opacity 300ms ease-in-out;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
 }
 
-.tourism-pricing-cta::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  background-color: var(--cta-bg);
-  z-index: -1;
+.tp-switch-fill {
+  display: block;
+  height: 100%;
+  background: var(--gold);
+  transition: width 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.tourism-pricing-cta:hover::before {
-  opacity: 1;
+/* ---------- Stage ---------- */
+
+.tp-stage {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 72px;
+  align-items: start;
+  animation: tp-stage-in 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.tourism-pricing-cta:hover {
-  background-color: var(--cta-bg-hover);
-}
-
-.tourism-pricing-cta:active {
-  transform: translateY(1px);
-}
-
-@keyframes tourism-pricing-cta-glow {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
+@keyframes tp-stage-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tourism-pricing-cta::before {
+  .tp-stage {
     animation: none;
   }
+
+  .tp-switch-fill {
+    transition: none;
+  }
 }
+
+.tp-stage-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: sticky;
+  top: 40px;
+}
+
+.tp-stage-note {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--gold-tint);
+  color: var(--gold);
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.tp-stage-note.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.tp-stage-price {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  line-height: 1;
+}
+
+.tp-stage-currency {
+  margin-top: 0.5rem;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--text-faint);
+}
+
+.tp-stage-number {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(3.4rem, 2.6rem + 3vw, 5.2rem);
+  font-weight: 200;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.tp-stage-title {
+  margin: 10px 0 14px;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tp-stage-title.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.tp-stage-desc {
+  margin: 0 0 28px;
+  max-width: 340px;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.tp-stage-desc.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.tp-stage-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, #ffffff26, #ffffff0d),
+    linear-gradient(45deg,
+      gray 0%,
+      #645c45 15%,
+      #857c55 30%,
+      #9d8c5d 50%,
+      #756842 65%,
+      #584d32 85%,
+      #707070 100%);
+  color: #fff;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-weight: 700;
+  font-size: 14.5px;
+  text-decoration: none;
+  transition: filter 300ms ease;
+}
+
+.tp-stage-cta.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.tp-stage-cta:hover {
+  filter: brightness(1.12);
+}
+
+/* ---------- Feature groups ---------- */
+
+.tp-stage-right {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 6px;
+}
+
+.tp-feature-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tp-feature-group-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.tp-feature-group-label.is-included {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--gold-tint);
+  color: var(--gold);
+}
+
+.tp-feature-group-label.is-included svg {
+  width: 11px;
+  height: 11px;
+}
+
+.tp-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 20px;
+}
+
+.tp-feature-item {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.tp-feature-item.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.tp-feature-dot {
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+/* ---------- Language addon ---------- */
 
 .tourism-pricing-addon {
   display: flex;
   align-items: center;
   gap: 20px;
-  max-width: 1180px;
-  margin: 32px auto 0;
+  max-width: 1080px;
+  margin: 64px auto 0;
   padding: 22px 30px;
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -294,6 +354,8 @@
   font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-feature-settings: normal;
 }
+
+/* ---------- Additional features ---------- */
 
 .tourism-pricing-extra {
   max-width: 920px;
@@ -349,18 +411,38 @@
   font-feature-settings: normal;
 }
 
+/* ---------- Responsive ---------- */
+
 @media (max-width: 900px) {
   .tourism-pricing-container {
-    padding: 96px 24px;
+    padding: 96px 24px 80px;
   }
 
-  .tourism-pricing-grid {
+  .tp-switch {
+    gap: 22px;
+  }
+
+  .tp-switch-btn {
+    font-size: 13px;
+  }
+
+  .tp-stage {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 40px;
   }
 
-  .tourism-pricing-col:hover {
-    transform: none;
+  .tp-stage-left {
+    position: static;
+    align-items: center;
+    text-align: center;
+  }
+
+  .tp-stage-desc {
+    max-width: 100%;
+  }
+
+  .tp-feature-grid {
+    grid-template-columns: 1fr;
   }
 
   .tourism-pricing-addon {
@@ -368,15 +450,5 @@
     align-items: flex-start;
     text-align: left;
     gap: 10px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .tourism-pricing-col {
-    transition: none;
-  }
-
-  .tourism-pricing-col:hover {
-    transform: none;
   }
 }

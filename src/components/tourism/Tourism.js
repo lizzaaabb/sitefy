@@ -10,7 +10,6 @@ function Tourism() {
   return (
     <div>
         <TourismHero />
-        <TourismContent />
         <TourismPricing />
         <Tourismcta/>
       
