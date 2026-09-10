@@ -15,7 +15,7 @@ export default function useProductColumns() {
       label: t('columns.specialized.label'),
       items: [
         { title: t('columns.specialized.items.dealer'), href: '#' },
-        { title: t('columns.specialized.items.tourism'), href: '#' },
+        { title: t('columns.specialized.items.tourism'), href: '/tourism' },
         { title: t('columns.specialized.items.realEstate'), href: '#' },
       ],
     },
