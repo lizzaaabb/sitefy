@@ -16,6 +16,7 @@ const content = {
   sections: [
     {
       region: "catalog",
+      path: "/shop",
       titleGeo: "პროდუქტების კატალოგი",
       titleEng: "Product Catalog",
       descriptionGeo:
@@ -25,6 +26,7 @@ const content = {
     },
     {
       region: "filters",
+      path: "/shop?filter=on",
       titleGeo: "ფილტრები და ძებნა",
       titleEng: "Filters & Search",
       descriptionGeo:
@@ -34,6 +36,7 @@ const content = {
     },
     {
       region: "cart",
+      path: "/cart",
       titleGeo: "შეკვეთის სისტემა",
       titleEng: "Ordering System",
       descriptionGeo:
@@ -43,6 +46,7 @@ const content = {
     },
     {
       region: "admin",
+      path: "/admin",
       titleGeo: "ადმინ პანელი",
       titleEng: "Admin Panel",
       descriptionGeo:
@@ -52,6 +56,7 @@ const content = {
     },
     {
       region: "payment",
+      path: "/checkout",
       titleGeo: "გადახდის სისტემა",
       titleEng: "Payment System",
       descriptionGeo:
@@ -61,6 +66,7 @@ const content = {
     },
     {
       region: "account",
+      path: "/account",
       titleGeo: "მომხმარებლის პროფილი",
       titleEng: "Customer Accounts",
       descriptionGeo:
@@ -70,6 +76,7 @@ const content = {
     },
     {
       region: "footer",
+      path: "/contact",
       titleGeo: "საკონტაქტო ინფორმაცია",
       titleEng: "Contact Information",
       descriptionGeo:
@@ -138,13 +145,21 @@ function PlusIcon() {
   )
 }
 
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 const products = [
-  { nameGeo: 'სმარტფონი', nameEng: 'Smartphone', price: '₾1200' },
-  { nameGeo: 'ყურსასმენი', nameEng: 'Headphones', price: '₾180' },
-  { nameGeo: 'ლეპტოპი', nameEng: 'Laptop', price: '₾2400' },
-  { nameGeo: 'სმარტ საათი', nameEng: 'Smartwatch', price: '₾350' },
-  { nameGeo: 'კამერა', nameEng: 'Camera', price: '₾890' },
-  { nameGeo: 'დინამიკი', nameEng: 'Speaker', price: '₾145' },
+  { nameGeo: 'სმარტფონი', nameEng: 'Smartphone', price: '₾1200', swatch: 1 },
+  { nameGeo: 'ყურსასმენი', nameEng: 'Headphones', price: '₾180', swatch: 2 },
+  { nameGeo: 'ლეპტოპი', nameEng: 'Laptop', price: '₾2400', swatch: 3 },
+  { nameGeo: 'სმარტ საათი', nameEng: 'Smartwatch', price: '₾350', swatch: 4 },
+  { nameGeo: 'კამერა', nameEng: 'Camera', price: '₾890', swatch: 5 },
+  { nameGeo: 'დინამიკი', nameEng: 'Speaker', price: '₾145', swatch: 6 },
 ]
 
 function OnlineShopContent() {
@@ -153,12 +168,14 @@ function OnlineShopContent() {
   const localeClass = isGeo ? 'geo' : 'eng'
 
   const [active, setActive] = useState(0)
-  const activeRegion = content.sections[active].region
+  const activeSection = content.sections[active]
+  const region = activeSection.region
 
   const title = isGeo ? content.titleGeo : content.titleEng
   const description = isGeo ? content.descriptionGeo : content.descriptionEng
 
-  const hl = (region) => `online-shop-mockup-hl${activeRegion === region ? ' is-active' : ''}`
+  const iconCls = (r) => `online-shop-mockup-icon${region === r ? ' is-active' : ''}`
+  const name = (p) => (isGeo ? p.nameGeo : p.nameEng)
 
   return (
     <section className="online-shop-content-container">
@@ -177,7 +194,6 @@ function OnlineShopContent() {
                 type="button"
                 className={`online-shop-content-nav-item${i === active ? ' is-active' : ''}`}
                 onClick={() => setActive(i)}
-                onMouseEnter={() => setActive(i)}
               >
                 <span className="online-shop-content-nav-index">{pad(i + 1)}</span>
                 <span className={`online-shop-content-nav-title ${localeClass}`}>{sectionTitle}</span>
@@ -193,59 +209,201 @@ function OnlineShopContent() {
               <span className="online-shop-mockup-dot" />
               <span className="online-shop-mockup-dot" />
               <span className="online-shop-mockup-dot" />
-              <span className="online-shop-mockup-url">yourstore.ge</span>
+              <span className="online-shop-mockup-url" key={`url-${region}`}>
+                yourstore.ge{activeSection.path}
+              </span>
             </div>
 
             <div className="online-shop-mockup-topbar">
               <span className="online-shop-mockup-logo">SHOP</span>
-
-              <div className={hl('filters')}>
-                <span className="online-shop-mockup-search">
-                  <SearchIcon />
-                  <span className="online-shop-mockup-search-line" />
-                </span>
-              </div>
-
+              <span className="online-shop-mockup-search">
+                <SearchIcon />
+                <span className="online-shop-mockup-search-line" />
+              </span>
               <div className="online-shop-mockup-icons">
-                <span className={hl('account')}><UserIcon /></span>
-                <span className={hl('cart')}><CartIcon /></span>
-                <span className={hl('payment')}><CardIcon /></span>
-                <span className={hl('admin')}><GearIcon /></span>
+                <span className={iconCls('account')}><UserIcon /></span>
+                <span className={iconCls('cart')}><CartIcon /></span>
+                <span className={iconCls('payment')}><CardIcon /></span>
+                <span className={iconCls('admin')}><GearIcon /></span>
               </div>
             </div>
 
-            <div className="online-shop-mockup-body">
-              <div className={`online-shop-mockup-sidebar ${hl('filters')}`}>
-                <span className="online-shop-mockup-sidebar-line long" />
-                <span className="online-shop-mockup-sidebar-line" />
-                <span className="online-shop-mockup-sidebar-line" />
-                <span className="online-shop-mockup-sidebar-line short" />
-                <span className="online-shop-mockup-sidebar-line" />
-              </div>
+            <div className="online-shop-mockup-screen" key={region}>
+              {region === 'catalog' && (
+                <div className="online-shop-mockup-body">
+                  <div className="online-shop-mockup-sidebar">
+                    <span className="online-shop-mockup-sidebar-line long" />
+                    <span className="online-shop-mockup-sidebar-line" />
+                    <span className="online-shop-mockup-sidebar-line" />
+                    <span className="online-shop-mockup-sidebar-line short" />
+                  </div>
+                  <div className="online-shop-mockup-grid">
+                    {products.map((p) => (
+                      <div className="online-shop-mockup-card" key={p.nameGeo}>
+                        <span className={`online-shop-mockup-card-image swatch-${p.swatch}`} />
+                        <span className={`online-shop-mockup-card-name ${localeClass}`}>{name(p)}</span>
+                        <span className="online-shop-mockup-card-price">{p.price}</span>
+                        <span className="online-shop-mockup-card-add"><PlusIcon /></span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-              <div className={`online-shop-mockup-grid ${hl('catalog')}`}>
-                {products.map((product, i) => (
-                  <div className="online-shop-mockup-card" key={product.nameGeo}>
-                    <span className={`online-shop-mockup-card-image swatch-${(i % 6) + 1}`} />
-                    <span className={`online-shop-mockup-card-name ${localeClass}`}>
-                      {isGeo ? product.nameGeo : product.nameEng}
+              {region === 'filters' && (
+                <div className="online-shop-mockup-body">
+                  <div className="online-shop-mockup-sidebar wide">
+                    {['ფასი', 'კატეგორია', 'ზომა', 'ფერი'].map((label, i) => (
+                      <div className="online-shop-mockup-filter-group" key={label}>
+                        <span className={`online-shop-mockup-sidebar-line ${i === 0 ? 'long' : ''}`} />
+                        <span className="online-shop-mockup-checkbox-row">
+                          <span className="online-shop-mockup-checkbox is-checked"><CheckIcon /></span>
+                          <span className="online-shop-mockup-sidebar-line short" />
+                        </span>
+                        <span className="online-shop-mockup-checkbox-row">
+                          <span className="online-shop-mockup-checkbox" />
+                          <span className="online-shop-mockup-sidebar-line short" />
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="online-shop-mockup-grid narrow">
+                    {products.slice(0, 4).map((p) => (
+                      <div className="online-shop-mockup-card" key={p.nameGeo}>
+                        <span className={`online-shop-mockup-card-image swatch-${p.swatch}`} />
+                        <span className={`online-shop-mockup-card-name ${localeClass}`}>{name(p)}</span>
+                        <span className="online-shop-mockup-card-price">{p.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {region === 'cart' && (
+                <div className="online-shop-mockup-cart">
+                  {products.slice(0, 3).map((p) => (
+                    <div className="online-shop-mockup-cart-row" key={p.nameGeo}>
+                      <span className={`online-shop-mockup-card-image small swatch-${p.swatch}`} />
+                      <div className="online-shop-mockup-cart-info">
+                        <span className={`online-shop-mockup-card-name ${localeClass}`}>{name(p)}</span>
+                        <span className="online-shop-mockup-sidebar-line short" />
+                      </div>
+                      <span className="online-shop-mockup-card-price">{p.price}</span>
+                    </div>
+                  ))}
+                  <div className="online-shop-mockup-cart-total">
+                    <span className={`online-shop-mockup-total-label ${localeClass}`}>
+                      {isGeo ? 'ჯამი' : 'Total'}
                     </span>
-                    <span className="online-shop-mockup-card-price">{product.price}</span>
-                    <span className={`online-shop-mockup-card-add ${hl('cart')}`}>
-                      <PlusIcon />
+                    <span className="online-shop-mockup-total-price">₾1,730</span>
+                  </div>
+                  <span className={`online-shop-mockup-cta-btn ${localeClass}`}>
+                    {isGeo ? 'შეკვეთის გაფორმება' : 'Checkout'}
+                  </span>
+                </div>
+              )}
+
+              {region === 'admin' && (
+                <div className="online-shop-mockup-admin">
+                  <div className="online-shop-mockup-stats">
+                    {[
+                      { labelGeo: 'შეკვეთები', labelEng: 'Orders', value: '128' },
+                      { labelGeo: 'შემოსავალი', labelEng: 'Revenue', value: '₾24.6k' },
+                      { labelGeo: 'პროდუქტები', labelEng: 'Products', value: '64' },
+                    ].map((stat) => (
+                      <div className="online-shop-mockup-stat" key={stat.labelGeo}>
+                        <span className={`online-shop-mockup-stat-label ${localeClass}`}>
+                          {isGeo ? stat.labelGeo : stat.labelEng}
+                        </span>
+                        <span className="online-shop-mockup-stat-value">{stat.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="online-shop-mockup-table">
+                    {products.slice(0, 4).map((p) => (
+                      <div className="online-shop-mockup-table-row" key={p.nameGeo}>
+                        <span className={`online-shop-mockup-card-image small swatch-${p.swatch}`} />
+                        <span className={`online-shop-mockup-card-name ${localeClass}`}>{name(p)}</span>
+                        <span className="online-shop-mockup-sidebar-line short" />
+                        <span className="online-shop-mockup-card-price">{p.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {region === 'payment' && (
+                <div className="online-shop-mockup-checkout">
+                  <div className="online-shop-mockup-form">
+                    <span className="online-shop-mockup-field-label" />
+                    <span className="online-shop-mockup-field">
+                      <CardIcon />
+                      <span className="online-shop-mockup-sidebar-line" />
+                    </span>
+                    <div className="online-shop-mockup-field-row">
+                      <span className="online-shop-mockup-field" />
+                      <span className="online-shop-mockup-field small" />
+                    </div>
+                    <span className="online-shop-mockup-field" />
+                    <span className={`online-shop-mockup-cta-btn full ${localeClass}`}>
+                      {isGeo ? 'გადახდა — ₾1,730' : 'Pay — ₾1,730'}
                     </span>
                   </div>
-                ))}
-              </div>
-            </div>
+                  <div className="online-shop-mockup-summary">
+                    <span className={`online-shop-mockup-total-label ${localeClass}`}>
+                      {isGeo ? 'თქვენი შეკვეთა' : 'Your order'}
+                    </span>
+                    {products.slice(0, 2).map((p) => (
+                      <div className="online-shop-mockup-summary-row" key={p.nameGeo}>
+                        <span className={`online-shop-mockup-card-name ${localeClass}`}>{name(p)}</span>
+                        <span className="online-shop-mockup-card-price">{p.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-            <div className={`online-shop-mockup-footer ${hl('footer')}`}>
-              <span className="online-shop-mockup-footer-line" />
+              {region === 'account' && (
+                <div className="online-shop-mockup-account">
+                  <div className="online-shop-mockup-account-head">
+                    <span className="online-shop-mockup-avatar"><UserIcon /></span>
+                    <div>
+                      <span className="online-shop-mockup-sidebar-line long" />
+                      <span className="online-shop-mockup-sidebar-line short" />
+                    </div>
+                  </div>
+                  <span className={`online-shop-mockup-total-label ${localeClass}`}>
+                    {isGeo ? 'შეკვეთების ისტორია' : 'Order history'}
+                  </span>
+                  {[1, 2].map((n) => (
+                    <div className="online-shop-mockup-order-row" key={n}>
+                      <span className="online-shop-mockup-sidebar-line short" />
+                      <span className="online-shop-mockup-status-pill">
+                        <CheckIcon />
+                      </span>
+                      <span className="online-shop-mockup-card-price">₾{n === 1 ? '350' : '890'}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {region === 'footer' && (
+                <div className="online-shop-mockup-contact">
+                  <span className="online-shop-mockup-sidebar-line long center" />
+                  <span className="online-shop-mockup-sidebar-line center" />
+                  <span className="online-shop-mockup-sidebar-line short center" />
+                  <div className="online-shop-mockup-social-row">
+                    <span className="online-shop-mockup-social-dot" />
+                    <span className="online-shop-mockup-social-dot" />
+                    <span className="online-shop-mockup-social-dot" />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
-          <p className={`online-shop-content-caption ${localeClass}`} key={active}>
-            {isGeo ? content.sections[active].descriptionGeo : content.sections[active].descriptionEng}
+          <p className={`online-shop-content-caption ${localeClass}`} key={`cap-${active}`}>
+            {isGeo ? activeSection.descriptionGeo : activeSection.descriptionEng}
           </p>
         </div>
       </div>
