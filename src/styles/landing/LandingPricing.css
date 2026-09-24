@@ -5,450 +5,449 @@
   --bg: #ffffff;
   --text: #111111;
   --text-muted: rgba(0, 0, 0, 0.6);
-  --text-faint: rgba(0, 0, 0, 0.35);
-  --border: rgba(0, 0, 0, 0.1);
-  --gold: #8a7050;
-  --gold-tint: rgba(138, 112, 80, 0.12);
+  --text-faint: rgba(0, 0, 0, 0.4);
+  --line: rgba(0, 0, 0, 0.1);
+  --line2: rgba(0, 0, 0, 0.14);
+  --gold: #c9a05c;
+  --gold-deep: #a5824a;
+  --gold-tint: rgba(201, 160, 92, 0.1);
+  --card: #faf8f4;
+  --gold-grad: linear-gradient(120deg, #57503a, #8a7a52 55%, #b89b5e);
 
-  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--bg);
   color: var(--text);
-  padding: 140px 60px 100px;
+  padding: 40px 30px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
 [data-theme='dark'] .landing-pricing-container {
   --bg: #000000;
   --text: #ffffff;
-  --text-muted: rgba(255, 255, 255, 0.6);
-  --text-faint: rgba(255, 255, 255, 0.35);
-  --border: rgba(255, 255, 255, 0.12);
+  --text-muted: rgba(255, 255, 255, 0.62);
+  --text-faint: rgba(255, 255, 255, 0.42);
+  --line: rgba(255, 255, 255, 0.12);
+  --line2: rgba(255, 255, 255, 0.16);
+  --gold-tint: rgba(201, 160, 92, 0.16);
+  --card: #14110c;
 }
 
-.landing-pricing-header {
-  margin-bottom: 48px;
+.lp-inner {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.landing-pricing-heading {
-  margin: 0 auto;
-  max-width: 620px;
+/* ---------- Header ---------- */
+
+.lp-eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line2);
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
-  font-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.6rem);
+  font-size: 11.5px;
   font-weight: 600;
+  color: var(--text-muted);
+}
+
+.lp-eyebrow.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lp-heading {
+  margin: 0;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.lp-heading.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: normal;
   letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: var(--text);
 }
 
-.landing-pricing-heading.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-feature-settings: normal;
-  letter-spacing: -0.01em;
-}
-
-/* ---------- Segmented switch ---------- */
-
-.lp-switch {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  max-width: 720px;
-  margin: 0 auto 56px;
-  padding-bottom: 16px;
-}
-
-.lp-switch-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px 0;
+.lp-subhead {
+  margin: 12px auto 28px;
+  max-width: 500px;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--text-faint);
-  transition: color 300ms ease;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--text-muted);
 }
 
-.lp-switch-btn.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.lp-subhead.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
 }
 
-.lp-switch-btn.is-active {
-  color: var(--text);
-  font-weight: 600;
-}
+/* ---------- THE CARD ---------- */
 
-.lp-switch-track {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background: var(--border);
-  border-radius: 2px;
+.lp-card {
+  position: relative;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 26px 36px 0;
+  border: 1.5px solid transparent;
+  border-radius: 26px;
+  background:
+    linear-gradient(var(--bg), var(--bg)) padding-box,
+    linear-gradient(135deg, var(--gold), rgba(201, 160, 92, 0.25) 45%, rgba(201, 160, 92, 0.25) 55%, var(--gold-deep)) border-box;
+  box-shadow:
+    0 2px 4px rgba(120, 100, 60, 0.04),
+    0 14px 32px rgba(120, 100, 60, 0.09),
+    0 40px 80px rgba(120, 100, 60, 0.06);
   overflow: hidden;
 }
 
-.lp-switch-fill {
-  display: block;
-  height: 100%;
-  background: var(--gold);
-  transition: width 400ms cubic-bezier(0.16, 1, 0.3, 1);
+.lp-card-glow {
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 60%;
+  background: radial-gradient(closest-side, var(--gold-tint), transparent);
+  pointer-events: none;
 }
 
-/* ---------- Stage ---------- */
+/* ---------- Toggle (inside card) ---------- */
+
+.lp-toggle {
+  position: relative;
+  display: inline-flex;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px;
+  margin: 0 auto 22px;
+  z-index: 1;
+}
+
+.lp-toggle-pill {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 0;
+  border-radius: 999px;
+  background: var(--gold-grad);
+  box-shadow: 0 6px 18px rgba(133, 124, 85, 0.3);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+}
+
+.lp-tab {
+  position: relative;
+  z-index: 1;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 10px 24px;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.lp-tab.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.lp-tab.is-active {
+  color: #fff;
+}
+
+/* ---------- Stage (content) ---------- */
 
 .lp-stage {
-  max-width: 1080px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 72px;
-  align-items: start;
-  animation: lp-stage-in 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  position: relative;
+  z-index: 1;
+  animation: lp-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@keyframes lp-stage-in {
-  from { opacity: 0; transform: translateY(14px) scale(0.99); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+@keyframes lp-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .lp-stage {
-    animation: none;
-  }
-
-  .lp-switch-fill {
-    transition: none;
-  }
-}
-
-.lp-stage-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: sticky;
-  top: 40px;
-}
-
-.lp-stage-note {
+.lp-note {
   display: inline-block;
-  margin-bottom: 18px;
-  padding: 5px 12px;
+  margin-bottom: 12px;
+  padding: 5px 13px;
   border-radius: 999px;
   background: var(--gold-tint);
-  color: var(--gold);
+  color: var(--gold-deep);
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
   font-size: 11.5px;
   font-weight: 600;
 }
 
-.lp-stage-note.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.lp-note.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
 }
 
-.lp-stage-price {
-  display: flex;
-  align-items: flex-start;
-  gap: 4px;
+.lp-price {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(3.2rem, 2.6rem + 3vw, 4.6rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
   line-height: 1;
+  color: var(--text);
 }
-
-.lp-stage-currency {
-  margin-top: 0.5rem;
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-size: 1.6rem;
+.lp-cur {
+  font-size: 0.35em;
   font-weight: 300;
   color: var(--text-faint);
+  vertical-align: super;
+  margin-right: 6px;
 }
 
-.lp-stage-number {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-size: clamp(3.4rem, 2.6rem + 3vw, 5.2rem);
-  font-weight: 200;
-  letter-spacing: -0.03em;
-  color: var(--text);
-}
-
-.lp-stage-title {
-  margin: 10px 0 14px;
+.lp-title {
+  margin: 8px 0 6px;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 600;
   color: var(--text);
 }
 
-.lp-stage-title.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.lp-title.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
 }
 
-.lp-stage-desc {
-  margin: 0 0 28px;
-  max-width: 340px;
+.lp-desc {
+  max-width: 420px;
+  margin: 0 auto 22px;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
-  font-size: 14.5px;
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.5;
   color: var(--text-muted);
 }
 
-.lp-stage-desc.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.lp-desc.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
 }
 
-.lp-stage-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 30px;
-  border-radius: 999px;
-  background:
-    linear-gradient(135deg, #ffffff26, #ffffff0d),
-    linear-gradient(45deg,
-      gray 0%,
-      #645c45 15%,
-      #857c55 30%,
-      #9d8c5d 50%,
-      #756842 65%,
-      #584d32 85%,
-      #707070 100%);
-  color: #fff;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-weight: 700;
-  font-size: 14.5px;
-  text-decoration: none;
-  transition: filter 300ms ease;
-}
-
-.lp-stage-cta.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-feature-settings: normal;
-}
-
-.lp-stage-cta:hover {
-  filter: brightness(1.12);
-}
-
-/* ---------- Feature groups ---------- */
-
-.lp-stage-right {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  padding-top: 6px;
-}
-
-.lp-feature-group {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.lp-feature-group-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  width: fit-content;
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-}
-
-.lp-feature-group-label.is-included {
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: var(--gold-tint);
-  color: var(--gold);
-}
-
-.lp-feature-group-label.is-included svg {
-  width: 11px;
-  height: 11px;
-}
-
-.lp-feature-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px 20px;
-}
-
-.lp-feature-item {
-  display: flex;
-  align-items: baseline;
-  gap: 9px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 13.5px;
-  line-height: 1.4;
-  color: var(--text-muted);
-}
-
-.lp-feature-item.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-feature-settings: normal;
-}
-
-.lp-feature-dot {
-  flex-shrink: 0;
-  width: 5px;
-  height: 5px;
-  margin-top: 6px;
-  border-radius: 50%;
-  background: var(--gold);
-}
-
-/* ---------- Language addon ---------- */
-
-.landing-pricing-addon {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  max-width: 1080px;
-  margin: 64px auto 0;
-  padding: 22px 30px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-}
-
-.landing-pricing-addon-price {
-  flex-shrink: 0;
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--gold);
-}
-
-.landing-pricing-addon-title {
-  margin: 0 0 2px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 14.5px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.landing-pricing-addon-description {
-  margin: 0;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 13.5px;
-  color: var(--text-muted);
-}
-
-.landing-pricing-addon-title.eng,
-.landing-pricing-addon-description.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-feature-settings: normal;
-}
-
-/* ---------- Additional features ---------- */
-
-.landing-pricing-extra {
-  max-width: 920px;
-  margin: 64px auto 0;
-  text-align: center;
-}
-
-.landing-pricing-extra-title {
-  margin: 0 0 14px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 1.3rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-
-.landing-pricing-extra-description {
-  margin: 0 auto 28px;
-  max-width: 560px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 14.5px;
-  line-height: 1.65;
-  color: var(--text-muted);
-}
-
-.landing-pricing-extra-title.eng,
-.landing-pricing-extra-description.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-feature-settings: normal;
-}
-
-.landing-pricing-extra-examples {
+.lp-feats {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 10px 24px;
+  max-width: 460px;
+  margin: 0 auto 24px;
 }
 
-.landing-pricing-extra-chip {
+.lp-feat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 13.5px;
+  color: var(--text);
+}
+
+.lp-feat.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.lp-tick {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: var(--gold-tint);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lp-tick svg {
+  width: 10px;
+  height: 10px;
+  stroke: var(--gold-deep);
+}
+
+.lp-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 44px;
+  border-radius: 999px;
+  background: var(--gold-grad);
+  color: #fff;
+  text-decoration: none;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 10px 26px rgba(133, 124, 85, 0.32);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.lp-cta.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.lp-cta-arrow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lp-cta:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+.lp-cta:hover .lp-cta-arrow {
+  transform: translateX(4px);
+}
+
+/* ---------- Addon (inside card, bottom) ---------- */
+
+.lp-addon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 24px -36px 0;
+  padding: 16px 26px;
+  border-top: 1px solid var(--line);
+  background: var(--gold-tint);
+}
+
+.lp-addon-price {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--gold-deep);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.lp-addon-label {
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
   font-size: 13px;
-  padding: 9px 16px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
   color: var(--text-muted);
 }
 
-.landing-pricing-extra-chip.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.lp-addon-label.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
+}
+
+/* ---------- Extra ---------- */
+
+.lp-extra {
+  max-width: 600px;
+  margin: 28px auto 0;
+}
+
+.lp-extra-title {
+  margin: 0 0 8px;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.lp-extra-desc {
+  margin: 0 auto 16px;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.lp-extra-title.eng,
+.lp-extra-desc.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.lp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.lp-chip {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 12.5px;
+  padding: 8px 15px;
+  border: 1px solid var(--line2);
+  border-radius: 999px;
+  color: var(--text-muted);
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+
+.lp-chip.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.lp-chip:hover {
+  border-color: var(--gold);
+  color: var(--gold-deep);
+  background: var(--gold-tint);
 }
 
 /* ---------- Responsive ---------- */
 
-@media (max-width: 900px) {
+@media (max-width: 640px) {
   .landing-pricing-container {
-    padding: 96px 24px 80px;
+    min-height: auto;
+    padding: 80px 18px;
   }
 
-  .lp-switch {
-    gap: 22px;
+  .lp-card {
+    padding: 22px 22px 0;
+    border-radius: 22px;
   }
 
-  .lp-switch-btn {
-    font-size: 13px;
-  }
-
-  .lp-stage {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .lp-stage-left {
-    position: static;
-    align-items: center;
-    text-align: center;
-  }
-
-  .lp-stage-desc {
-    max-width: 100%;
-  }
-
-  .lp-feature-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .landing-pricing-addon {
+  .lp-addon {
+    margin: 22px -22px 0;
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    gap: 10px;
+    gap: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-stage,
+  .lp-toggle-pill,
+  .lp-cta,
+  .lp-cta-arrow {
+    animation: none;
+    transition: none;
   }
 }

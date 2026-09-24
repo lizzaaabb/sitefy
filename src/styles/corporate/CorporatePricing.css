@@ -1,273 +1,308 @@
 @import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
 @import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
 
-.corporate-pricing-container {
+.cp-container {
   --bg: #ffffff;
   --text: #111111;
-  --text-muted: rgba(0, 0, 0, 0.62);
+  --text-muted: rgba(0, 0, 0, 0.6);
   --text-faint: rgba(0, 0, 0, 0.4);
-  --border: rgba(0, 0, 0, 0.08);
-  --surface: #fbfbfa;
+  --line: rgba(0, 0, 0, 0.1);
+  --line2: rgba(0, 0, 0, 0.14);
   --gold: #c9a05c;
-  --cta-bg: #111111;
-  --cta-text: #ffffff;
-  --cta-bg-hover: #262626;
+  --gold-deep: #a5824a;
+  --gold-tint: rgba(201, 160, 92, 0.1);
+  --card: #faf8f4;
+  --gold-grad: linear-gradient(120deg, #57503a, #8a7a52 55%, #b89b5e);
 
-  position: relative;
   background: var(--bg);
   color: var(--text);
-  padding: 20px 30px;
+  padding: 100px 30px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-[data-theme='dark'] .corporate-pricing-container {
+[data-theme='dark'] .cp-container {
   --bg: #000000;
   --text: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.62);
-  --text-faint: rgba(255, 255, 255, 0.4);
-  --border: rgba(255, 255, 255, 0.1);
-  --surface: #0c0c0c;
-  --cta-bg: #ffffff;
-  --cta-text: #000000;
-  --cta-bg-hover: #d9d9d9;
+  --text-faint: rgba(255, 255, 255, 0.42);
+  --line: rgba(255, 255, 255, 0.12);
+  --line2: rgba(255, 255, 255, 0.16);
+  --gold-tint: rgba(201, 160, 92, 0.16);
+  --card: #14110c;
+}
+
+.cp-inner {
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 /* ---------- Header ---------- */
 
-.corporate-pricing-header {
-  margin-bottom: 72px;
+.cp-header {
   text-align: center;
+  margin-bottom: 44px;
 }
 
-.corporate-pricing-heading {
-  margin: 0 auto;
-  max-width: 620px;
+.cp-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 7px 15px;
+  border-radius: 999px;
+  border: 1px solid var(--line2);
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
-  font-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.6rem);
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  color: var(--text-muted);
+}
+
+.cp-eyebrow.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cp-heading {
+  margin: 0;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: clamp(1.9rem, 1.4rem + 1.8vw, 2.7rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
   color: var(--text);
 }
 
-.corporate-pricing-heading.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.cp-heading.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
-/* ---------- Card (single, centered — only one plan) ---------- */
+/* ---------- Card ---------- */
 
-.corporate-pricing-grid {
-  display: flex;
-  justify-content: center;
-}
-
-.corporate-pricing-col {
+.cp-card {
   position: relative;
+  padding: 44px 48px;
+  border: 1.5px solid transparent;
+  border-radius: 28px;
+  background:
+    linear-gradient(var(--bg), var(--bg)) padding-box,
+    linear-gradient(135deg, var(--gold), rgba(201, 160, 92, 0.25) 45%, rgba(201, 160, 92, 0.25) 55%, var(--gold-deep)) border-box;
+  box-shadow:
+    0 2px 4px rgba(120, 100, 60, 0.04),
+    0 16px 36px rgba(120, 100, 60, 0.09),
+    0 46px 90px rgba(120, 100, 60, 0.06);
+  overflow: hidden;
+}
+
+.cp-card-glow {
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 50%;
+  background: radial-gradient(closest-side, var(--gold-tint), transparent);
+  pointer-events: none;
+}
+
+/* top row: price left, desc + cta right */
+.cp-top {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+  align-items: center;
+  padding-bottom: 36px;
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--line);
+}
+
+.cp-top-left {
+  text-align: left;
+}
+
+.cp-note {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--gold-tint);
+  color: var(--gold-deep);
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.cp-note.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.cp-price {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(3.4rem, 2.8rem + 2vw, 4.4rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--text);
+}
+
+.cp-plan-title {
+  margin: 10px 0 0;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.cp-plan-title.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.cp-top-right {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 520px;
-  padding: 48px 44px;
-  background: var(--surface);
-  border-radius: 18px;
-  transition: box-shadow 400ms ease, transform 400ms ease, background 400ms ease;
+  align-items: flex-start;
+  gap: 22px;
 }
 
-.corporate-pricing-col:hover {
-  background: var(--bg);
-  box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.22);
-  transform: translateY(-3px);
-}
-
-[data-theme='dark'] .corporate-pricing-col:hover {
-  box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.7);
-}
-
-.corporate-pricing-accent {
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: var(--gold);
-  margin-bottom: 28px;
-}
-
-.corporate-pricing-price {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-size: 2.8rem;
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
-
-.corporate-pricing-note {
-  margin: 6px 0 26px;
+.cp-desc {
+  margin: 0;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
-  font-size: 12.5px;
-  color: var(--text-faint);
-}
-
-.corporate-pricing-title {
-  margin: 0 0 8px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-
-.corporate-pricing-description {
-  margin: 0 0 26px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 14.5px;
+  font-size: 15px;
   line-height: 1.6;
   color: var(--text-muted);
 }
 
-.corporate-pricing-note.eng,
-.corporate-pricing-title.eng,
-.corporate-pricing-description.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.cp-desc.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
 }
 
-.corporate-pricing-features {
-  list-style: none;
-  margin: 0;
-  padding: 20px 0 0;
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--border);
-}
-
-.corporate-pricing-features li {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  padding: 9px 0;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 13.5px;
-  line-height: 1.45;
-  color: var(--text-muted);
-  border-bottom: 1px solid var(--border);
-}
-
-.corporate-pricing-features.eng li {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-feature-settings: normal;
-}
-
-.corporate-pricing-features li:last-child {
-  border-bottom: none;
-}
-
-.corporate-pricing-feature-index {
-  flex-shrink: 0;
-  width: 5px;
-  height: 5px;
-  margin-top: 6px;
-  border-radius: 50%;
-  background: var(--gold);
-  opacity: 0.8;
-}
-
-/* ---------- Order CTA (exact button1 structure) ---------- */
-
-.corporate-pricing-cta {
-  align-self: flex-start;
-  margin-top: 28px;
+.cp-cta {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  height: 40px;
-  padding: 0 20px;
+  gap: 9px;
+  padding: 15px 42px;
   border-radius: 999px;
-  background-color: var(--cta-bg);
-  color: var(--cta-text);
+  background: var(--gold-grad);
+  color: #fff;
+  text-decoration: none;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
   font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
-  position: relative;
-  z-index: 0;
-  transition: background-color 150ms ease-in-out;
+  font-size: 15px;
+  box-shadow: 0 10px 26px rgba(133, 124, 85, 0.32);
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-.corporate-pricing-cta.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.cp-cta.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
 }
 
-.corporate-pricing-cta::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  border-radius: 999px;
-  background: linear-gradient(45deg, #8b6914, #b8860b, #d4af37, #e8c874, #f4e4bc, #d4af37, #b8860b, #8b6914);
-  background-size: 400%;
-  filter: blur(6px);
-  z-index: -2;
-  opacity: 0;
-  animation: corporate-pricing-cta-glow 12s linear infinite;
-  transition: opacity 300ms ease-in-out;
+.cp-cta-arrow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.corporate-pricing-cta::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  background-color: var(--cta-bg);
-  z-index: -1;
+.cp-cta:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
 }
 
-.corporate-pricing-cta:hover::before {
-  opacity: 1;
+.cp-cta:hover .cp-cta-arrow {
+  transform: translateX(4px);
 }
 
-.corporate-pricing-cta:hover {
-  background-color: var(--cta-bg-hover);
+/* ---------- Feature groups (columns) ---------- */
+
+.cp-groups {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 }
 
-.corporate-pricing-cta:active {
-  transform: translateY(1px);
+.cp-group-label {
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
 }
 
-@keyframes corporate-pricing-cta-glow {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
+.cp-group-label.geo {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  letter-spacing: 0.02em;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .corporate-pricing-cta::before {
-    animation: none;
-  }
+.cp-group-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* ---------- Language addon (no price this time) ---------- */
+.cp-group-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 7px 0;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
 
-.corporate-pricing-addon {
-  max-width: 520px;
-  margin: 32px auto 0;
+.cp-group-list.eng li {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.cp-tick {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: var(--gold-tint);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cp-tick svg {
+  width: 10px;
+  height: 10px;
+  stroke: var(--gold-deep);
+}
+
+/* ---------- Language addon ---------- */
+
+.cp-addon {
+  max-width: 620px;
+  margin: 28px auto 0;
   padding: 22px 30px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  border: 1px dashed var(--line2);
+  border-radius: 16px;
   text-align: center;
 }
 
-.corporate-pricing-addon-title {
+.cp-addon-title {
   margin: 0 0 6px;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
@@ -276,7 +311,7 @@
   color: var(--text);
 }
 
-.corporate-pricing-addon-description {
+.cp-addon-desc {
   margin: 0;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
@@ -285,90 +320,116 @@
   color: var(--text-muted);
 }
 
-.corporate-pricing-addon-title.eng,
-.corporate-pricing-addon-description.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.cp-addon-title.eng,
+.cp-addon-desc.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
 }
 
-/* ---------- Additional features ---------- */
+/* ---------- Extra features ---------- */
 
-.corporate-pricing-extra {
+.cp-extra {
   max-width: 720px;
-  margin: 64px auto 0;
+  margin: 56px auto 0;
   text-align: center;
 }
 
-.corporate-pricing-extra-title {
-  margin: 0 0 14px;
+.cp-extra-title {
+  margin: 0 0 12px;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
   font-size: 1.3rem;
   font-weight: 600;
-  letter-spacing: -0.01em;
   color: var(--text);
 }
 
-.corporate-pricing-extra-description {
-  margin: 0 auto 28px;
+.cp-extra-desc {
+  margin: 0 auto 24px;
   max-width: 560px;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
   font-size: 14.5px;
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--text-muted);
 }
 
-.corporate-pricing-extra-title.eng,
-.corporate-pricing-extra-description.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.cp-extra-title.eng,
+.cp-extra-desc.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
 }
 
-.corporate-pricing-extra-examples {
+.cp-chips {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 9px;
 }
 
-.corporate-pricing-extra-chip {
+.cp-chip {
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
   font-size: 13px;
   padding: 9px 16px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--line2);
   border-radius: 999px;
   color: var(--text-muted);
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
 }
 
-.corporate-pricing-extra-chip.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.cp-chip.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
+}
+
+.cp-chip:hover {
+  border-color: var(--gold);
+  color: var(--gold-deep);
+  background: var(--gold-tint);
 }
 
 /* ---------- Responsive ---------- */
 
-@media (max-width: 900px) {
-  .corporate-pricing-container {
-    padding: 96px 24px;
+@media (max-width: 820px) {
+  .cp-card {
+    padding: 32px 26px;
   }
 
-  .corporate-pricing-col {
-    padding: 40px 30px;
+  .cp-top {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
   }
 
-  .corporate-pricing-col:hover {
-    transform: none;
+  .cp-top-left {
+    text-align: center;
+  }
+
+  .cp-top-right {
+    align-items: center;
+    text-align: center;
+  }
+
+  .cp-groups {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .cp-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .cp-container {
+    padding: 80px 18px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .corporate-pricing-col {
+  .cp-cta,
+  .cp-cta-arrow {
     transition: none;
-  }
-
-  .corporate-pricing-col:hover {
-    transform: none;
   }
 }

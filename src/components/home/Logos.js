@@ -13,6 +13,7 @@ const logos = [
   '/logos/logo7.svg',
   '/logos/logo8.png',
   '/logos/logo9.png',
+  '/logos/logo10.png',
 ]
 
 function Logos() {
