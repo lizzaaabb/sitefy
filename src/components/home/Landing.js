@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { useLocale } from 'next-intl'
+import { Link } from '../../i18n/navigation'
 import '../../styles/home/Landing.css'
 import Logos from './Logos'
 
@@ -59,7 +60,7 @@ function Landing() {
           <p className={`landing-description ${isGeo ? 'geo' : 'eng'}`}>{description}</p>
           <div className="buttons-container">
             <a href="tel:+995575755712" className={`button1 ${isGeo ? 'geo' : 'eng'}`} style={{ textDecoration: 'none' }}>{button1}</a>
-            <button className={`button2 ${isGeo ? 'geo' : 'eng'}`}>{button2}</button>
+            <Link href="/projects" className={`button2 ${isGeo ? 'geo' : 'eng'}`} style={{ textDecoration: 'none' }}>{button2}</Link>
           </div>
           <p className={`landing-partner ${isGeo ? 'geo' : 'eng'}`}>
             <span className="landing-partner-icon-wrap">
