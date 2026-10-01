@@ -248,12 +248,14 @@
   font-size: 13px;
   letter-spacing: -0.01em;
   color: rgba(255, 255, 255, 0.5);
-  pointer-events: none;
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: auto;          /* იყო: none */
+  transition: color 200ms ease;
 }
 
-.landing-partner-icon-wrap {
-  flex-shrink: 0;
-  display: inline-flex;
+.landing-partner:hover {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .landing-title.eng,

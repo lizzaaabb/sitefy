@@ -62,7 +62,12 @@ function Landing() {
             <a href="tel:+995575755712" className={`button1 ${isGeo ? 'geo' : 'eng'}`} style={{ textDecoration: 'none' }}>{button1}</a>
             <Link href="/projects" className={`button2 ${isGeo ? 'geo' : 'eng'}`} style={{ textDecoration: 'none' }}>{button2}</Link>
           </div>
-          <p className={`landing-partner ${isGeo ? 'geo' : 'eng'}`}>
+          <a
+            href="https://gothem.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`landing-partner ${isGeo ? 'geo' : 'eng'}`}
+          >
             <span className="landing-partner-icon-wrap">
               <svg
                 className="landing-partner-star"
@@ -93,7 +98,7 @@ function Landing() {
               </svg>
             </span>
             {partner}
-          </p>
+          </a>
         </div>
 
         <div className="logos">
