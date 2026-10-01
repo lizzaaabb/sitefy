@@ -17,7 +17,7 @@ export default function useTimeTheme() {
   useEffect(() => {
     const check = () => {
       const hour = getTbilisiHour()
-      setIsDark(hour >= 21 || hour < 7)
+      setIsDark(hour >= 19 || hour < 7)
     }
     check()
     const interval = setInterval(check, 60 * 1000)

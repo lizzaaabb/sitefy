@@ -15,7 +15,7 @@ export default function ThemeInitializer() {
   useEffect(() => {
     const applyTheme = () => {
       const hour = getTbilisiHour()
-      const dark = hour >= 21 || hour < 7
+      const dark = hour >= 19 || hour < 7
       document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
     }
 

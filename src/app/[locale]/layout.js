@@ -14,7 +14,7 @@ function getServerTheme() {
       hour12: false,
     })
     const hour = parseInt(formatter.format(new Date()), 10)
-    const dark = hour >= 21 || hour < 7
+    const dark = hour >= 19 || hour < 7
     return dark ? 'dark' : 'light'
   } catch (e) {
     return 'light'
