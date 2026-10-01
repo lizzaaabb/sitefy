@@ -1,868 +1,908 @@
 @import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
 @import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
 
-.online-shop-content-container {
+.oss-container {
   --bg: #ffffff;
-  --text: #111111;
-  --text-muted: rgba(0, 0, 0, 0.6);
-  --text-faint: rgba(0, 0, 0, 0.35);
-  --border: rgba(0, 0, 0, 0.16);
-  --surface: #f6f5f3;
+  --text: #14110c;
+  --muted: rgba(20, 17, 12, 0.55);
+  --faint: rgba(20, 17, 12, 0.32);
+  --line: rgba(20, 17, 12, 0.08);
+  --surface: #faf8f4;
   --gold: #c9a05c;
-  --gold-tint: rgba(201, 160, 92, 0.12);
+  --gold-deep: #a5824a;
+  --gold-light: #e3c489;
+  --gold-tint: rgba(201, 160, 92, 0.08);
+  --gold-grad: linear-gradient(120deg, #57503a, #8a7a52 55%, #b89b5e);
+  --gold-soft: linear-gradient(150deg, #b89b5e, #8a7a52 95%);
+  --green: #1f7a4d;
+  --green-tint: rgba(47, 158, 110, 0.12);
 
-  position: relative;
   background: var(--bg);
   color: var(--text);
-  padding: 140px 30px;
-  overflow: hidden;
+  padding: 120px 30px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-[data-theme='dark'] .online-shop-content-container {
+[data-theme='dark'] .oss-container {
   --bg: #000000;
-  --text: #ffffff;
-  --text-muted: rgba(255, 255, 255, 0.6);
-  --text-faint: rgba(255, 255, 255, 0.35);
-  --border: rgba(255, 255, 255, 0.18);
-  --surface: #121212;
+  --text: #f2ede2;
+  --muted: rgba(242, 237, 226, 0.55);
+  --faint: rgba(242, 237, 226, 0.32);
+  --line: rgba(242, 237, 226, 0.1);
+  --surface: #14110c;
+  --gold-tint: rgba(201, 160, 92, 0.12);
 }
 
 /* ---------- Header ---------- */
 
-.online-shop-content-header {
-  position: relative;
-  z-index: 1;
-  max-width: 620px;
-  margin: 0 auto 72px;
+.oss-header {
+  max-width: 560px;
+  margin: 0 auto 44px;
   text-align: center;
 }
 
-.online-shop-content-heading {
+.oss-heading {
+  margin: 0 0 16px;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
-  letter-spacing: -0.03em;
-  font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.8rem);
+  font-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.6rem);
   font-weight: 600;
+  letter-spacing: -0.03em;
   line-height: 1.2;
   color: var(--text);
-  margin: 0 0 20px;
 }
 
-.online-shop-content-description {
+.oss-description {
+  margin: 0 auto;
+  max-width: 460px;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
-  font-size: 1.05rem;
-  line-height: 1.65;
-  letter-spacing: -0.01em;
-  color: var(--text-muted);
-  margin: 0 auto;
-  max-width: 560px;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--muted);
 }
 
-.online-shop-content-heading.eng,
-.online-shop-content-description.eng,
-.online-shop-content-nav-title.eng,
-.online-shop-content-caption.eng,
-.online-shop-mockup-card-name.eng,
-.online-shop-mockup-total-label.eng,
-.online-shop-mockup-stat-label.eng,
-.online-shop-mockup-cta-btn.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.oss-heading.eng,
+.oss-description.eng,
+.oss-navbtn.eng,
+.oss-vtitle.eng,
+.oss-pn.eng,
+.oss-cn.eng,
+.oss-on.eng,
+.oss-lbl.eng,
+.oss-caption.eng,
+.oss-csum-row.eng,
+.oss-csum-tot.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
 }
 
-.online-shop-content-heading.eng {
-  letter-spacing: -0.01em;
-}
+.oss-heading.eng { letter-spacing: -0.01em; }
 
-.online-shop-content-description.eng {
-  letter-spacing: normal;
-}
+/* ---------- Shop shell ---------- */
 
-/* ---------- Split layout ---------- */
-
-.online-shop-content-split {
-  position: relative;
-  z-index: 1;
-  max-width: 1080px;
+.oss-shop {
+  max-width: 600px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 0 64px;
-  align-items: start;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  overflow: hidden;
+  box-shadow:
+    0 3px 8px rgba(120, 100, 60, 0.05),
+    0 30px 70px -34px rgba(80, 60, 20, 0.35);
 }
 
-.online-shop-content-nav {
+/* ---------- Header bar ---------- */
+
+.oss-hdr {
   display: flex;
-  flex-direction: column;
-  padding-top: 6px;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  background: linear-gradient(180deg, var(--surface), var(--bg));
+  border-bottom: 1px solid var(--line);
 }
 
-.online-shop-content-nav-item {
+.oss-brand {
   display: flex;
-  align-items: baseline;
-  width: 100%;
-  padding: 14px 0;
-  background: none;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.oss-brand-mark {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: var(--gold-grad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(133, 124, 85, 0.35);
+}
+
+.oss-brand-mark svg { width: 14px; height: 14px; stroke: #fff; }
+
+.oss-brand-name {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  color: var(--text);
+}
+
+.oss-brand-name b { color: var(--gold-deep); }
+
+.oss-nav {
+  display: flex;
+  gap: 2px;
+  margin: 0 auto;
+}
+
+.oss-navbtn {
+  position: relative;
   border: none;
-  color: inherit;
-  font: inherit;
-  text-align: left;
+  background: none;
   cursor: pointer;
-  transition: transform 350ms cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-.online-shop-content-nav-item:hover,
-.online-shop-content-nav-item.is-active {
-  transform: translateX(6px);
-}
-
-.online-shop-content-nav-index {
-  order: 3;
-  flex-shrink: 0;
-  min-width: 26px;
-  text-align: right;
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  color: var(--text-faint);
-  transition: color 350ms ease;
-}
-
-.online-shop-content-nav-item.is-active .online-shop-content-nav-index {
-  color: var(--gold);
-}
-
-.online-shop-content-nav-title {
-  order: 1;
-  flex-shrink: 0;
+  padding: 7px 14px;
+  border-radius: 999px;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
-  font-size: 17px;
+  font-size: 12.5px;
   font-weight: 500;
-  color: var(--text-muted);
-  letter-spacing: -0.01em;
+  color: var(--muted);
   white-space: nowrap;
-  transition: color 350ms ease, font-weight 350ms ease;
+  transition: color 0.3s ease;
 }
 
-.online-shop-content-nav-item.is-active .online-shop-content-nav-title {
-  color: var(--text);
+.oss-navbtn::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  transform: translateX(-50%) scaleX(0);
+  width: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gold-grad);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.oss-navbtn:hover { color: var(--gold-deep); }
+.oss-navbtn:hover::after { transform: translateX(-50%) scaleX(1); }
+
+.oss-navbtn.is-on {
+  color: var(--gold-deep);
   font-weight: 600;
 }
 
-.online-shop-content-nav-leader {
-  order: 2;
-  flex: 1;
-  margin: 0 10px;
-  align-self: flex-end;
-  height: 0;
-  border-bottom: 1px dotted var(--border);
-  transform: translateY(-6px);
-  opacity: 0.6;
-  transition: opacity 350ms ease, border-color 350ms ease;
+.oss-navbtn.is-on::after { transform: translateX(-50%) scaleX(1); }
+
+.oss-hdr-icons {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
 }
 
-.online-shop-content-nav-item.is-active .online-shop-content-nav-leader {
-  opacity: 1;
-  border-bottom-color: var(--gold);
+.oss-hicon {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  position: relative;
+  transition: background 0.3s ease, color 0.3s ease;
+  cursor: pointer;
 }
 
-/* ---------- Panel: mockup + caption ---------- */
+.oss-hicon:hover { background: var(--gold-tint); color: var(--gold-deep); }
+.oss-hicon svg { width: 16px; height: 16px; stroke: currentColor; }
 
-.online-shop-content-panel {
-  padding-top: 0;
+.oss-hbadge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold-grad);
+  color: #fff;
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(133, 124, 85, 0.5);
 }
 
-.online-shop-content-caption {
-  margin: 18px 4px 0;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  min-height: 44px;
-  animation: online-shop-caption-fade 350ms ease both;
+/* ---------- Screen ---------- */
+
+.oss-screen {
+  position: relative;
+  background: var(--bg);
 }
 
-@keyframes online-shop-caption-fade {
-  from { opacity: 0; transform: translateY(4px); }
+.oss-view {
+  padding: 18px 20px 22px;
+  animation: oss-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes oss-fade {
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- Store mockup shell ---------- */
-
-.online-shop-mockup {
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  overflow: hidden;
-  box-shadow: 0 30px 70px -40px rgba(0, 0, 0, 0.35);
-  user-select: none;
-}
-
-.online-shop-mockup-chrome {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 14px;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-}
-
-.online-shop-mockup-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.online-shop-mockup-dot:nth-child(1) { background: #ec6a5e; }
-.online-shop-mockup-dot:nth-child(2) { background: #f4bf4f; }
-.online-shop-mockup-dot:nth-child(3) { background: #61c454; }
-
-.online-shop-mockup-url {
-  margin: 0 auto;
-  padding: 3px 14px;
-  border-radius: 999px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-size: 11px;
-  color: var(--text-faint);
-  animation: online-shop-url-fade 250ms ease both;
-}
-
-@keyframes online-shop-url-fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.online-shop-mockup-topbar {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 14px 18px;
-  border-bottom: 1px solid var(--border);
-}
-
-.online-shop-mockup-logo {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.06em;
-  color: var(--text);
-  flex-shrink: 0;
-}
-
-.online-shop-mockup-search {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  color: var(--text-faint);
-}
-
-.online-shop-mockup-search svg {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-}
-
-.online-shop-mockup-search-line {
-  width: 70px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--border);
-}
-
-.online-shop-mockup-icons {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-left: auto;
-  flex-shrink: 0;
-}
-
-.online-shop-mockup-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  color: var(--text-faint);
-  transition: box-shadow 300ms ease, background 300ms ease, color 300ms ease, transform 300ms ease;
-}
-
-.online-shop-mockup-icon svg {
-  width: 15px;
-  height: 15px;
-}
-
-.online-shop-mockup-icon.is-active {
-  color: var(--gold);
-  background: var(--gold-tint);
-  box-shadow: 0 0 0 2px var(--gold);
-  transform: scale(1.06);
-}
-
-/* ---------- Screen transition ---------- */
-
-.online-shop-mockup-screen {
-  min-height: 260px;
-  animation: online-shop-screen-in 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes online-shop-screen-in {
-  from { opacity: 0; transform: translateX(10px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .online-shop-mockup-screen,
-  .online-shop-mockup-url,
-  .online-shop-content-nav-item,
-  .online-shop-content-caption,
-  .online-shop-mockup-icon {
-    animation: none;
-    transition: none;
-  }
-}
-
-/* ---------- Shared bar / placeholder elements ---------- */
-
-.online-shop-mockup-sidebar-line {
-  display: block;
-  height: 7px;
-  width: 80%;
-  border-radius: 3px;
-  background: var(--border);
-}
-
-.online-shop-mockup-sidebar-line.long { width: 95%; }
-.online-shop-mockup-sidebar-line.short { width: 55%; }
-.online-shop-mockup-sidebar-line.center { margin: 0 auto; }
-
-.online-shop-mockup-card-name {
-  display: block;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 10.5px;
-  color: var(--text-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.online-shop-mockup-card-price {
-  display: block;
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-size: 11.5px;
-  font-weight: 600;
-  color: var(--text);
-  white-space: nowrap;
-}
-
-/* ---------- Catalog / Filters screens ---------- */
-
-.online-shop-mockup-body {
-  display: flex;
-  gap: 18px;
-  padding: 18px;
-}
-
-.online-shop-mockup-sidebar {
-  width: 30%;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px;
-}
-
-.online-shop-mockup-sidebar.wide {
-  width: 38%;
-  gap: 14px;
-}
-
-.online-shop-mockup-filter-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.online-shop-mockup-checkbox-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.online-shop-mockup-checkbox {
-  width: 13px;
-  height: 13px;
-  flex-shrink: 0;
-  border-radius: 3px;
-  border: 1px solid var(--border);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-}
-
-.online-shop-mockup-checkbox.is-checked {
-  background: var(--gold);
-  border-color: var(--gold);
-}
-
-.online-shop-mockup-checkbox svg {
-  width: 9px;
-  height: 9px;
-}
-
-.online-shop-mockup-grid {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  padding: 10px;
-}
-
-.online-shop-mockup-grid.narrow {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.online-shop-mockup-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 6px;
-  background: var(--surface);
-  border-radius: 8px;
-}
-
-.online-shop-mockup-card-image {
-  display: block;
-  aspect-ratio: 1;
-  border-radius: 6px;
-  flex-shrink: 0;
-}
-
-.online-shop-mockup-card-image.small {
-  width: 34px;
-  height: 34px;
-  aspect-ratio: unset;
-}
-
-.online-shop-mockup-card-image.swatch-1 { background: linear-gradient(135deg, #cdd7c9, #a9b8a2); }
-.online-shop-mockup-card-image.swatch-2 { background: linear-gradient(135deg, #c9d3dd, #9fb1c2); }
-.online-shop-mockup-card-image.swatch-3 { background: linear-gradient(135deg, #ddc9bf, #c2a190); }
-.online-shop-mockup-card-image.swatch-4 { background: linear-gradient(135deg, #e0d5bd, #c7b385); }
-.online-shop-mockup-card-image.swatch-5 { background: linear-gradient(135deg, #ddc9d3, #c4a2b0); }
-.online-shop-mockup-card-image.swatch-6 { background: linear-gradient(135deg, #cfc9dd, #a99fc2); }
-
-.online-shop-mockup-card-add {
-  position: absolute;
-  right: 6px;
-  bottom: 6px;
-  width: 20px;
-  height: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-}
-
-.online-shop-mockup-card-add svg {
-  width: 10px;
-  height: 10px;
-}
-
-/* ---------- Cart screen ---------- */
-
-.online-shop-mockup-cart {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 18px;
-}
-
-.online-shop-mockup-cart-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
-}
-
-.online-shop-mockup-cart-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.online-shop-mockup-cart-total {
+.oss-vhead {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 4px;
+  margin-bottom: 14px;
 }
 
-.online-shop-mockup-total-label {
+.oss-vtitle {
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
-  font-size: 12.5px;
-  color: var(--text-muted);
-}
-
-.online-shop-mockup-total-price {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--text);
 }
 
-.online-shop-mockup-cta-btn {
-  display: inline-flex;
+.oss-vsub {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 11px;
+  color: var(--faint);
+}
+
+.oss-prod {
+  stroke: #fff;
+  fill: none;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 2px 5px rgba(60, 45, 15, 0.25));
+}
+
+/* ---------- Catalog ---------- */
+
+.oss-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.oss-pcard {
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.oss-pcard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 32px -18px rgba(133, 124, 85, 0.5);
+  border-color: var(--gold-light);
+}
+
+.oss-pimg {
+  aspect-ratio: 1;
+  position: relative;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  border-radius: 999px;
-  background: var(--text);
-  color: var(--bg);
+  background: var(--gold-soft);
+}
+
+.oss-pimg .oss-prod { width: 44%; height: 44%; }
+
+.oss-pfav {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-deep);
+  box-shadow: 0 2px 6px rgba(80, 60, 20, 0.15);
+}
+
+.oss-pfav svg { width: 12px; height: 12px; }
+
+.oss-pmeta { padding: 11px 13px 13px; }
+
+.oss-pn {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: var(--text);
+}
+
+.oss-prow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.oss-pp {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold-deep);
+}
+
+.oss-padd {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: var(--gold-grad);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+  box-shadow: 0 4px 10px rgba(133, 124, 85, 0.35);
+}
+
+.oss-catrow2 {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 14px;
+  padding: 13px 15px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.oss-catrow2-ic {
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background: var(--gold-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.oss-catrow2-ic .oss-prod { width: 54%; height: 54%; }
+
+.oss-catrow2-txt {
+  flex: 1;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
   font-size: 12.5px;
+  color: var(--muted);
+}
+
+.oss-catrow2-txt b { color: var(--text); font-weight: 600; }
+
+.oss-catrow2-arrow {
+  color: var(--gold-deep);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* ---------- Cart ---------- */
+
+.oss-crow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 15px;
+  border-radius: 14px;
+  background: var(--surface);
+  margin-bottom: 12px;
+}
+
+.oss-cimg {
+  width: 56px;
+  height: 56px;
+  border-radius: 13px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold-soft);
+}
+
+.oss-cimg .oss-prod { width: 50%; height: 50%; }
+
+.oss-cinfo { flex: 1; }
+
+.oss-cn {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 14px;
   font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
 }
 
-.online-shop-mockup-cta-btn.full {
-  margin-top: 6px;
+.oss-cqty {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 6px;
 }
 
-/* ---------- Admin screen ---------- */
+.oss-cqty span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--gold-deep);
+  cursor: pointer;
+}
 
-.online-shop-mockup-admin {
-  padding: 18px;
+.oss-cqty b {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 12px;
+  min-width: 14px;
+  text-align: center;
+  color: var(--text);
+}
+
+.oss-cp {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold-deep);
+  min-width: 52px;
+  text-align: right;
+}
+
+.oss-csum {
+  margin-top: 14px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.oss-csum-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.oss-csum-tot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+}
+
+.oss-csum-tot span { font-size: 13.5px; font-weight: 600; color: var(--text); }
+
+.oss-csum-tot b {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold-deep);
+}
+
+.oss-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 15px;
+  border-radius: 13px;
+  background: var(--gold-grad);
+  color: #fff;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 10px 24px rgba(133, 124, 85, 0.35);
+  cursor: pointer;
+}
+
+/* ---------- Checkout ---------- */
+
+.oss-cout {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.online-shop-mockup-stats {
+.oss-creditcard {
+  position: relative;
+  border-radius: 16px;
+  padding: 20px;
+  aspect-ratio: 1.6;
+  max-height: 180px;
+  background: var(--gold-grad);
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 16px 34px -12px rgba(133, 124, 85, 0.55);
+}
+
+.oss-creditcard::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.oss-creditcard::after {
+  content: '';
+  position: absolute;
+  bottom: -50%;
+  left: -10%;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.oss-cc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.oss-cc-chip {
+  width: 34px;
+  height: 26px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #f4e4bc, #d4af37);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.oss-cc-brand {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  opacity: 0.9;
+}
+
+.oss-cc-num {
+  position: relative;
+  margin-top: 22px;
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.18em;
+  font-weight: 500;
+}
+
+.oss-cc-bottom {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 10px;
+  opacity: 0.85;
+}
+
+.oss-cc-bottom b {
+  display: block;
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+  opacity: 1;
+}
+
+.oss-pay-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--gold-grad);
+  color: #fff;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 10px 22px rgba(133, 124, 85, 0.3);
+  cursor: pointer;
+}
+
+.oss-pay-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+/* ---------- Admin ---------- */
+
+.oss-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  margin-bottom: 14px;
 }
 
-.online-shop-mockup-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 12px;
+.oss-stat {
+  padding: 13px 14px;
+  border-radius: 13px;
   background: var(--surface);
-  border-radius: 10px;
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
 }
 
-.online-shop-mockup-stat-label {
+.oss-stat::after {
+  content: '';
+  position: absolute;
+  right: -14px;
+  bottom: -14px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--gold-tint);
+}
+
+.oss-stat-ico {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: var(--gold-grad);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 9px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(133, 124, 85, 0.3);
+}
+
+.oss-stat-ico svg { width: 14px; height: 14px; stroke: currentColor; }
+
+.oss-sl {
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
-  font-size: 10.5px;
-  color: var(--text-faint);
+  font-size: 10px;
+  color: var(--faint);
+  margin-bottom: 2px;
+  position: relative;
 }
 
-.online-shop-mockup-stat-value {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
+.oss-sv {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 17px;
   font-weight: 700;
+  position: relative;
   color: var(--text);
 }
 
-.online-shop-mockup-table {
-  display: flex;
-  flex-direction: column;
+.oss-sv em {
+  font-size: 9.5px;
+  font-style: normal;
+  color: var(--green);
+  font-weight: 600;
+  margin-left: 4px;
 }
 
-.online-shop-mockup-table-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 4px;
-  border-bottom: 1px solid var(--border);
-}
-
-.online-shop-mockup-table-row .online-shop-mockup-card-name {
-  width: 90px;
-  flex-shrink: 0;
-}
-
-.online-shop-mockup-table-row .online-shop-mockup-sidebar-line {
-  flex: 1;
-}
-
-/* ---------- Checkout screen ---------- */
-
-.online-shop-mockup-checkout {
-  display: flex;
-  gap: 18px;
-  padding: 18px;
-}
-
-.online-shop-mockup-form {
-  flex: 1.4;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.online-shop-mockup-field {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 30px;
-  padding: 0 10px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  color: var(--text-faint);
-}
-
-.online-shop-mockup-field svg {
-  width: 13px;
-  height: 13px;
-  flex-shrink: 0;
-}
-
-.online-shop-mockup-field-row {
-  display: flex;
-  gap: 10px;
-}
-
-.online-shop-mockup-field-row .online-shop-mockup-field {
-  flex: 1;
-}
-
-.online-shop-mockup-summary {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 12px;
-  background: var(--surface);
-  border-radius: 10px;
-  height: fit-content;
-}
-
-.online-shop-mockup-summary-row {
+.oss-admin-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  margin-bottom: 10px;
 }
 
-/* ---------- Account screen ---------- */
+.oss-lbl {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 11px;
+  color: var(--faint);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
-.online-shop-mockup-account {
+.oss-addbtn {
   display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 18px;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 14px;
+  border-radius: 9px;
+  background: var(--gold-grad);
+  color: #fff;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(133, 124, 85, 0.3);
 }
 
-.online-shop-mockup-account-head {
+.oss-addbtn span { font-size: 14px; line-height: 1; }
+
+.oss-order {
   display: flex;
   align-items: center;
   gap: 12px;
+  padding: 12px 13px;
+  border-radius: 12px;
+  background: var(--surface);
+  margin-bottom: 9px;
+  transition: background 0.25s ease;
 }
 
-.online-shop-mockup-account-head > div {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+.oss-order:hover { background: var(--gold-tint); }
 
-.online-shop-mockup-avatar {
+.oss-oimg {
   width: 40px;
   height: 40px;
+  border-radius: 10px;
   flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--gold-tint);
-  color: var(--gold);
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--gold-soft);
 }
 
-.online-shop-mockup-avatar svg {
-  width: 18px;
-  height: 18px;
+.oss-oimg .oss-prod { width: 50%; height: 50%; }
+
+.oss-oinfo { flex: 1; }
+
+.oss-on {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
 }
 
-.online-shop-mockup-order-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border);
+.oss-oid {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  color: var(--faint);
 }
 
-.online-shop-mockup-order-row .online-shop-mockup-sidebar-line {
-  flex: 1;
+.oss-ostatus {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 999px;
 }
 
-.online-shop-mockup-status-pill {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--gold-tint);
-  color: var(--gold);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.oss-ostatus.done { background: var(--green-tint); color: var(--green); }
+.oss-ostatus.wait { background: var(--gold-tint); color: var(--gold-deep); }
+
+.oss-op {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--gold-deep);
+  min-width: 46px;
+  text-align: right;
 }
 
-.online-shop-mockup-status-pill svg {
-  width: 10px;
-  height: 10px;
+/* ---------- Caption ---------- */
+
+.oss-caption {
+  max-width: 600px;
+  margin: 18px auto 0;
+  text-align: center;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted);
+  animation: oss-fade 0.35s ease both;
 }
 
-/* ---------- Contact screen ---------- */
+/* ---------- Responsive / mobile ---------- */
 
-.online-shop-mockup-contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 40px 18px;
-}
+@media (max-width: 600px) {
+  .oss-container { padding: 80px 16px; }
 
-.online-shop-mockup-social-row {
-  display: flex;
-  gap: 10px;
-  margin-top: 8px;
-}
+  .oss-header { margin-bottom: 32px; }
 
-.online-shop-mockup-social-dot {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-}
-
-/* ---------- Responsive ---------- */
-
-@media (max-width: 900px) {
-  .online-shop-content-container {
-    padding: 96px 20px;
-  }
-
-  .online-shop-content-header {
-    margin-bottom: 40px;
-  }
-
-  .online-shop-content-split {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .online-shop-content-nav {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 10px;
-    padding-top: 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    padding: 4px 4px 16px;
-    margin: 0 -4px 20px;
-  }
-
-  .online-shop-content-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .online-shop-content-nav-item {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-    width: auto;
-    min-height: 40px;
-    padding: 9px 16px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    gap: 8px;
-    white-space: nowrap;
-  }
-
-  .online-shop-content-nav-item:hover,
-  .online-shop-content-nav-item.is-active {
-    transform: none;
-  }
-
-  .online-shop-content-nav-item.is-active {
-    background: var(--text);
-    border-color: var(--text);
-  }
-
-  .online-shop-content-nav-index,
-  .online-shop-content-nav-title {
-    order: 0;
-    color: inherit;
-    opacity: 0.55;
-    white-space: nowrap;
-    font-size: 13px;
-  }
-
-  .online-shop-content-nav-item.is-active .online-shop-content-nav-index,
-  .online-shop-content-nav-item.is-active .online-shop-content-nav-title {
-    color: var(--bg);
-    opacity: 1;
-  }
-
-  .online-shop-content-nav-leader {
-    display: none;
-  }
-
-  .online-shop-mockup-search-line {
-    width: 40px;
-  }
-
-  .online-shop-mockup-body,
-  .online-shop-mockup-checkout {
-    flex-direction: column;
-  }
-
-  .online-shop-mockup-sidebar,
-  .online-shop-mockup-sidebar.wide {
-    width: 100%;
-    flex-direction: row;
+  /* header wraps: brand + icons top row, nav scrolls below */
+  .oss-hdr {
     flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 14px;
   }
 
-  .online-shop-mockup-grid,
-  .online-shop-mockup-grid.narrow {
-    grid-template-columns: repeat(2, 1fr);
+  .oss-nav {
+    order: 3;
+    width: 100%;
+    margin: 0;
+    gap: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
   }
 
-  .online-shop-mockup-grid .online-shop-mockup-card:nth-child(n + 5) {
-    display: none;
+  .oss-nav::-webkit-scrollbar { display: none; }
+
+  .oss-hdr-icons { margin-left: auto; }
+
+  .oss-navbtn {
+    flex-shrink: 0;
+    padding: 7px 12px;
+    font-size: 12px;
   }
 
-  .online-shop-mockup-stats {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-  }
+  .oss-view { padding: 14px 14px 18px; }
+
+  /* catalog: 3 tight cols still fit; drop to smaller text */
+  .oss-grid { gap: 9px; }
+
+  .oss-pmeta { padding: 9px 9px 10px; }
+
+  .oss-pn { font-size: 11px; }
+
+  .oss-pp { font-size: 12px; }
+
+  .oss-padd { width: 23px; height: 23px; font-size: 15px; }
+
+  .oss-pfav { width: 21px; height: 21px; top: 6px; right: 6px; }
+
+  .oss-catrow2 { padding: 11px 12px; gap: 9px; }
+
+  .oss-catrow2-txt { font-size: 11.5px; }
+
+  .oss-creditcard { max-height: 165px; padding: 18px; }
+
+  .oss-cc-num { font-size: 14px; letter-spacing: 0.14em; margin-top: 18px; }
+
+  .oss-stats { gap: 7px; }
+
+  .oss-stat { padding: 11px 11px; }
+
+  .oss-sv { font-size: 15px; }
+
+  .oss-sv em { display: block; margin-left: 0; margin-top: 2px; }
+
+  .oss-addbtn { padding: 7px 11px; font-size: 11px; }
 }
 
-@media (max-width: 480px) {
-  .online-shop-content-container {
-    padding: 80px 16px;
+@media (max-width: 380px) {
+  .oss-brand-name { font-size: 13px; }
+  .oss-navbtn { padding: 6px 10px; font-size: 11.5px; }
+  .oss-pn { font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oss-view,
+  .oss-caption,
+  .oss-navbtn::after,
+  .oss-pcard,
+  .oss-order,
+  .oss-hicon {
+    animation: none;
+    transition: none;
   }
 }
