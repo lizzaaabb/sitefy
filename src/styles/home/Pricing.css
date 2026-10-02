@@ -43,10 +43,12 @@
 .pricing-heading.eng {
   font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
   font-feature-settings: normal;
+
 }
 
 .pricing-heading.eng {
   letter-spacing: -0.01em;
+  font-weight: 600;
 }
 
 .pricing-grid {
