@@ -115,6 +115,10 @@
     font-feature-settings: normal;
 }
 
+.cta-gold-heading.geo{
+     font-family: "FiraGO", sans-serif;
+    font-feature-settings: "case" on;
+}
 .cta-gold-heading.eng {
     letter-spacing: -0.01em;
 }
