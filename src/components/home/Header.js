@@ -107,7 +107,7 @@ function Header() {
             onMouseEnter={openLang}
             onMouseLeave={closeLangDelayed}
           >
-            <button className={`nav-link ${langOpen ? 'active' : ''}`}>
+            <button className={`nav-link ${localeClass} ${langOpen ? 'active' : ''}`}>
               {locale === 'ka' ? 'GEO' : 'ENG'}
               <svg className="chevron" width="11" height="11" viewBox="0 0 12 12" fill="none">
                 <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
