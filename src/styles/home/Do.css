@@ -18,14 +18,15 @@
   overflow: hidden;
 }
 
+/* ===== gold scroll progress ===== */
 .do-progress-line-container {
   position: absolute;
   right: 40px;
   top: 39%;
   height: 52%;
   width: 3px;
-  background: rgba(0, 0, 0, 0.08);
-  border-radius: 2px;
+  border-radius: 999px;
+  background: rgba(201, 160, 92, 0.14);
   z-index: 1000;
   overflow: visible;
 }
@@ -33,50 +34,16 @@
 .do-progress-line {
   position: relative;
   width: 100%;
-  border-radius: 2px;
+  border-radius: 999px;
   background: linear-gradient(to bottom,
-      #E8C896,
-      #C9A05C,
-      #A67C3D,
-      #9C7530,
-      #A67C3D,
-      #C9A05C,
-      #E8C896);
-  transition: all 0.1s ease-out;
-}
-
-.do-progress-line::before {
-  content: '';
-  position: absolute;
-  inset: -2px -10px;
-  background: linear-gradient(to bottom,
-      #E8C896,
-      #C9A05C,
-      #A67C3D,
-      #A67C3D,
-      #C9A05C,
-      #E8C896);
-  filter: blur(14px) saturate(1.4) brightness(1.25);
-  opacity: 0.9;
-  z-index: -1;
-  animation: do-glow-pulse 3s ease-in-out infinite alternate;
-}
-
-@keyframes do-glow-pulse {
-  0% {
-    opacity: 0.8;
-    filter: blur(12px) saturate(1.3) brightness(1.15);
-  }
-
-  50% {
-    opacity: 1;
-    filter: blur(18px) saturate(1.55) brightness(1.35);
-  }
-
-  100% {
-    opacity: 0.85;
-    filter: blur(15px) saturate(1.4) brightness(1.2);
-  }
+      #F6E3B4 0%,
+      #E6C27A 22%,
+      #C99A45 48%,
+      #A8782C 70%,
+      #D9B062 88%,
+      #F8E7BE 100%);
+  box-shadow: 0 0 4px rgba(214, 172, 96, 0.6),
+    0 0 12px rgba(201, 154, 69, 0.35);
 }
 
 .do-body {
@@ -181,7 +148,7 @@
 }
 
 [data-theme="dark"] .do-progress-line-container {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(232, 200, 150, 0.18);
 }
 
 /* English locale — Neue Montreal instead of FiraGO */

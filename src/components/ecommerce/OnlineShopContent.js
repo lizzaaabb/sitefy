@@ -5,32 +5,38 @@ import { useLocale } from 'next-intl'
 import '../../styles/ecommerce/OnlineShopContent.css'
 
 const content = {
+  eyebrowGeo: "ინტერაქტიული დემო",
+  eyebrowEng: "Interactive demo",
   titleGeo: "როგორ მუშაობს თქვენი მაღაზია",
   titleEng: "How Your Store Works",
-  descriptionGeo: "დააჭირეთ ზედა მენიუს და გადადით მაღაზიის სხვადასხვა გვერდზე — ზუსტად ისე, როგორც რეალურ საიტზე.",
-  descriptionEng: "Click the top menu to move through the store's pages — just like on a real website.",
+  descriptionGeo: "აირჩიეთ ეტაპი ან დააჭირეთ მაღაზიის მენიუს და ნახეთ ყველა გვერდი — ზუსტად ისე, როგორც რეალურ საიტზე.",
+  descriptionEng: "Pick a step or use the store menu to see every page — just like on a real website.",
 
   tabs: [
     {
       key: 'catalog',
+      url: 'catalog',
       labelGeo: 'კატალოგი', labelEng: 'Catalog',
       captionGeo: 'პროდუქტების კატალოგი სურათებით, ფასებითა და ფილტრებით.',
       captionEng: 'A product catalog with images, prices, and filters.',
     },
     {
       key: 'cart',
+      url: 'cart',
       labelGeo: 'კალათა', labelEng: 'Cart',
       captionGeo: 'კალათა რაოდენობის მართვითა და ჯამის დათვლით.',
       captionEng: 'A cart with quantity controls and total calculation.',
     },
     {
       key: 'checkout',
+      url: 'checkout',
       labelGeo: 'გადახდა', labelEng: 'Checkout',
       captionGeo: 'უსაფრთხო ბარათით გადახდა მარტივი პროცესით.',
       captionEng: 'Secure card payment with a simple checkout process.',
     },
     {
       key: 'admin',
+      url: 'admin',
       labelGeo: 'ადმინი', labelEng: 'Admin',
       captionGeo: 'ადმინ პანელი — შეკვეთები, სტატისტიკა და პროდუქტების მართვა.',
       captionEng: 'Admin panel — orders, statistics, and product management.',
@@ -42,6 +48,13 @@ const products = [
   { nameGeo: 'სმარტფონი', nameEng: 'Smartphone', price: '₾1200', icon: 'phone' },
   { nameGeo: 'ყურსასმენი', nameEng: 'Headphones', price: '₾180', icon: 'head' },
   { nameGeo: 'ლეპტოპი', nameEng: 'Laptop', price: '₾2400', icon: 'laptop' },
+]
+
+const filters = [
+  { geo: 'ყველა', eng: 'All' },
+  { geo: 'სმარტფონები', eng: 'Phones' },
+  { geo: 'აუდიო', eng: 'Audio' },
+  { geo: 'ლეპტოპები', eng: 'Laptops' },
 ]
 
 /* ---------- Icons ---------- */
@@ -98,12 +111,49 @@ function OnlineShopContent() {
 
   return (
     <section className="oss-container">
-      <div className="oss-header">
-        <h2 className={`oss-heading ${localeClass}`}>{isGeo ? content.titleGeo : content.titleEng}</h2>
-        <p className={`oss-description ${localeClass}`}>{isGeo ? content.descriptionGeo : content.descriptionEng}</p>
+      <div className="oss-layout">
+      <div className="oss-side">
+        <div className="oss-header">
+          <span className={`oss-eyebrow ${localeClass}`}>
+            <span className="oss-eyebrow-dot" aria-hidden="true" />
+            {isGeo ? content.eyebrowGeo : content.eyebrowEng}
+          </span>
+          <h2 className={`oss-heading ${localeClass}`}>{isGeo ? content.titleGeo : content.titleEng}</h2>
+          <p className={`oss-description ${localeClass}`}>{isGeo ? content.descriptionGeo : content.descriptionEng}</p>
+        </div>
+
+        <div className="oss-steps">
+          {content.tabs.map((t, i) => (
+            <button
+              key={t.key}
+              type="button"
+              className={`oss-step ${localeClass}${i === active ? ' is-on' : ''}`}
+              onClick={() => setActive(i)}
+            >
+              <span className="oss-step-num">{String(i + 1).padStart(2, '0')}</span>
+              <span className="oss-step-body">
+                <span className="oss-step-title">{isGeo ? t.labelGeo : t.labelEng}</span>
+                <span className="oss-step-text">{isGeo ? t.captionGeo : t.captionEng}</span>
+              </span>
+              <span className="oss-step-arrow" aria-hidden="true">→</span>
+            </button>
+          ))}
+        </div>
       </div>
 
+      <div className="oss-stage">
+      <span className="oss-stage-glow" aria-hidden="true" />
       <div className="oss-shop">
+        {/* browser bar */}
+        <div className="oss-browser">
+          <span className="oss-dots" aria-hidden="true"><i /><i /><i /></span>
+          <span className="oss-url">
+            <LockIcon />
+            luxe.ge/<b key={tab.url}>{tab.url}</b>
+          </span>
+          <span className="oss-dots-spacer" aria-hidden="true" />
+        </div>
+
         {/* header */}
         <div className="oss-hdr">
           <div className="oss-brand">
@@ -138,6 +188,13 @@ function OnlineShopContent() {
                 <span className={`oss-vtitle ${localeClass}`}>{isGeo ? 'პროდუქტების კატალოგი' : 'Product Catalog'}</span>
                 <span className="oss-vsub">{isGeo ? '64 პროდუქტი' : '64 products'}</span>
               </div>
+              <div className="oss-filters">
+                {filters.map((f, i) => (
+                  <span className={`oss-filter ${localeClass}${i === 0 ? ' is-on' : ''}`} key={f.geo}>
+                    {isGeo ? f.geo : f.eng}
+                  </span>
+                ))}
+              </div>
               <div className="oss-grid">
                 {products.map((p) => (
                   <div className="oss-pcard" key={p.icon}>
@@ -170,7 +227,7 @@ function OnlineShopContent() {
             <div className="oss-view">
               <div className="oss-vhead">
                 <span className={`oss-vtitle ${localeClass}`}>{isGeo ? 'შენი კალათა' : 'Your Cart'}</span>
-                <span className="oss-vsub">{isGeo ? '1 ნივთი' : '1 item'}</span>
+                <span className="oss-vsub">{isGeo ? '2 ნივთი' : '2 items'}</span>
               </div>
               <div className="oss-crow">
                 <span className="oss-cimg"><ProductIcon type="laptop" /></span>
@@ -180,12 +237,20 @@ function OnlineShopContent() {
                 </div>
                 <span className="oss-cp">₾2400</span>
               </div>
-              <div className="oss-csum">
-                <div className={`oss-csum-row ${localeClass}`}><span>{isGeo ? 'ქვეჯამი' : 'Subtotal'}</span><span>₾2,400</span></div>
-                <div className={`oss-csum-row ${localeClass}`}><span>{isGeo ? 'მიწოდება' : 'Shipping'}</span><span>{isGeo ? 'უფასო' : 'Free'}</span></div>
-                <div className={`oss-csum-tot ${localeClass}`}><span>{isGeo ? 'ჯამი' : 'Total'}</span><b>₾2,400</b></div>
+              <div className="oss-crow">
+                <span className="oss-cimg"><ProductIcon type="head" /></span>
+                <div className="oss-cinfo">
+                  <div className={`oss-cn ${localeClass}`}>{isGeo ? 'ყურსასმენი' : 'Headphones'}</div>
+                  <div className="oss-cqty"><span>−</span><b>1</b><span>+</span></div>
+                </div>
+                <span className="oss-cp">₾180</span>
               </div>
-              <div className={`oss-btn ${localeClass}`}>{isGeo ? 'შეკვეთის გაფორმება — ₾2,400 →' : 'Checkout — ₾2,400 →'}</div>
+              <div className="oss-csum">
+                <div className={`oss-csum-row ${localeClass}`}><span>{isGeo ? 'ქვეჯამი' : 'Subtotal'}</span><span>₾2,580</span></div>
+                <div className={`oss-csum-row ${localeClass}`}><span>{isGeo ? 'მიწოდება' : 'Shipping'}</span><span>{isGeo ? 'უფასო' : 'Free'}</span></div>
+                <div className={`oss-csum-tot ${localeClass}`}><span>{isGeo ? 'ჯამი' : 'Total'}</span><b>₾2,580</b></div>
+              </div>
+              <div className={`oss-btn ${localeClass}`}>{isGeo ? 'შეკვეთის გაფორმება — ₾2,580 →' : 'Checkout — ₾2,580 →'}</div>
             </div>
           )}
 
@@ -196,6 +261,16 @@ function OnlineShopContent() {
                 <span className="oss-vsub">{isGeo ? 'უსაფრთხო' : 'Secure'}</span>
               </div>
               <div className="oss-cout">
+                <div className="oss-fields">
+                  <div className="oss-field">
+                    <span className={`oss-flabel ${localeClass}`}>{isGeo ? 'ელფოსტა' : 'Email'}</span>
+                    <span className="oss-finput">nodar@mail.ge</span>
+                  </div>
+                  <div className="oss-field">
+                    <span className={`oss-flabel ${localeClass}`}>{isGeo ? 'მიწოდების მისამართი' : 'Delivery address'}</span>
+                    <span className={`oss-finput ${localeClass}`}>{isGeo ? 'თბილისი, ჭავჭავაძის 12' : 'Tbilisi, Chavchavadze 12'}</span>
+                  </div>
+                </div>
                 <div className="oss-creditcard">
                   <div className="oss-cc-top">
                     <span className="oss-cc-chip" />
@@ -208,7 +283,10 @@ function OnlineShopContent() {
                   </div>
                 </div>
                 <div className={`oss-pay-btn ${localeClass}`}>
-                  <LockIcon />{isGeo ? 'გადახდა — ₾2,400' : 'Pay — ₾2,400'}
+                  <LockIcon />{isGeo ? 'გადახდა — ₾2,580' : 'Pay — ₾2,580'}
+                </div>
+                <div className={`oss-trust ${localeClass}`}>
+                  <LockIcon />{isGeo ? 'დაცული გადახდა · SSL დაშიფვრა' : 'Secure payment · SSL encrypted'}
                 </div>
               </div>
             </div>
@@ -239,6 +317,7 @@ function OnlineShopContent() {
               {[
                 { nameGeo: 'ლეპტოპი', nameEng: 'Laptop', id: '#1042', price: '₾2400', icon: 'laptop', status: 'done' },
                 { nameGeo: 'სმარტფონი', nameEng: 'Smartphone', id: '#1041', price: '₾1200', icon: 'phone', status: 'wait' },
+                { nameGeo: 'ყურსასმენი', nameEng: 'Headphones', id: '#1040', price: '₾180', icon: 'head', status: 'done' },
               ].map((o) => (
                 <div className="oss-order" key={o.id}>
                   <span className="oss-oimg"><ProductIcon type={o.icon} /></span>
@@ -255,6 +334,8 @@ function OnlineShopContent() {
             </div>
           )}
         </div>
+      </div>
+      </div>
       </div>
 
       <p className={`oss-caption ${localeClass}`} key={`cap-${active}`}>

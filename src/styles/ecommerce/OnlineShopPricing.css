@@ -1,394 +1,354 @@
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
-@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
+/* Online shop pricing — two cards side by side.
+   Colours, header, chips and ticks come from LandingPricing.css. */
 
-.online-shop-pricing-container {
-  --bg: #ffffff;
-  --text: #111111;
-  --text-muted: rgba(0, 0, 0, 0.62);
-  --text-faint: rgba(0, 0, 0, 0.4);
-  --border: rgba(0, 0, 0, 0.08);
-  --surface: #fbfbfa;
-  --gold: #c9a05c;
-  --cta-bg: #111111;
-  --cta-text: #ffffff;
-  --cta-bg-hover: #262626;
-
-  position: relative;
-  background: var(--bg);
-  color: var(--text);
-  padding: 20px 80px;
-  transition: background 0.3s ease, color 0.3s ease;
+.online-shop-pricing .osp-inner {
+  max-width: 1060px;
 }
 
-[data-theme='dark'] .online-shop-pricing-container {
-  --bg: #000000;
-  --text: #ffffff;
-  --text-muted: rgba(255, 255, 255, 0.62);
-  --text-faint: rgba(255, 255, 255, 0.4);
-  --border: rgba(255, 255, 255, 0.1);
-  --surface: #0c0c0c;
-  --cta-bg: #ffffff;
-  --cta-text: #000000;
-  --cta-bg-hover: #d9d9d9;
-}
-
-/* ---------- Header ---------- */
-
-.online-shop-pricing-header {
-  margin-bottom: 72px;
-  text-align: center;
-}
-
-.online-shop-pricing-heading {
-  margin: 0 auto;
-  max-width: 620px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.6rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: var(--text);
-}
-
-.online-shop-pricing-heading.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-feature-settings: normal;
-  letter-spacing: -0.01em;
-}
-
-/* ---------- Cards ---------- */
-
-.online-shop-pricing-grid {
+.osp-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px;
-  max-width: 920px;
-  margin: 0 auto;
   align-items: stretch;
+  margin-top: 40px;
+  text-align: left;
 }
 
-.online-shop-pricing-col {
+/* ---------- card ---------- */
+.osp-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 44px 38px;
-  background: var(--surface);
-  border-radius: 18px;
-  transition: box-shadow 400ms ease, transform 400ms ease, background 400ms ease;
+  padding: 34px 34px 30px;
+  border-radius: 28px;
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(var(--bg), var(--bg)) padding-box,
+    linear-gradient(160deg, rgba(201, 160, 92, 0.55), rgba(201, 160, 92, 0.12) 40%, rgba(201, 160, 92, 0.12) 65%, rgba(165, 130, 74, 0.45)) border-box;
+  box-shadow:
+    0 2px 4px rgba(120, 100, 60, 0.04),
+    0 18px 40px rgba(120, 100, 60, 0.08);
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
 }
 
-.online-shop-pricing-col:hover {
-  background: var(--bg);
-  box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.22);
-  transform: translateY(-3px);
+.osp-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 2px 4px rgba(120, 100, 60, 0.05),
+    0 28px 60px rgba(120, 100, 60, 0.14);
 }
 
-[data-theme='dark'] .online-shop-pricing-col:hover {
-  box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.7);
+.osp-card-glow {
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(closest-side, var(--gold-tint), transparent);
+  pointer-events: none;
 }
 
-.online-shop-pricing-accent {
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: var(--gold);
-  margin-bottom: 28px;
+/* featured card: richer gold frame + warm tint */
+.osp-card.is-featured {
+  background:
+    linear-gradient(180deg, #fdf9f1, var(--bg) 46%) padding-box,
+    linear-gradient(150deg, #e6c27a, #b89b5e 30%, rgba(201, 160, 92, 0.35) 55%, #a8782c) border-box;
+  box-shadow:
+    0 2px 4px rgba(120, 100, 60, 0.05),
+    0 24px 56px rgba(133, 110, 60, 0.18);
 }
 
-.online-shop-pricing-price {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-size: 2.6rem;
+[data-theme='dark'] .osp-card.is-featured {
+  background:
+    linear-gradient(180deg, #1a150d, var(--bg) 46%) padding-box,
+    linear-gradient(150deg, #e6c27a, #b89b5e 30%, rgba(201, 160, 92, 0.35) 55%, #a8782c) border-box;
+}
+
+.osp-card.is-featured .osp-card-glow {
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(closest-side, rgba(201, 160, 92, 0.22), transparent);
+}
+
+.osp-badge {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: var(--gold-grad);
+  color: #fff;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 16px rgba(133, 124, 85, 0.3);
+  z-index: 1;
+}
+
+.osp-badge.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.osp-badge-star {
+  font-size: 10px;
+  opacity: 0.9;
+}
+
+/* ---------- top ---------- */
+.osp-top {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding-right: 120px;
+}
+
+.osp-card:not(.is-featured) .osp-top {
+  padding-right: 0;
+}
+
+.osp-title {
+  margin: 0;
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.osp-title.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: normal;
+}
+
+.osp-note {
+  margin-bottom: 0;
+}
+
+.osp-price {
+  position: relative;
+  margin: 26px 0 10px;
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(3rem, 2.4rem + 2.4vw, 4.2rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  color: var(--text);
+}
+
+.osp-card.is-featured .osp-price {
+  background: linear-gradient(120deg, #57503a, #8a7a52 45%, #b89b5e 75%, #8a7a52);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-theme='dark'] .osp-card.is-featured .osp-price {
+  background: linear-gradient(120deg, #f3ddb0, #d4af6a 50%, #b89b5e);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.osp-cur {
+  font-size: 0.36em;
   font-weight: 300;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
-
-.online-shop-pricing-note {
-  margin: 6px 0 26px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 12.5px;
   color: var(--text-faint);
+  -webkit-text-fill-color: var(--text-faint);
+  vertical-align: super;
+  margin-right: 6px;
 }
 
-.online-shop-pricing-title {
-  margin: 0 0 8px;
+.osp-desc {
+  position: relative;
+  margin: 0;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-
-.online-shop-pricing-description {
-  margin: 0 0 26px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 14.5px;
+  font-size: 14px;
   line-height: 1.6;
   color: var(--text-muted);
 }
 
-.online-shop-pricing-note.eng,
-.online-shop-pricing-title.eng,
-.online-shop-pricing-description.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.osp-desc.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
 }
 
-.online-shop-pricing-features {
-  list-style: none;
-  margin: 0;
-  padding: 20px 0 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--border);
+.osp-divider {
+  display: block;
+  height: 1px;
+  margin: 24px 0 22px;
+  background: linear-gradient(90deg, rgba(201, 160, 92, 0.5), rgba(201, 160, 92, 0.12) 70%, transparent);
 }
 
-.online-shop-pricing-features li {
+/* ---------- features ---------- */
+.osp-feats {
+  list-style: none;
+  margin: 0 0 30px;
+  padding: 0;
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
   gap: 12px;
-  padding: 9px 0;
+}
+
+.osp-feat {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
   font-size: 13.5px;
   line-height: 1.45;
-  color: var(--text-muted);
-  border-bottom: 1px solid var(--border);
+  color: var(--text);
 }
 
-.online-shop-pricing-features.eng li {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.osp-feat.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
 }
 
-.online-shop-pricing-features li:last-child {
-  border-bottom: none;
+.osp-feat .lp-tick {
+  margin-top: 1px;
 }
 
-.online-shop-pricing-feature-index {
-  flex-shrink: 0;
-  width: 5px;
-  height: 5px;
-  margin-top: 6px;
-  border-radius: 50%;
-  background: var(--gold);
-  opacity: 0.8;
+.osp-card.is-featured .osp-feat .lp-tick {
+  background: var(--gold-grad);
 }
 
-/* ---------- Order CTA ---------- */
+.osp-card.is-featured .osp-feat .lp-tick svg {
+  stroke: #fff;
+}
 
-.online-shop-pricing-cta {
-  align-self: flex-start;
-  margin-top: 28px;
-  display: inline-flex;
+/* ---------- CTA ---------- */
+.osp-cta {
+  margin-top: auto;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  height: 40px;
-  padding: 0 20px;
+  gap: 9px;
+  padding: 15px 24px;
   border-radius: 999px;
-  background-color: var(--cta-bg);
-  color: var(--cta-text);
+  border: 1.5px solid rgba(201, 160, 92, 0.55);
+  color: var(--gold-deep);
+  background: transparent;
+  text-decoration: none;
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
   font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
-  position: relative;
-  z-index: 0;
-  transition: background-color 150ms ease-in-out;
+  font-size: 15px;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
 }
 
-.online-shop-pricing-cta.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.osp-cta.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
 }
 
-.online-shop-pricing-cta::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  border-radius: 999px;
-  background: linear-gradient(45deg, #8b6914, #b8860b, #d4af37, #e8c874, #f4e4bc, #d4af37, #b8860b, #8b6914);
-  background-size: 400%;
-  filter: blur(6px);
-  z-index: -2;
-  opacity: 0;
-  animation: online-shop-pricing-cta-glow 12s linear infinite;
-  transition: opacity 300ms ease-in-out;
+.osp-cta:hover {
+  background: var(--gold-tint);
+  border-color: var(--gold);
+  transform: translateY(-2px);
 }
 
-.online-shop-pricing-cta::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  background-color: var(--cta-bg);
-  z-index: -1;
+.osp-cta.is-solid {
+  border-color: transparent;
+  background: var(--gold-grad);
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(133, 124, 85, 0.32);
 }
 
-.online-shop-pricing-cta:hover::before {
-  opacity: 1;
+.osp-cta.is-solid:hover {
+  background: var(--gold-grad);
+  filter: brightness(1.08);
 }
 
-.online-shop-pricing-cta:hover {
-  background-color: var(--cta-bg-hover);
+.osp-cta-arrow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.online-shop-pricing-cta:active {
-  transform: translateY(1px);
+.osp-cta:hover .osp-cta-arrow {
+  transform: translateX(4px);
 }
 
-@keyframes online-shop-pricing-cta-glow {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .online-shop-pricing-cta::before {
-    animation: none;
-  }
-}
-
-/* ---------- Language addon ---------- */
-
-.online-shop-pricing-addon {
-  display: flex;
+/* ---------- addon ---------- */
+.osp-addon {
+  display: inline-flex;
   align-items: center;
-  gap: 20px;
-  max-width: 920px;
-  margin: 32px auto 0;
-  padding: 22px 30px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  gap: 12px;
+  margin: 30px auto 0;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid rgba(201, 160, 92, 0.25);
 }
 
-.online-shop-pricing-addon-price {
-  flex-shrink: 0;
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-size: 1.15rem;
+.osp-addon-price {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18px;
   font-weight: 600;
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
-.online-shop-pricing-addon-title {
-  margin: 0 0 2px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 14.5px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.online-shop-pricing-addon-description {
-  margin: 0;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 13.5px;
-  color: var(--text-muted);
-}
-
-.online-shop-pricing-addon-title.eng,
-.online-shop-pricing-addon-description.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-feature-settings: normal;
-}
-
-/* ---------- Additional features ---------- */
-
-.online-shop-pricing-extra {
-  max-width: 920px;
-  margin: 64px auto 0;
-  text-align: center;
-}
-
-.online-shop-pricing-extra-title {
-  margin: 0 0 14px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 1.3rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-
-.online-shop-pricing-extra-description {
-  margin: 0 auto 28px;
-  max-width: 560px;
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-size: 14.5px;
-  line-height: 1.65;
-  color: var(--text-muted);
-}
-
-.online-shop-pricing-extra-title.eng,
-.online-shop-pricing-extra-description.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
-  font-feature-settings: normal;
-}
-
-.online-shop-pricing-extra-examples {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.online-shop-pricing-extra-chip {
+.osp-addon-label {
   font-family: 'FiraGO', sans-serif;
   font-feature-settings: 'case' on;
   font-size: 13px;
-  padding: 9px 16px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
   color: var(--text-muted);
 }
 
-.online-shop-pricing-extra-chip.eng {
-  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+.osp-addon-label.eng {
+  font-family: 'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
 }
 
-/* ---------- Responsive ---------- */
-
-@media (max-width: 900px) {
-  .online-shop-pricing-container {
-    padding: 96px 24px;
-  }
-
-  .online-shop-pricing-grid {
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  .osp-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .osp-card {
+    padding: 28px 22px 24px;
+    border-radius: 24px;
   }
 
-  .online-shop-pricing-col:hover {
-    transform: none;
+  .osp-badge {
+    top: 18px;
+    right: 18px;
   }
 
-  .online-shop-pricing-addon {
+  .osp-top {
+    padding-right: 0;
+  }
+
+  .osp-card.is-featured .osp-top {
+    padding-top: 34px;
+  }
+
+  .osp-addon {
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    gap: 10px;
+    gap: 2px;
+    border-radius: 18px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .online-shop-pricing-col {
+  .osp-card,
+  .osp-cta,
+  .osp-cta-arrow {
     transition: none;
-  }
-
-  .online-shop-pricing-col:hover {
-    transform: none;
   }
 }
