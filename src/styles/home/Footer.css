@@ -235,3 +235,39 @@
         bottom: -4vw;
     }
 }
+
+/* ===== thin gold line on top of the footer, fading out left & right ===== */
+.footer-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1100px, 86%);
+    height: 1px;
+    background: linear-gradient(90deg,
+            rgba(201, 160, 92, 0) 0%,
+            rgba(201, 160, 92, 0.35) 20%,
+            #D4AF6A 40%,
+            #ECCB8A 50%,
+            #D4AF6A 60%,
+            rgba(201, 160, 92, 0.35) 80%,
+            rgba(201, 160, 92, 0) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* soft glow under the brightest middle part */
+.footer-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(520px, 50%);
+    height: 3px;
+    background: radial-gradient(closest-side, rgba(230, 194, 122, 0.55), transparent);
+    filter: blur(2px);
+    z-index: 2;
+    pointer-events: none;
+}
