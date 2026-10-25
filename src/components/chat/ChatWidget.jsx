@@ -18,8 +18,19 @@ const text = {
   close: { geo: 'დახურვა', eng: 'Close' },
   openChat: { geo: 'ჩატის გახსნა', eng: 'Open chat' },
   send: { geo: 'გაგზავნა', eng: 'Send' },
-  empty: { geo: 'დაგვიწერეთ, სიამოვნებით დაგეხმარებით', eng: "Send us a message, we'll be happy to help" },
+  online: { geo: 'ონლაინ', eng: 'Online' },
+  replyTime: { geo: 'გპასუხობთ რამდენიმე წუთში', eng: 'Replies in a few minutes' },
+  hello: { geo: 'გამარჯობა! 👋', eng: 'Hi there! 👋' },
+  empty: {
+    geo: 'დაგვიწერეთ და სიამოვნებით დაგეხმარებით — ვებსაიტზე, აპლიკაციაზე ან ნებისმიერ სხვა საკითხზე.',
+    eng: "Send us a message and we'll be happy to help — with a website, an app, or anything else.",
+  },
   placeholder: { geo: 'დაწერეთ შეტყობინება...', eng: 'Type a message...' },
+}
+
+const quickReplies = {
+  geo: ['ვებსაიტის შეკვეთა მსურს', 'რა ღირს ვებსაიტი?', 'მობილური აპლიკაცია'],
+  eng: ['I want to order a website', 'How much does a website cost?', 'Mobile app'],
 }
 
 function ChatWidget() {
@@ -71,24 +82,19 @@ function ChatWidget() {
     }
   }, [input])
 
-  const handleSend = async (e) => {
-    e.preventDefault()
-    if (!input.trim() || !sessionId) return
+  const sendText = async (raw) => {
+    const textToSend = raw.trim()
+    if (!textToSend || !sessionId) return
 
     setSending(true)
-    const textToSend = input
     setInput('')
-
     setMessages((prev) => [...prev, { sender: 'user', text: textToSend, timestamp: Date.now() }])
 
     try {
       await fetch('/api/chat/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          sessionId,
-          message: textToSend,
-        }),
+        body: JSON.stringify({ sessionId, message: textToSend }),
       })
     } catch (err) {
       console.error(err)
@@ -96,42 +102,60 @@ function ChatWidget() {
     setSending(false)
   }
 
+  const handleSend = (e) => {
+    e.preventDefault()
+    sendText(input)
+  }
+
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
-      handleSend(e)
+      sendText(input)
     }
   }
 
   return (
     <div className="chat-widget-wrap">
       {open && (
-        <div className="chat-widget-panel">
-        <div className="chat-widget-header">
-  <div className={`chat-widget-status ${localeClass}`}>
-    <span className="status-dot" />
-    Online
-  </div>
-  <button className="chat-widget-close" onClick={() => setOpen(false)} aria-label={t('close')}>
-    <svg viewBox="0 0 24 24" width="15" height="15">
-      <path
-        d="M6 6L18 18M6 18L18 6"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        fill="none"
-      />
-    </svg>
-  </button>
-</div>
+        <div className="chat-widget-panel" role="dialog" aria-label="Sitefy chat">
+          <div className="chat-widget-header">
+            <div className="chat-widget-avatar">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo/logowhite.png" alt="Sitefy" />
+              <span className="status-dot" />
+            </div>
+
+            <div className="chat-widget-title">
+              <span className="chat-widget-name eng">Sitefy</span>
+              <span className={`chat-widget-status ${localeClass}`}>
+                <b>{t('online')}</b> · {t('replyTime')}
+              </span>
+            </div>
+
+            <button className="chat-widget-close" onClick={() => setOpen(false)} aria-label={t('close')}>
+              <svg viewBox="0 0 24 24" width="14" height="14">
+                <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+              </svg>
+            </button>
+          </div>
 
           <div className="chat-widget-messages" ref={scrollRef}>
             {messages.length === 0 && (
-              <div className={`chat-widget-empty ${localeClass}`}>
-                <span className="chat-widget-empty-icon">👋</span>
-                {t('empty')}
+              <div className={`chat-widget-welcome ${localeClass}`}>
+                <div className="chat-widget-welcome-card">
+                  <div className="chat-widget-welcome-title">{t('hello')}</div>
+                  <div className="chat-widget-welcome-text">{t('empty')}</div>
+                </div>
+                <div className="chat-widget-chips">
+                  {quickReplies[localeClass].map((q) => (
+                    <button key={q} type="button" className="chat-chip" onClick={() => sendText(q)}>
+                      {q}
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
+
             {messages.map((m, i) => (
               <div
                 key={i}
@@ -152,9 +176,13 @@ function ChatWidget() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 rows={1}
-                required
               />
-              <button type="submit" className="chat-send-btn" disabled={sending} aria-label={t('send')}>
+              <button
+                type="submit"
+                className="chat-send-btn"
+                disabled={sending || !input.trim()}
+                aria-label={t('send')}
+              >
                 <svg viewBox="0 0 512 512" width="15" height="15">
                   <path
                     fill="currentColor"
@@ -162,6 +190,9 @@ function ChatWidget() {
                   />
                 </svg>
               </button>
+            </div>
+            <div className="chat-widget-footnote eng">
+              Powered by <strong>Sitefy</strong>
             </div>
           </form>
         </div>
@@ -179,6 +210,7 @@ function ChatWidget() {
             />
           </svg>
           <span className="chat-widget-toggle-ring" />
+          <span className="chat-widget-toggle-badge" />
         </button>
       )}
     </div>
