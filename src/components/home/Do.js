@@ -16,12 +16,12 @@ const services = [
     icon: '/scroll/l1.png'
   },
   {
-    titleGeo: 'SaaS პლატფორმები',
-    titleEng: 'SaaS Platforms',
+    titleGeo: 'IOS / ANDROID აპლიკაციები',
+    titleEng: 'IOS / ANDROID Applications',
     descriptionGeo:
-      'ვაქცევთ იდეებს ციფრულ პროდუქტებად - ონლაინ პლატფორმები პროდუქტებით, სერვისებით და ფუნქციებით, რომლებიც მომხმარებლებს რეალურ ღირებულებას სთავაზობს.',
+      'ბიზნესის საჭიროებებზე მორგებული დიზაინით, ფუნქციონალითა და ტექნოლოგიებით - იდეიდან მზა პროდუქტამდე.',
     descriptionEng:
-      'We turn ideas into digital products — online platforms with products, services, and features that deliver real value to users.',
+      'Tailored to your business needs through thoughtful design, functionality, and technology - from concept to finished product.',
     icon: '/scroll/l2.png'
   },
   {
