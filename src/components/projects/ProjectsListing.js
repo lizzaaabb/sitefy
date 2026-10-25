@@ -2,6 +2,7 @@
 
 import React from 'react'
 import '../../styles/projects/ProjectsListing.css'
+import LaptopMockup from './LaptopMockup'
 
 const projects = [
   {
@@ -128,12 +129,9 @@ function ProjectsListing() {
                 rel="noopener noreferrer"
                 aria-label={`${project.name} — ნახეთ საიტი`}
               >
-                <img
-                  className="pl-image"
-                  src={project.image}
-                  alt={project.name}
-                  loading="lazy"
-                />
+                <div className="pl-image">
+                  <LaptopMockup url={project.liveUrl} name={project.name} />
+                </div>
                 <span className="pl-media-overlay" />
                 <span className="pl-visit-pill">
                   ნახეთ საიტი <ArrowIcon />
