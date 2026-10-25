@@ -24,14 +24,14 @@ const grad = (h) =>
   `radial-gradient(75% 60% at 60% 105%, oklch(0.4 0.16 ${h - 40} / 0.85) 0%, oklch(0.4 0.16 ${h - 40} / 0) 72%),` +
   `linear-gradient(160deg, oklch(0.2 0.05 ${h}), oklch(0.12 0.03 ${h + 30}))`;
 
-export default function LaptopMockup({ url, name, hue }) {
+export default function LaptopMockup({ url, name, hue, screenshot }) {
   const h = hue ?? HUES[hostOf(url)] ?? 220;
   const [tries, setTries] = useState(0);
   const [ready, setReady] = useState(false);
   const timer = useRef(null);
   useEffect(() => () => clearTimeout(timer.current), []);
 
-  const shot =
+  const shot = screenshot ||
     "https://s.wordpress.com/mshots/v1/" +
     encodeURIComponent(url) +
     "?w=1440&h=900&vpw=1440&vph=900" +
@@ -39,7 +39,7 @@ export default function LaptopMockup({ url, name, hue }) {
 
   // mshots პირველად პატარა "generating" სურათს აბრუნებს — ვიმეორებთ სანამ ნამდვილი არ მოვა
   const onLoad = (e) => {
-    if (e.currentTarget.naturalWidth > 400) setReady(true);
+    if (screenshot || e.currentTarget.naturalWidth > 400) setReady(true);
     else if (tries < 8) timer.current = setTimeout(() => setTries((t) => t + 1), 4000);
   };
 

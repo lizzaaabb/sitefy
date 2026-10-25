@@ -84,6 +84,7 @@ const projects = [
     tag: 'App Landing · Next.js',
     image: 'https://placehold.co/1200x900/f4f3f1/111111?text=Builde',
     liveUrl: 'https://builde.ge/',
+    screenshot: '/projects/builde.png',
     githubUrl: 'https://github.com/',
   },
   {
@@ -130,7 +131,7 @@ function ProjectsListing() {
                 aria-label={`${project.name} — ნახეთ საიტი`}
               >
                 <div className="pl-image">
-                  <LaptopMockup url={project.liveUrl} name={project.name} />
+                  <LaptopMockup url={project.liveUrl} name={project.name} screenshot={project.screenshot} />
                 </div>
                 <span className="pl-media-overlay" />
                 <span className="pl-visit-pill">

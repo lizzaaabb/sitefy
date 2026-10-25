@@ -25,8 +25,8 @@ const services = [
     icon: '/scroll/l2.png'
   },
   {
-    titleGeo: 'ვებ აპლიკაციები',
-    titleEng: 'Web Applications',
+    titleGeo: 'CRM სისტემები',
+    titleEng: 'CRM Systems',
     descriptionGeo:
       'ვქმნით მორგებულ ვებ სისტემებს, რომლებიც ამარტივებს პროცესებს და ეხმარება თქვენს ბიზნესს უფრო სწრაფად და ეფექტურად მუშაობაში.',
     descriptionEng:
