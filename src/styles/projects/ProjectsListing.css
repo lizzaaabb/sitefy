@@ -280,3 +280,10 @@
     font-size: 1.15rem;
   }
 }
+/* ---------- English ---------- */
+
+.pl-description.eng,
+.pl-visit-pill.eng {
+  font-family: "PP Neue Montreal", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: normal;
+}

@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { useLocale } from 'next-intl'
 import '../../styles/projects/ProjectsListing.css'
 import LaptopMockup from './LaptopMockup'
 
@@ -8,7 +9,8 @@ const projects = [
   {
     id: '01',
     name: 'Valore',
-    description: 'უძრავი ქონების პლატფორმა',
+    descriptionGeo: 'უძრავი ქონების პლატფორმა',
+    descriptionEng: 'Real estate platform',
     tag: 'Real Estate · Next.js',
     image: 'https://placehold.co/1200x900/f4f3f1/111111?text=Valore',
     liveUrl: 'https://www.valore.ge/',
@@ -17,7 +19,8 @@ const projects = [
   {
     id: '02',
     name: 'Utopia VIP Travel',
-    description: 'ტურიზმი და უძრავი ქონება საქართველოში',
+    descriptionGeo: 'ტურიზმი და უძრავი ქონება საქართველოში',
+    descriptionEng: 'Tourism and real estate in Georgia',
     tag: 'Tourism · Real Estate',
     image: 'https://placehold.co/1200x900/f4f3f1/111111?text=Utopia',
     liveUrl: 'https://www.utopiaviptravel.com/',
@@ -26,7 +29,8 @@ const projects = [
   {
     id: '03',
     name: 'Apollo Creations',
-    description: 'ვებ დეველოპმენტის სააგენტოს საიტი',
+    descriptionGeo: 'ვებ დეველოპმენტის სააგენტოს საიტი',
+    descriptionEng: 'Web development agency website',
     tag: 'Web Agency · Next.js',
     image: 'https://placehold.co/1200x900/f4f3f1/111111?text=Apollo+Creations',
     liveUrl: 'https://www.apollocreations.net/',
@@ -35,7 +39,8 @@ const projects = [
   {
     id: '04',
     name: 'Your Hood',
-    description: 'ონლაინ მაღაზია',
+    descriptionGeo: 'ონლაინ მაღაზია',
+    descriptionEng: 'Online store',
     tag: 'E-commerce · Next.js',
     image: 'https://placehold.co/1200x900/f4f3f1/111111?text=Your+Hood',
     liveUrl: 'https://yourhood.ge/',
@@ -44,7 +49,9 @@ const projects = [
   {
     id: '05',
     name: 'ოცნების რემონტი',
-    description: 'რემონტის კომპანიის საიტი',
+    nameEng: 'Ocnebis Remonti',
+    descriptionGeo: 'რემონტის კომპანიის საიტი',
+    descriptionEng: 'Renovation company website',
     tag: 'Renovation · Next.js',
     image: 'https://placehold.co/1200x900/f4f3f1/111111?text=Ocnebis+Remonti',
     liveUrl: 'https://ocnebisremonti.ge/',
@@ -53,7 +60,8 @@ const projects = [
   {
     id: '06',
     name: 'Art Of Movement',
-    description: 'ცეკვის სტუდიის ლენდინგ გვერდი',
+    descriptionGeo: 'ცეკვის სტუდიის ლენდინგ გვერდი',
+    descriptionEng: 'Dance studio landing page',
     tag: 'Landing Page',
     image: 'https://placehold.co/1200x900/f4f3f1/111111?text=Art+Of+Movement',
     liveUrl: 'https://artofmovement.net/',
@@ -62,7 +70,8 @@ const projects = [
   {
     id: '07',
     name: 'Litox Georgia',
-    description: 'სამშენებლო მასალების საიტი',
+    descriptionGeo: 'სამშენებლო მასალების საიტი',
+    descriptionEng: 'Construction materials website',
     tag: 'Construction · Next.js',
     image: 'https://placehold.co/1200x900/f4f3f1/111111?text=Litox',
     liveUrl: 'https://litox.ge/',
@@ -71,7 +80,8 @@ const projects = [
   {
     id: '08',
     name: 'Greenhall Capital',
-    description: 'საინვესტიციო კომპანიის საიტი',
+    descriptionGeo: 'საინვესტიციო კომპანიის საიტი',
+    descriptionEng: 'Investment company website',
     tag: 'Private Equity · Next.js',
     image: 'https://placehold.co/1200x900/f4f3f1/111111?text=Greenhall+Capital',
     liveUrl: 'https://greenhallcapital.com/',
@@ -80,7 +90,8 @@ const projects = [
   {
     id: '09',
     name: 'Builde',
-    description: 'სამშენებლო სერვისების პლატფორმა',
+    descriptionGeo: 'სამშენებლო სერვისების პლატფორმა',
+    descriptionEng: 'Construction services platform',
     tag: 'App Landing · Next.js',
     image: 'https://placehold.co/1200x900/f4f3f1/111111?text=Builde',
     liveUrl: 'https://builde.ge/',
@@ -90,7 +101,8 @@ const projects = [
   {
     id: '10',
     name: 'Motion Concept',
-    description: 'ივენთების კომპანიის საიტი',
+    descriptionGeo: 'ივენთების კომპანიის საიტი',
+    descriptionEng: 'Event company website',
     tag: 'Events · Next.js',
     image: 'https://placehold.co/1200x900/f4f3f1/111111?text=Motion+Concept',
     liveUrl: 'https://motionconcept.ge/',
@@ -115,6 +127,10 @@ function ArrowIcon() {
 }
 
 function ProjectsListing() {
+  const locale = useLocale()
+  const isGeo = locale === 'ka'
+  const lang = isGeo ? 'geo' : 'eng'
+
   return (
     <section className="pl-container" id="work">
       <div className="pl-inner">
@@ -128,14 +144,14 @@ function ProjectsListing() {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${project.name} — ნახეთ საიტი`}
+                aria-label={`${project.name} — ${isGeo ? 'ნახეთ საიტი' : 'Visit site'}`}
               >
                 <div className="pl-image">
-                  <LaptopMockup url={project.liveUrl} name={project.name} screenshot={project.screenshot} />
+                  <LaptopMockup loadingText={isGeo ? 'იტვირთება…' : 'Loading…'} url={project.liveUrl} name={project.name} screenshot={project.screenshot} />
                 </div>
                 <span className="pl-media-overlay" />
-                <span className="pl-visit-pill">
-                  ნახეთ საიტი <ArrowIcon />
+                <span className={`pl-visit-pill ${lang}`}>
+                  {isGeo ? 'ნახეთ საიტი' : 'Visit site'} <ArrowIcon />
                 </span>
               </a>
 
@@ -143,9 +159,9 @@ function ProjectsListing() {
                 <div className="pl-meta-text">
                   <div className="pl-name-row">
                     <span className="pl-index">{project.id}</span>
-                    <h3 className="pl-name">{project.name}</h3>
+                    <h3 className="pl-name">{isGeo ? project.name : project.nameEng || project.name}</h3>
                   </div>
-                  <p className="pl-description">{project.description}</p>
+                  <p className={`pl-description ${lang}`}>{isGeo ? project.descriptionGeo : project.descriptionEng}</p>
                   <span className="pl-tag">{project.tag}</span>
                 </div>
 

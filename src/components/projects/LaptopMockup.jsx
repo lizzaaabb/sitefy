@@ -26,7 +26,7 @@ const grad = ([a, b, c]) =>
 
 const MAX_TRIES = 8;
 
-export default function LaptopMockup({ url, name, hue, screenshot }) {
+export default function LaptopMockup({ url, name, hue, screenshot, loadingText = "იტვირთება…" }) {
   const raw = hue ?? HUES[hostOf(url)] ?? 220;
   const hues = Array.isArray(raw) ? raw : [raw, raw + 50, raw - 40];
 
@@ -70,7 +70,7 @@ export default function LaptopMockup({ url, name, hue, screenshot }) {
           <div style={{ position: "relative", width: "100%", height: "100%", borderRadius: 3, overflow: "hidden", background: "#141414" }}>
             {!ready && (
               <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, letterSpacing: "0.16em", color: "rgba(255,255,255,0.4)" }}>
-                იტვირთება…
+                {loadingText}
               </div>
             )}
             {/* eslint-disable-next-line @next/next/no-img-element */}
