@@ -4,6 +4,7 @@ import '../globals.css'
 import ThemeInitializer from '../../components/theme/ThemeInitializer'
 import Header from '../../components/home/Header'
 import Footer from '../../components/home/Footer'
+import ScrollReveal from '../../components/motion/ScrollReveal'
 // Script import removed — no longer needed
 
 function getServerTheme() {
@@ -34,6 +35,7 @@ export default async function RootLayout({ children, params }) {
           <Header />
           {children}
           <Footer />
+          <ScrollReveal />
         </NextIntlClientProvider>
       </body>
     </html>

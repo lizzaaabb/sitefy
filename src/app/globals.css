@@ -16,3 +16,34 @@ html[data-theme="dark"] body {
   background-color: #000;
   color: #fff;
 }
+/* ===================== Scroll reveal (ScrollReveal.jsx) ===================== */
+.sr-hide {
+  opacity: 0 !important;
+  will-change: opacity, translate, scale;
+}
+.sr-hide[data-sr="up"]      { translate: 0 42px; }
+.sr-hide[data-sr="heading"] { translate: 0 26px; filter: blur(10px); }
+.sr-hide[data-sr="card"]    { translate: 0 56px; scale: 0.94; }
+.sr-hide[data-sr="zoom"]    { translate: 0 34px; scale: 0.9; }
+.sr-hide[data-sr="left"]    { translate: -52px 0; }
+.sr-hide[data-sr="right"]   { translate: 52px 0; }
+
+@media (max-width: 768px) {
+  .sr-hide[data-sr="left"],
+  .sr-hide[data-sr="right"] { translate: 0 32px; }
+  .sr-hide[data-sr="card"]  { translate: 0 40px; scale: 0.96; }
+  .sr-hide[data-sr="heading"] { filter: blur(6px); }
+}
+
+.sr-run {
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    translate 1s cubic-bezier(0.16, 1, 0.3, 1),
+    scale 1s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition-delay: var(--sr-delay, 0ms) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr-hide { opacity: 1 !important; translate: none !important; scale: none !important; filter: none !important; }
+}
