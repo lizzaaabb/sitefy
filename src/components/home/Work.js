@@ -64,7 +64,7 @@ function Work() {
       </div>
 
       <div className="work-footer">
-        <a href="/projects" className="work-cta">
+        <a href={`/${locale}/projects`} className="work-cta">
           <span className={`work-cta-text ${isGeo ? 'geo' : 'eng'}`}>
             {isGeo ? 'იხილეთ ყველა ნამუშევარი' : 'View All Projects'}
           </span>

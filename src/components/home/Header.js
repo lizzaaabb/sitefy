@@ -75,7 +75,7 @@ function Header() {
     <header className={`header-container ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-inner">
 
-        <a href="/" className="logo">
+        <a href={`/${locale}`} className="logo">
           <img
             src={isDark ? logowhite : logoilo}
             alt="sitefy logo"
@@ -155,7 +155,7 @@ function Header() {
               <ul>
                 {col.items.map((item) => (
                   <li key={item.title}>
-                    <a href={item.href} className={localeClass}>{item.title}</a>
+                    <a href={item.href.startsWith('/') ? `/${locale}${item.href}` : item.href} className={localeClass}>{item.title}</a>
                   </li>
                 ))}
               </ul>
@@ -187,7 +187,7 @@ function Header() {
                   <div key={col.label} className="mobile-accordion-group">
                     <span className={`mobile-accordion-label ${localeClass}`}>{col.label}</span>
                     {col.items.map((item) => (
-                      <a key={item.title} href={item.href} className={localeClass} onClick={() => setMobileOpen(false)}>
+                      <a key={item.title} href={item.href.startsWith('/') ? `/${locale}${item.href}` : item.href} className={localeClass} onClick={() => setMobileOpen(false)}>
                         {item.title}
                       </a>
                     ))}
